@@ -1,0 +1,6 @@
+isbn,title,quantity,price,pages,authors_id
+1,java,100,900.90,999,1
+2,EWM,200,900.90,788,2
+3,DSA,150,900.90,908,3
+4,Python,120,900.90,998,4
+5,R language,300,890.80,980,2

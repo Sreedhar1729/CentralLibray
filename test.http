@@ -1,0 +1,13 @@
+### read the Authors
+GET http://localhost:4004/odata/v4/app-library/Authors HTTP/1.1
+
+### read the Books
+
+GET http://localhost:4004/odata/v4/app-library/Books HTTP/1.1
+
+### read the BooksLoan
+GET http://localhost:4004/odata/v4/app-library/BooksLoan HTTP/1.1
+
+### read the ReservedBooks
+
+GET http://localhost:4004/odata/v4/app-library/ReservedBooks HTTP/1.1
