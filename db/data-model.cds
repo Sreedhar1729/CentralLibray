@@ -26,14 +26,14 @@ define entity Users{
 }
 
 define entity BooksLoan{
-    key bookid:Association to many Books;
+    key bookid:Composition of many Books;
     duedate:Date;
     status:String;
 }
 
 define entity ReservedBooks{
 
-key rbookid:Association to many Books;
+key rbookid:Composition of  many Books;
     reservedate:Date;
     rstatus:String;
 }
