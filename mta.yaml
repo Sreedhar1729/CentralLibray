@@ -26,6 +26,7 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: CENTRALLIBRARYSYSTEM-db
+      - name: CENTRALLIBRARYSYSTEM-auth
 
   - name: CENTRALLIBRARYSYSTEM-db-deployer
     type: hdb
@@ -41,3 +42,12 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
+  - name: CENTRALLIBRARYSYSTEM-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: CENTRALLIBRARYSYSTEM-${org}-${space}
+        tenant-mode: dedicated

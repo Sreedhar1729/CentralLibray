@@ -1,39 +1,43 @@
 namespace app.library;
 
 define entity Books {
-    key isbn     : Integer;
+    key isbn     : String;
         title    : String(50);
         quantity : Integer;
         price    : Decimal(5, 2);
         pages    : Integer;
         // authors: Composition of many Authors on authors.books = $self;
-        authors:Association to Authors;
+        author: String;
+        status: String;
 
-}
-
-define entity Authors{
-    key id: Integer;
-        author_name: String;
-        author_address: String;
-        books:Composition of many Books on books.authors = $self;
-        // books:Association to  Books;
 }
 
 define entity Users{
     key id: Integer;
         user_name: String(30);
         mobile: String;
+        
 }
 
 define entity BooksLoan{
-    key bookid:Composition of many Books;
+    users:Association to Users;
+    books:Association to Books;
     duedate:Date;
-    status:String;
+    loandate:Date;
 }
 
-define entity ReservedBooks{
+// define entity ReservedBooks{
+// key reserveid:Integer;
+//  rbookid:Composition of Books;
+//     reservedate:Date;
+//     rstatus:String;
+// }
 
-key rbookid:Composition of  many Books;
-    reservedate:Date;
-    rstatus:String;
-}
+
+// define entity Authors{
+//     key id: Integer;
+//         author_name: String;
+//         author_address: String;
+//         books:Composition of many Books on books.authors = $self;
+//         // books:Association to  Books;
+// }
