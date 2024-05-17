@@ -9,6 +9,7 @@ define entity Books {
         // authors: Composition of many Authors on authors.books = $self;
         author: String;
         status: String;
+        users : Association to   Users;
 
 }
 

@@ -1,11 +1,11 @@
-isbn,title,quantity,price,pages,author,status
-9780553382167,The Hitchhiker's Guide to the Galaxy,25,12.99,304,Douglas Adams,In Stock
-9780061120084,To Kill a Mockingbird,15,9.99,336,Harper Lee,In Stock
-9780143111597,1984,20,10.49,328,George Orwell,In Stock
-9780446675536,The Alchemist,30,11.79,208,Paulo Coelho,In Stock
-9780060850524,The Catcher in the Rye,12,8.49,288,J.D. Salinger,Out of Stock
-9780345538376,The Night Circus,18,13.29,400,Erin Morgenstern,In Stock
-9780141439587,Pride and Prejudice,22,7.99,279,Jane Austen,In Stock
-9780060850525,The Great Gatsby,10,9.99,180,F. Scott Fitzgerald,In Stock
-9780142402511,The Outsiders,17,8.99,192,S.E. Hinton,In Stock
-9780451524935,Fahrenheit 451,13,6.59,249,Ray Bradbury,In Stock
+isbn,title,quantity,price,pages,author,status,users_id
+9780553382167,The Hitchhiker's Guide to the Galaxy,25,12.99,304,Douglas Adams,In Stock,1
+9780061120084,To Kill a Mockingbird,15,9.99,336,Harper Lee,In Stock,1
+9780143111597,1984,20,10.49,328,George Orwell,In Stock,2
+9780446675536,The Alchemist,30,11.79,208,Paulo Coelho,In Stock,3
+9780060850524,The Catcher in the Rye,12,8.49,288,J.D. Salinger,Out of Stock,4
+9780345538376,The Night Circus,18,13.29,400,Erin Morgenstern,In Stock,5
+9780141439587,Pride and Prejudice,22,7.99,279,Jane Austen,In Stock,6
+9780060850525,The Great Gatsby,10,9.99,180,F. Scott Fitzgerald,In Stock,1
+9780142402511,The Outsiders,17,8.99,192,S.E. Hinton,In Stock,4
+9780451524935,Fahrenheit 451,13,6.59,249,Ray Bradbury,In Stock,3
