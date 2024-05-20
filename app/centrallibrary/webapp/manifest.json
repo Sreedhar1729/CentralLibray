@@ -23,6 +23,14 @@
           "annotations": [],
           "odataVersion": "4.0"
         }
+      },
+      "mainServiceV2": {
+        "uri": "/v2/app-library/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "2.0"
+        }
       }
     },
     "crossNavigation": {
@@ -117,6 +125,13 @@
           "target": [
             "TargetView1"
           ]
+        },
+        {
+          "name": "routeLogin",
+          "pattern": "Login" ,
+          "target": [
+            "TargetLogin"
+          ]
         }
       ],
       "targets": {
@@ -126,6 +141,13 @@
           "clearControlAggregation": false,
           "viewId": "View1",
           "viewName": "View1"
+        },
+        "TargetLogin": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Login",
+          "viewName": "Login"
         }
       }
     },
