@@ -60,6 +60,15 @@ sap.ui.define([
                 if(this.oCreateBooksDialog.isOpen()){
                     this.oCreateBooksDialog.close()
                 }
+            },
+            onClearFilterPress:function(){
+                const oView= this.getView(),
+                oISBN = oView.byId("_IDGenInput1").setValue(),
+                oAuthor = oView.byId("_IDGenInput2").setValue(),
+                oStatus = oView.byId("_IDGenInput3").setValue();
+
+
+
             }
         });
     });
