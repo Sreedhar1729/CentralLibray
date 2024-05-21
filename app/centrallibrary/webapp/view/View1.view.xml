@@ -12,7 +12,7 @@
         id="_IDGenApp1"
         title="{i18n>title}"
     >
-        <VBox alignContent="Stretch">
+        <VBox id="_IDGenVBox3" alignContent="Stretch">
             <Button
                 id="_IDGenButton1"
                 text="Admin"
