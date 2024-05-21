@@ -61,6 +61,7 @@ sap.ui.define([
                     this.oCreateBooksDialog.close()
                 }
             },
+            // clearing filter values
             onClearFilterPress:function(){
                 const oView= this.getView(),
                 oISBN = oView.byId("_IDGenInput1").setValue(),
