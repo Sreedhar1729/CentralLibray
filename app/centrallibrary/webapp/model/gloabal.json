@@ -1,0 +1,94 @@
+{
+    "Books":[
+        {
+            "isbn": "9780060850524",
+            "title": "The Catcher in the Rye",
+            "quantity": 12,
+            "price": 8.49,
+            "pages": 288,
+            "author": "J.D. Salinger",
+            "status": "Out of Stock"
+        },
+        {
+            "isbn": "9780060850525",
+            "title": "The Great Gatsby",
+            "quantity": 10,
+            "price": 9.99,
+            "pages": 180,
+            "author": "F. Scott Fitzgerald",
+            "status": "In Stock"
+        },
+        {
+            "isbn": "9780061120084",
+            "title": "To Kill a Mockingbird",
+            "quantity": 15,
+            "price": 9.99,
+            "pages": 336,
+            "author": "Harper Lee",
+            "status": "In Stock"
+        },
+        {
+            "isbn": "9780141439587",
+            "title": "Pride and Prejudice",
+            "quantity": 22,
+            "price": 7.99,
+            "pages": 279,
+            "author": "Jane Austen",
+            "status": "In Stock"
+        },
+        {
+            "isbn": "9780142402511",
+            "title": "The Outsiders",
+            "quantity": 17,
+            "price": 8.99,
+            "pages": 192,
+            "author": "S.E. Hinton",
+            "status": "In Stock"
+        },
+        {
+            "isbn": "9780143111597",
+            "title": "1984",
+            "quantity": 20,
+            "price": 10.49,
+            "pages": 328,
+            "author": "George Orwell",
+            "status": "In Stock"
+        },
+        {
+            "isbn": "9780345538376",
+            "title": "The Night Circus",
+            "quantity": 18,
+            "price": 13.29,
+            "pages": 400,
+            "author": "Erin Morgenstern",
+            "status": "In Stock"
+        },
+        {
+            "isbn": "9780446675536",
+            "title": "The Alchemist",
+            "quantity": 30,
+            "price": 11.79,
+            "pages": 208,
+            "author": "Paulo Coelho",
+            "status": "In Stock"
+        },
+        {
+            "isbn": "9780451524935",
+            "title": "Fahrenheit 451",
+            "quantity": 13,
+            "price": 6.59,
+            "pages": 249,
+            "author": "Ray Bradbury",
+            "status": "In Stock"
+        },
+        {
+            "isbn": "9780553382167",
+            "title": "The Hitchhiker's Guide to the Galaxy",
+            "quantity": 25,
+            "price": 12.99,
+            "pages": 304,
+            "author": "Douglas Adams",
+            "status": "In Stock"
+        }
+    ]
+}

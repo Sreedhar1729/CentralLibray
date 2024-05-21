@@ -1,0 +1,104 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+    <Dialog
+        id="_IDGenDialog1"
+        resizable="true"
+        draggable="true"
+        contentWidth="30%"
+        title="Create Employee"
+    >
+        <beginButton>
+            <Button
+                id="idCreateButton"
+                text="Create"
+                press="onCreateBook"
+                type="Success"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="idCancelButton"
+                text="Cancel"
+                press="onCloseDialog"
+                type="Negative"
+            />
+        </endButton>
+        <content>
+            <!-- form creation -->
+            <form:SimpleForm
+                id="_IDGenSimpleForm1"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <Label
+                    id="idIsbnLabel"
+                    text="ISBN"
+                />
+                <Input
+                    id="idIsbnInput"
+                    value="{}"
+                />
+
+                 <Label
+                    id="idAuthorLabel"
+                    text="Author"
+                />
+                <Input
+                    id="idAuthorInput"
+                    value="{}"
+                />
+                 <Label
+                    id="idTitleLabel"
+                    text="Title"
+                />
+                <Input
+                    id="idTitleInput"
+                    value="{}"
+                />
+                 <Label
+                    id="idQtyLabel"
+                    text="Qty"
+                />
+                <Input
+                    id="idQtyInput"
+                    value="{}"
+                />
+
+                 <Label
+                    id="idPriceLabel"
+                    text="Price"
+                />
+                <Input
+                    id="idPriceInput"
+                    value="{}"
+                />
+                 <Label
+                    id="idPagesLabel"
+                    text="Pages"
+                />
+                <Input
+                    id="idPagesInput"
+                    value="{}"
+                />
+
+
+            </form:SimpleForm>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

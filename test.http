@@ -11,3 +11,17 @@ GET http://localhost:4004/odata/v4/app-library/BooksLoan HTTP/1.1
 ### read the ReservedBooks
 
 GET http://localhost:4004/odata/v4/app-library/ReservedBooks HTTP/1.1
+
+### filters
+
+GET http://localhost:4004/odata/v4/app-library/Books?$expand=authors HTTP/1.1
+
+###filters on books
+GET http://localhost:4004/odata/v4/app-library/Authors?$expand=books HTTP/1.1
+
+###Delete data
+
+DELETE  http://localhost:4004/odata/v4/app-library/Books/1 HTTP/1.1
+
+
+
