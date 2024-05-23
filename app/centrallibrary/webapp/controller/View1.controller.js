@@ -1,6 +1,7 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/Fragment"
+    "sap/ui/core/Fragment",
+    "./BaseController"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -29,6 +30,18 @@ sap.ui.define([
                 }
                
                
+            },
+            onAdminButton: async function(){
+                if (!this.oAdminLogin) {
+                    this.oAdminLogin = await Fragment.load({
+                        id: this.getView().getId(),
+                        name: "com.app.centrallibrary.fragments.AdminLogin",
+                        controller: this
+                    });
+                    this.getView().addDependent(this.oAdminLogin);  
+                
             }
+            this.oAdminLogin.open();
+        }
         });
     });

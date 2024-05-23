@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/app-library/",
+        "uri": "/BookSRV/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -25,7 +25,7 @@
         }
       },
       "mainServiceV2": {
-        "uri": "/v2/app-library/",
+        "uri": "/v2/BookSRV/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -99,7 +99,17 @@
           "autoExpandSelect": true,
           "earlyRequests": true
         }
-      }
+      },
+      "ModelV2": {
+        "dataSource": "mainServiceV2",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }      
     },
     "resources": {
       "css": [
