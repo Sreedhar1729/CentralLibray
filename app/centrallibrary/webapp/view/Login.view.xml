@@ -36,8 +36,8 @@
                             id="_IDGenLabel1"
                             text="ISBN"
                         />
-                        <Input
-                            id="_IDGenInput1"
+                        <MultiInput
+                            id="_IDGenMultiInput1"
                             value=""
                         />
                     </VBox>
@@ -50,8 +50,8 @@
                             id="_IDGenLabel2"
                             text="Author"
                         />
-                        <Input
-                            id="_IDGenInput2"
+                        <MultiInput
+                            id="_IDGenMultiInput2"
                             value=""
                         />
                     </VBox>
@@ -64,8 +64,8 @@
                             id="_IDGenLabel3"
                             text="Status"
                         />
-                        <Input
-                            id="_IDGenInput3"
+                        <MultiInput
+                            id="_IDGenMultiInput3"
                             value=""
                         />
                     </VBox>
@@ -136,12 +136,20 @@
                             type="Success"
                             press="onCreateBtnPress"
                         />
+                         <Button
+                            id="idBtnEdit"
+                            icon="sap-icon://edit"
+                            tooltip="Edit Book"
+                            type="Ghost"
+                            press="onEditBtnPress"
+                        />
+                    
                      <Button
                             id="idBtnDelete"
                             icon="sap-icon://delete"
                             tooltip="Delete Book"
                             type="Reject"
-                            press="onCreateBtnPress"
+                            press="onDeleteBtnPress"
                         />
                     
                   

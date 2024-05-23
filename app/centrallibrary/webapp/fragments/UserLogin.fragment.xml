@@ -4,17 +4,17 @@
     xmlns="sap.m"
 >
  <Dialog id="_IDGenDialog1"  >
-        <form:SimpleForm id="_IDGenSimpleForm1"  layout="ResponsiveGridLayout" class="simple">
+        <form:SimpleForm id="_IDGenSimpleForm11"  layout="ResponsiveGridLayout" class="simple">
          
             <form:content>
-                <Title id="_IDGenTitle1"  text="Login Page" textAlign="Center"></Title>
+                <Title id="_IDGenTitle11"  text="Login Page" textAlign="Center"></Title>
                   
-                        <Label id="_IDGenLabel1" 
+                        <Label id="_IDGenLabel11" 
                             text="User Name "
                             textAlign="Initial"
                             
                         />
-                        <Input id="user"
+                        <Input id="user1"
                             type="Text"
                             width="80%"
                             textAlign="Initial"
@@ -22,17 +22,17 @@
                             
                         /> 
 
-                    <Label id="_IDGenLabel2" 
+                    <Label id="_IDGenLabel22" 
                         text="Password"
                         textAlign="Initial"
                     />
-                    <Input id="pwd"
+                    <Input id="pwd1"
                         type="Password"
                         width="80%"
                         textAlign="Initial"
                         placeholder="Password"
                     />
-<VBox id="_IDGenVBox2" alignItems="Center">
+<VBox id="_IDGenVBox22" alignItems="Center">
                     <Button
                         icon="sap-icon://visits"
                         id="btn"

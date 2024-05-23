@@ -52,24 +52,17 @@
                 />
                 <Input
                     id="idIsbnInput"
-                    value="{}"
+                    value="{localModel>/isbn}"
                 />
 
-                 <Label
-                    id="idAuthorLabel"
-                    text="Author"
-                />
-                <Input
-                    id="idAuthorInput"
-                    value="{}"
-                />
+                 
                  <Label
                     id="idTitleLabel"
                     text="Title"
                 />
                 <Input
                     id="idTitleInput"
-                    value="{}"
+                    value="{localModel>/title}"
                 />
                  <Label
                     id="idQtyLabel"
@@ -77,7 +70,7 @@
                 />
                 <Input
                     id="idQtyInput"
-                    value="{}"
+                    value="{localModel>/quantity}"
                 />
 
                  <Label
@@ -86,7 +79,7 @@
                 />
                 <Input
                     id="idPriceInput"
-                    value="{}"
+                    value="{localModel>/price}"
                 />
                  <Label
                     id="idPagesLabel"
@@ -94,7 +87,23 @@
                 />
                 <Input
                     id="idPagesInput"
-                    value="{}"
+                    value="{localModel>/pages}"
+                />
+                <Label
+                    id="idAuthorLabel"
+                    text="Author"
+                />
+                <Input
+                    id="idAuthorInput"
+                    value="{localModel>/author}"
+                />
+                <Label
+                    id="idstatusLabel"
+                    text="Status"
+                />
+                <Input
+                    id="idstatusInput"
+                    value="{localModel>/status}"
                 />
 
 

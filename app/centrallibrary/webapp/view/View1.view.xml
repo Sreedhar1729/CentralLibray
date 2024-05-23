@@ -8,6 +8,62 @@
     xmlns:layout="sap.ui.layout"
     xmlns:f="sap.f"
 >
+    <f:DynamicPage
+        id="idBooksListPageTitle"
+        headerExpanded="true"
+    >
+        <f:title>
+            <f:DynamicPageTitle id="idBooksDynamicPageTitle">
+                <f:heading>
+                    <Title
+                        id="idBooksTitle"
+                        text="{i18n>title}"
+                    />
+                </f:heading>
+                <f:expandedContent>
+                    <Label
+                        id="idBooksListPageECL"
+                        text="{i18n>flpSubtitle}"
+                    />
+                </f:expandedContent>
+                <f:snappedContent>
+                    <Label
+                        id="idBooksListPageESL"
+                        text="{i18n>flpSubtitle}"
+                    />
+                </f:snappedContent>
+                <f:snappedTitleOnMobile>
+                    <Title
+                        id="idBooksListPageEST"
+                        text="{i18n>flpflpSubtitle}"
+                    />
+                </f:snappedTitleOnMobile>
+                <f:navigationActions>
+                  <Button
+                id="_IDGenButton1"
+                text="Admin"
+                press="onAdminButton"
+                
+                
+            />
+            <Button
+                id="_IDGenButton2"
+                text="User"
+                press="onUserLogin"
+                
+                
+            />
+                     
+                </f:navigationActions>
+            </f:DynamicPageTitle>
+        </f:title>
+    
+    <f:content>
+
+   
+</f:content>
+</f:DynamicPage>
+    <!-- 
     <Page
         id="_IDGenApp1"
         title="{i18n>title}"
@@ -16,6 +72,7 @@
             <Button
                 id="_IDGenButton1"
                 text="Admin"
+                press="onAdminButton"
             />
             <Button
                 id="_IDGenButton2"
@@ -27,57 +84,7 @@
             id="_IDGenVBox1"
             alignItems="Center"
         >
-            <form:SimpleForm
-                id="_IDGenSimpleForm1"
-                layout="ResponsiveGridLayout"
-                class="simple"
-            >
-                <form:content>
-                    <Title
-                        id="_IDGenTitle1"
-                        text="Login Page"
-                        textAlign="Center"
-                    />
-
-                    <Label
-                        id="_IDGenLabel1"
-                        text="User Name "
-                        textAlign="Initial"
-                    />
-                    <Input
-                        id="user"
-                        type="Text"
-                        width="80%"
-                        textAlign="Initial"
-                        placeholder="username"
-                    />
-
-                    <Label
-                        id="_IDGenLabel2"
-                        text="Password"
-                        textAlign="Initial"
-                    />
-                    <Input
-                        id="pwd"
-                        type="Password"
-                        width="80%"
-                        textAlign="Initial"
-                        placeholder="Password"
-                    />
-                    <VBox
-                        id="_IDGenVBox2"
-                        alignItems="Center"
-                    >
-                        <Button
-                            icon="sap-icon://visits"
-                            id="btn"
-                            text="Login"
-                            type="Accept"
-                            press="onBtnClick"
-                        />
-                    </VBox>
-                </form:content>
-            </form:SimpleForm>
+            
         </VBox>
-    </Page>
+    </Page> -->
 </mvc:View>
