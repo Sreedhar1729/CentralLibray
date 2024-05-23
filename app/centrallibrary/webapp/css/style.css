@@ -1,13 +1,15 @@
 /* Enter your custom styles here */
 
-.simple{
+.sample{
     background-color:aliceblue;
-    
+    background-image: url("https://assets.hongkiat.com/uploads/coolest-libraries-in-the-world/leeds-library.jpg");
+    text-align: justify; /* For Edge */
+text-align-last: center;
+ 
 }
 .spaceText{
 
     margin-top:5px;
 
     margin-left:5px
-
-              }
+    }

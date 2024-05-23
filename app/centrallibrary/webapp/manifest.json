@@ -142,7 +142,15 @@
           "target": [
             "TargetLogin"
           ]
+        },
+        {
+          "name": "routeUserLogin",
+          "pattern": "Login" ,
+          "target": [
+            "TargetUserLogin"
+          ]
         }
+
       ],
       "targets": {
         "TargetView1": {
@@ -159,6 +167,13 @@
           "viewId": "Login",
           "viewName": "Login"
         }
+      },
+      "TargetUserLogin": {
+        "viewType": "XML",
+        "transition": "slide",
+        "clearControlAggregation": false,
+        "viewId": "Login",
+        "viewName": "Login"
       }
     },
     "rootView": {

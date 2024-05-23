@@ -90,14 +90,7 @@ sap.ui.define([
                 if (!this.oCreateBooksDialog) {
 
                      this.oCreateBooksDialog = await this.loadFragment("CreateBooks")
-                    // this.oCreateBooksDialog = await Fragment.load({
-                    //     id: this.getView().getId(),
-                    //     name: "com.app.centrallibrary.fragments.CreateBooks",
-                    //     controller: this
-
-                        // this.oCreateBooksDialog = await this.loadFragment("CreateBooks");
-                    // });
-                    // this.getView().addDependent(this.oCreateBooksDialog);
+                    
                 }
 
                 this.oCreateBooksDialog.open();
@@ -115,6 +108,8 @@ sap.ui.define([
                 oAuthor = oView.byId("_IDGenMultiInput2").destroyTokens(),
                 oStatus = oView.byId("_IDGenMultiInput3").destroyTokens();
             },
+
+            //  adding book details(using createDatamehtod)
             onCreateBook: async function(){
                 const oPayload = this.getView().getModel("localModel").getProperty("/"),
                     oModel = this.getView().getModel("ModelV2");
@@ -138,3 +133,15 @@ sap.ui.define([
 // oRouter.navTo("detail", {
 //     productId: selectedProductId
 // });
+
+
+
+//  fragments load(without BaseController )
+// this.oCreateBooksDialog = await Fragment.load({
+                    //     id: this.getView().getId(),
+                    //     name: "com.app.centrallibrary.fragments.CreateBooks",
+                    //     controller: this
+
+                        // this.oCreateBooksDialog = await this.loadFragment("CreateBooks");
+                    // });
+                    // this.getView().addDependent(this.oCreateBooksDialog);

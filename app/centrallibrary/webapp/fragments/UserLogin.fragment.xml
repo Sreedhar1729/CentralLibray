@@ -3,47 +3,56 @@
     xmlns:form="sap.ui.layout.form"
     xmlns="sap.m"
 >
- <Dialog id="_IDGenDialog1"  >
-        <form:SimpleForm id="_IDGenSimpleForm11"  layout="ResponsiveGridLayout" class="simple">
-         
+    <Dialog id="_IDGenDialog1">
+        <form:SimpleForm
+            id="idUserLoginForm"
+            layout="ResponsiveGridLayout"
+        >
             <form:content>
-                <Title id="_IDGenTitle11"  text="Login Page" textAlign="Center"></Title>
-                  
-                        <Label id="_IDGenLabel11" 
-                            text="User Name "
-                            textAlign="Initial"
-                            
-                        />
-                        <Input id="user1"
-                            type="Text"
-                            width="80%"
-                            textAlign="Initial"
-                            placeholder="username"
-                            
-                        /> 
+                <Title
+                    id="idFormTitle"
+                    text="User Login Page"
+                    textAlign="Center"
+                />
 
-                    <Label id="_IDGenLabel22" 
-                        text="Password"
-                        textAlign="Initial"
-                    />
-                    <Input id="pwd1"
-                        type="Password"
-                        width="80%"
-                        textAlign="Initial"
-                        placeholder="Password"
-                    />
-<VBox id="_IDGenVBox22" alignItems="Center">
+                <Label
+                    id="idUserNameLabel"
+                    text="User Name "
+                    textAlign="Initial"
+                />
+                <Input
+                    id="idUserInput"
+                    type="Text"
+                    width="80%"
+                    textAlign="Initial"
+                    placeholder="username"
+                />
+
+                <Label
+                    id="idUserPasswordLabel"
+                    text="Password"
+                    textAlign="Initial"
+                />
+                <Input
+                    id="idPasswordInput"
+                    type="Password"
+                    width="80%"
+                    textAlign="Initial"
+                    placeholder="Password"
+                />
+                <VBox
+                    id="idUserLogin"
+                    alignItems="Center"
+                >
                     <Button
                         icon="sap-icon://visits"
                         id="btn"
                         text="Login"
                         type="Accept"
-                        press="onBtnClick"
+                        press="onUserBtnClick"
                     />
-                    </VBox>
-              
+                </VBox>
             </form:content>
         </form:SimpleForm>
-          </Dialog>
-
+    </Dialog>
 </core:FragmentDefinition>
