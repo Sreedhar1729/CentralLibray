@@ -1,5 +1,5 @@
 ### read the Authors
-GET http://localhost:4004/odata/v4/app-library/Authors HTTP/1.1
+GET http://localhost:4004/odata//v2/BookSRV/Books HTTP/1.1
 
 ### read the Books
 

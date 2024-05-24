@@ -1,0 +1,61 @@
+<mvc:View
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:u="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.f"
+    controllerName="com.app.centrallibrary.controller.Details"
+    displayBlock="true"
+>
+    <u:ObjectPageLayout id="idBooksLayout">
+        <u:headerTitle>
+            <u:ObjectPageDynamicHeaderTitle id="idObjectPagetitle">
+                <u:expandedHeading>
+                    <Title
+                        id="idPageTitle"
+                        text="{user_name}"
+                        wrapping="true"
+                    />
+                </u:expandedHeading>
+
+                <u:expandedContent>
+                    <Title
+                        id="idContentTitle"
+                        text="{}"
+                    />
+                </u:expandedContent>
+            </u:ObjectPageDynamicHeaderTitle>
+        </u:headerTitle>
+
+        <u:sections>
+            <u:ObjectPageSection
+                id="idPageSection"
+                titleUppercase="true"
+                title="User Information"
+            >
+                <u:subSections>
+                    <u:ObjectPageSubSection id="idPageSub">
+                        <form:SimpleForm id="idPageForm">
+                            <Label id="idUserID" />
+                            <Text
+                                id="idUserIDValue"
+                                text="{id}"
+                            />
+                            <Label id="idUserName" />
+                            <Text
+                                id="idUserValue"
+                                text="{user_name}"
+                            />
+                            <Label id="idNumber" />
+                            <Text
+                                id="idNumberValue"
+                                text="{mobile}"
+                            />
+                        </form:SimpleForm>
+                    </u:ObjectPageSubSection>
+                </u:subSections>
+            </u:ObjectPageSection>
+        </u:sections>
+    </u:ObjectPageLayout>
+</mvc:View>
