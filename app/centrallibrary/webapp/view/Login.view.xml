@@ -120,10 +120,11 @@
         
             <Table
                 id="_IDGenTable1"
-                mode="SingleSelectMaster"
+                mode="MultiSelect"
                 alternateRowColors="true"
+                growing="true" paste="onPaste"
                 items="{ path:'/Books',  parameters : {
-            $count : true
+            $count : true  
         }}"
                 selectionChange="onSelectBooks"
             
