@@ -32,20 +32,7 @@ sap.ui.define(
                 })
           });
       },
-      delteData:function(oModel, sPath, isbn){
-        return new Promise((resolve, reject) => {
-            oModel.remove(`${sPath}/${isbn}`, {
-                success: function(oSuccessData){
-                    resolve(oSuccessData);
-                },
-                error: function(oErrorData){
-                    reject(oErrorData)
-                }
-            })
-        })            
-    
-
-      }
+     
       });
     }
   );

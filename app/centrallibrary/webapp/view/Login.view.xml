@@ -85,6 +85,7 @@
                             press="onGoPress"
                         />
                     </VBox>
+
                     <VBox
                         id="idClearFilterButton"
                         class="sapUiSmallMarginEnd"
@@ -101,10 +102,22 @@
                         />
                     </VBox>
                 </HBox>
+                <ToolbarSpacer id="tool"></ToolbarSpacer>
+<FlexBox id="_IDGenFlexBox1" justifyContent="End">
+                <!-- <HBox id="activeloan" alignContent="End" alignItems="End"> -->
+                    <Button
+                        id="idActiveLoansButton"
+                        text="Active Loans"
+                        type="Success"
+                    
+                    />
+                    </FlexBox>
+                <!-- </HBox> -->
             </f:DynamicPageHeader>
         </f:header>
 
         <f:content>
+        
             <Table
                 id="_IDGenTable1"
                 mode="SingleSelectMaster"
@@ -113,22 +126,26 @@
             $count : true
         }}"
                 selectionChange="onSelectBooks"
+            
             >
                 <headerToolbar>
-                 <OverflowToolbar id="idEmployeeTableHeader" >
-                 <Title id="_IDGenTitle8" text="Books"></Title>
-                  <ToolbarSpacer id="idTableHeaderSpacer" />
-                   <Toolbar id="_IDGenToolbar1">
-                        <content>
-                            <Title
-                                id="Bookstitle"
-                                text="No.Of.Books:{/Books/$count}"
-                                textAlign="Begin"
-                                textDirection="Inherit"
-                            />
-                        </content>
-                    </Toolbar>
-                    <!-- <ToolbarSpacer id="idTableHeaderSpacer" /> -->
+                    <OverflowToolbar id="idEmployeeTableHeader">
+                        <Title
+                            id="_IDGenTitle8"
+                            text="Books"
+                        />
+                        <ToolbarSpacer id="idTableHeaderSpacer" />
+                        <Toolbar id="_IDGenToolbar1">
+                            <content>
+                                <Title
+                                    id="Bookstitle"
+                                    text="No.Of.Books:{/Books/$count}"
+                                    textAlign="Begin"
+                                    textDirection="Inherit"
+                                />
+                            </content>
+                        </Toolbar>
+                        <!-- <ToolbarSpacer id="idTableHeaderSpacer" /> -->
                         <Button
                             id="idBtnCreate"
                             icon="sap-icon://add"
@@ -136,27 +153,23 @@
                             type="Success"
                             press="onCreateBtnPress"
                         />
-                         <Button
+                        <Button
                             id="idBtnEdit"
                             icon="sap-icon://edit"
                             tooltip="Edit Book"
                             type="Ghost"
                             press="onEditBtnPress"
                         />
-                    
-                     <Button
+
+                        <Button
                             id="idBtnDelete"
                             icon="sap-icon://delete"
                             tooltip="Delete Book"
                             type="Reject"
                             press="onDeleteBtnPress"
                         />
-                    
-                  
                     </OverflowToolbar>
-                    
                 </headerToolbar>
-                
 
                 <columns>
                     <Column id="_IDGenColumn1">
@@ -203,6 +216,7 @@
                             <Text
                                 id="_IDGenText1"
                                 text="{isbn}"
+                            
                             />
                             <Text
                                 id="_IDGenText2"

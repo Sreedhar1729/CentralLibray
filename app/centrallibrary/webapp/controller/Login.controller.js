@@ -5,7 +5,8 @@ sap.ui.define([
     "sap/ui/model/FilterOperator",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
-
+    "sap/m/MessageBox",
+    
 
 ],
     /**
@@ -17,6 +18,8 @@ sap.ui.define([
         return Controller.extend("com.app.centrallibrary.controller.Login", {
             onInit: function () {
                 debugger;
+                
+
 
                 //  tokens added(Multi-input)
                 const oView = this.getView(),
@@ -35,6 +38,7 @@ sap.ui.define([
                 oMulti3.addValidator(validae);
 
 
+                
                 const oLocalModel = new JSONModel({
                     isbn: " ",
                     title: " ",
@@ -47,6 +51,7 @@ sap.ui.define([
                 });
 
                 this.getView().setModel(oLocalModel, "localModel");
+
 
             },
             onGoPress: function () {
@@ -74,9 +79,6 @@ sap.ui.define([
                     }
                 });
 
-                // sAuthor.filter((ele)=>{
-                //     ele? aFilters.push(new Filter("author",FilterOperator.EQ, ele.getKey())) : " ";
-                // })
                 sStatus.filter((ele) => {
                     ele ? aFilters.push(new Filter("status", FilterOperator.EQ, ele.getKey())) : " ";
                 })
@@ -118,7 +120,7 @@ sap.ui.define([
                 const oPayload = this.getView().getModel("localModel").getProperty("/"),
                     oModel = this.getView().getModel("ModelV2");
                 try {
-                    await this.createData(oModel, oPayload, "/Books");
+                    await this.createData(oModel,oPayload,"/Books");
                     this.getView().byId("_IDGenTable1").getBinding("items").refresh();
                     this.oCreateBooksDialog.close();
                 } catch (error) {
@@ -134,26 +136,38 @@ sap.ui.define([
             //         empName: fName
             //     })
             // },
+           
             onDeleteBtnPress: async function () {
-
                 var oSelected = this.byId("_IDGenTable1").getSelectedItem();
+            
                 if (oSelected) {
                     var oISBN = oSelected.getBindingContext().getObject().isbn;
-
-                    oSelected.getBindingContext().delete("$auto").then(function () {
-                        MessageToast.show(oISBN + " SuccessFully Deleted");
-                    },
-                        function (oError) {
-                            MessageToast.show("Deletion Error: ", oError);
-                        });
+            
+                    try {
+                        await oSelected.getBindingContext().delete("$auto");
+                        MessageBox.show(oISBN + " successfully deleted");
+                    } catch (oError) {
+                        MessageBox.show("Deletion Error: " + oError);
+                    }
+            
                     this.getView().byId("_IDGenTable1").getBinding("items").refresh();
-
                 } else {
-                    MessageToast.show("Please Select a Row to Delete");
+                    MessageBox.show("Please Select a Row to Delete");
                 }
-            }
+            },
+        //     onEditButtonPress: async function(){
+        //         var oSelected = this.byId("_IDGenTable1").getSelectedItem();
+            
+        //         if (oSelected) {
+        //             var oISBN = oSelected.getBindingContext().getObject().isbn;
+        //             try{
+        //                 await oSelected.getBindingContext().loadFragment('BookEdit')
+        //             }catch(oError){
+                        
+        //             }
 
-
+        //     }
+        // }
         });
     });
 
