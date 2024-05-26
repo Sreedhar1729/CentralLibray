@@ -35,7 +35,7 @@
 <VBox id="_IDGenVBox2" alignItems="Center">
                     <Button
                         icon="sap-icon://visits"
-                        id="btn"
+                        id="btn1"
                         text="Login"
                         type="Accept"
                         press="onBtnClick"

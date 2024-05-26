@@ -3,7 +3,7 @@
     xmlns:form="sap.ui.layout.form"
     xmlns="sap.m"
 >
-    <Dialog id="_IDGenDialog1">
+    <Dialog id="_IDGenDialog11">
         <form:SimpleForm
             id="idUserLoginForm"
             layout="ResponsiveGridLayout"

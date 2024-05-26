@@ -151,14 +151,7 @@ sap.ui.define([
                 }
                 location.reload()
             },
-
-            //     onSelectBooks:function(){  const { ID } = oEvent.getSource().getSelectedItem().getBindingContext().getObject();
-            //     const oRouter = this.getOwnerComponent().getRouter();
-            //     oRouter.navTo("RouteDetails", {
-            //         empId: ID,
-            //         empName: fName
-            //     })
-            // },
+ 
 
             
 onDeleteBtnPress: async function () {
@@ -191,80 +184,14 @@ onDeleteBtnPress: async function () {
 location.reload()
 },
            
-            // onDeleteBtnPress: async function () {
-            //     var oSelected = this.byId("_IDGenTable1").getSelectedItem();
-            
-            //     if (oSelected) {
-            //         var oISBN = oSelected.getBindingContext().getObject().isbn;
-            
-            //         try {
-            //             await oSelected.getBindingContext().delete("$auto");
-            //             MessageBox.show(oISBN + " successfully deleted");
-            //         } catch (oError) {
-            //             MessageBox.show("Deletion Error: " + oError);
-            //         }
-            
-            //         this.getView().byId("_IDGenTable1").getBinding("items").refresh();
-            //     } else {
-            //         MessageBox.show("Please Select a Row to Delete");
-            //     }
-            // },
             onEditBtnPress: async function(){
-                // var oSelected = this.byId("_IDGenTable1").getSelectedItem();
-                // const oPayload = this.getView().getModel("localModel").getProperty("/"),
-                //     oModel = this.getView().getModel("ModelV2");
-                // this.aProductCollection = oPayload;
-                // this.rebindTable(this.oEditableTemplate, "Edit");
-            //     var oSelected = this.byId("_IDGenTable1").getSelectedItem();
-            
-            //     if (oSelected) {
-            //         var oISBN = oSelected.getBindingContext().getObject().isbn;
-            //         try{
-            //             await oSelected.getBindingContext().loadFragment('BookEdit')
-            //         }catch(oError){
-                        
-            //         }
+                        },
 
-            // }
-        }
+                        ActiveLoans:function(){
+                            const oRouter = this.getOwnerComponent().getRouter();
+                            oRouter.navTo("routeUserLoans")
+                        }
         });
     });
 
-
-// var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-// var selectedProductId = oEvent.getSource().getBindingContext().getProperty("ProductID");
-// oRouter.navTo("detail", {
-//     productId: selectedProductId
-// });
-
-
-
-//  fragments load(without BaseController )
-// this.oCreateBooksDialog = await Fragment.load({
-//     id: this.getView().getId(),
-//     name: "com.app.centrallibrary.fragments.CreateBooks",
-//     controller: this
-
-// this.oCreateBooksDialog = await this.loadFragment("CreateBooks");
-// });
-// this.getView().addDependent(this.oCreateBooksDialog);
-
-
-// this.oTable = this.byId("idProductsTable");
-// this.oEditableTemplate = new ColumnListItem({
-//     cells: [
-//         new Input({
-//             value: "{Name}"
-//         }), new Input({
-//             value: "{Quantity}",
-//             description: "{UoM}"
-//         }), new Input({
-//             value: "{WeightMeasure}",
-//             description: "{WeightUnit}"
-//         }), new Input({
-//             value: "{Price}",
-//             description: "{CurrencyCode}"
-//         })
-//     ]
-// });
-// },
+ 

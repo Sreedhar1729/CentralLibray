@@ -21,8 +21,9 @@ define entity Users{
 }
 
 define entity BooksLoan{
-    users:Association to Users;
-    books:Association to Books;
+    key id:Integer;
+   key users:Association to Users;
+   key books:Association to Books;
     duedate:Date;
     loandate:Date;
 }

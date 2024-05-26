@@ -102,32 +102,34 @@
                         />
                     </VBox>
                 </HBox>
-                <ToolbarSpacer id="tool"></ToolbarSpacer>
-<FlexBox id="_IDGenFlexBox1" justifyContent="End">
-                <!-- <HBox id="activeloan" alignContent="End" alignItems="End"> -->
+                <ToolbarSpacer id="tool" />
+                <FlexBox
+                    id="_IDGenFlexBox1"
+                    justifyContent="End"
+                >
+                    <!-- <HBox id="activeloan" alignContent="End" alignItems="End"> -->
                     <Button
                         id="idActiveLoansButton"
                         text="Active Loans"
                         type="Success"
-                    
+                        press="ActiveLoans"
                     />
-                    </FlexBox>
+                </FlexBox>
                 <!-- </HBox> -->
             </f:DynamicPageHeader>
         </f:header>
 
         <f:content>
-        
             <Table
                 id="_IDGenTable1"
                 mode="MultiSelect"
                 alternateRowColors="true"
-                growing="true" paste="onPaste"
+                growing="true"
+                paste="onPaste"
                 items="{ path:'/Books',  parameters : {
             $count : true  
         }}"
                 selectionChange="onSelectBooks"
-            
             >
                 <headerToolbar>
                     <OverflowToolbar id="idEmployeeTableHeader">
@@ -217,7 +219,6 @@
                             <Text
                                 id="_IDGenText1"
                                 text="{isbn}"
-                            
                             />
                             <Text
                                 id="_IDGenText2"

@@ -145,9 +145,16 @@
         },
         {
           "name": "routeUserLogin",
-          "pattern": "Login" ,
+          "pattern": "Details",
           "target": [
             "TargetUserLogin"
+          ]
+        },
+        {
+          "name": "routeUserLoans",
+          "pattern": "Loans",
+          "target": [
+            "TargetUserLoans"
           ]
         }
 
@@ -166,15 +173,22 @@
           "clearControlAggregation": false,
           "viewId": "Login",
           "viewName": "Login"
-        }
-      },
+        },
       "TargetUserLogin": {
         "viewType": "XML",
         "transition": "slide",
         "clearControlAggregation": false,
-        "viewId": "Login",
-        "viewName": "Login"
+        "viewId": "Details",
+        "viewName": "Details"
+      },
+      "TargetUserLoans": {
+        "viewType": "XML",
+        "transition": "slide",
+        "clearControlAggregation": false,
+        "viewId": "UserLoans",
+        "viewName": "UserLoans"
       }
+    }
     },
     "rootView": {
       "viewName": "com.app.centrallibrary.view.App",

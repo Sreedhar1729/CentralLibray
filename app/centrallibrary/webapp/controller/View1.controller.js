@@ -2,18 +2,23 @@ sap.ui.define([
     "./BaseController",
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/Fragment",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
 
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Fragment) {
+    function (Controller, Fragment,Filter,FilterOperator) {
         "use strict";
 
         return Controller.extend("com.app.centrallibrary.controller.View1", {
             onInit: function () {
                 debugger;
-                // this.getView().byId("_IDGenTable1").getBinding("items");
+                // // recently added ODATA model
+                // var oModel = new ODataModel("/v2/odata/v4/Books");
+                // this.getView().setModel(oModel);
+                // // this.getView().byId("_IDGenTable1").getBinding("items");
             },
 
             onBtnClick: function () {
@@ -33,7 +38,22 @@ sap.ui.define([
 
                 var oUser1 =this.getView().byId("idUserInput").getValue(),
                     oPswd = this.getView().byId("idPasswordInput").getValue();
-                    if(oUser1 ==="user" && oPswd ==="user"){
+                    // var oModel= this.getView().getModel();
+
+                    // var aUsers = oModel.getProperty("/UserCredentials");
+                    // var aFilters = [ new Filter("username",FilterOperator.EQ, oUser1),
+                    // new Filter("password",FilterOperator.EQ,oPswd)];
+
+                    // oModel.read("/UserCredentials",{
+                    //     filters:aFilters,
+                    //     success:function(oData){
+                    //         if(oData.results.length>0){
+                    //             var userid = oData.results[0].id;
+                    //         }
+                    //     }
+                    // })
+
+                                        if(oUser1 ==="user" && oPswd ==="user"){
                         const oRouter = this.getOwnerComponent().getRouter();
                         oRouter.navTo("routeUserLogin")
                     }
