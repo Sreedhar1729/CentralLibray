@@ -7,25 +7,31 @@ define entity Books {
         price    : Decimal(5, 2);
         pages    : Integer;
         // authors: Composition of many Authors on authors.books = $self;
-        author: String;
-        status: String;
-        users : Association to   Users;
+        author   : String;
+        status   : String;
+        users    : Association to Users;
 
 }
 
-define entity Users{
-    key id: Integer;
-        user_name: String(30);
-        mobile: String;
-        
+define entity Users {
+    key id        : Integer;
+        user_name : String(30);
+        mobile    : String;
+
 }
 
-define entity BooksLoan{
-    key id:Integer;
-   key users:Association to Users;
-   key books:Association to Books;
-    duedate:Date;
-    loandate:Date;
+define entity BooksLoan {
+    key id       : Integer;
+    key users    : Association to Users;
+    key books    : Association to Books;
+        duedate  : Date;
+        loandate : Date;
+}
+
+define entity UserCredentials {
+    key UserName : String;
+        Password : String;
+
 }
 
 // define entity ReservedBooks{
