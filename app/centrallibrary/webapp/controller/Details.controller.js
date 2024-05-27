@@ -12,7 +12,7 @@ sap.ui.define(
             },
             onUserDetailsLoad: function(oEvent ){
                 const {id} = oEvent.getParameter("arguments");
-                this.UserName = id;
+                this.id = id;
                 const sRouterName = oEvent.getParameter("name");
                 const oObjectPage = this.getView().byId("idBooksListPage");
    

@@ -54,7 +54,7 @@ sap.ui.define([
                         ],
                         success: async (oData) => {
                             var aRecords = oData.results;
-                            var oUserName = oData.results[0].UserName;
+                            var oUserName = oData.results[0].id;
 
                             // iterate each record
 

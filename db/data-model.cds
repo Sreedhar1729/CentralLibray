@@ -31,7 +31,8 @@ define entity BooksLoan {
 }
 
 define entity UserCredentials {
-    key UserName : String;
+    key id : Integer;
+     UserName : String;
         Password : String;
 
 }
