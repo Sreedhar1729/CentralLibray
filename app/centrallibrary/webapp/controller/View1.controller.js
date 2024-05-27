@@ -46,7 +46,7 @@ sap.ui.define([
 
                 if (oUser1 && oPswd) {
                     // fetching records
-                    oModel.read("/UserCredentials", {
+                    oModel.read("/Users", {
                         filters: [
                             new Filter("UserName", FilterOperator.EQ, oUser1),
                             new Filter("Password", FilterOperator.EQ, oPswd)

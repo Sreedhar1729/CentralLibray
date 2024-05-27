@@ -19,6 +19,8 @@ define entity Users {
     key id        : Integer;
         user_name : String(30);
         mobile    : String;
+        UserName : String;
+        Password : String;
 
 }
 
@@ -32,8 +34,7 @@ define entity BooksLoan {
 
 define entity UserCredentials {
     key id : Integer;
-     UserName : String;
-        Password : String;
+    
 
 }
 

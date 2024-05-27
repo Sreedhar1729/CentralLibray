@@ -185,6 +185,19 @@ location.reload()
 },
            
             onEditBtnPress: async function(){
+                // var oSelected = this.byId("_IDGenTable1").getSelectedItem();
+                // const oPayload = this.getView().getModel("localModel").getProperty("/"),
+                //     oModel = this.getView().getModel("ModelV2");
+                // this.aProductCollection = oPayload;
+                // this.rebindTable(this.oEditableTemplate, "Edit");
+            //     var oSelected = this.byId("_IDGenTable1").getSelectedItem();
+
+            //     if (oSelected) {
+            //         var oISBN = oSelected.getBindingContext().getObject().isbn;
+            //         try{
+            //             await oSelected.getBindingContext().loadFragment('BookEdit')
+            //         }catch(oError){}
+
                         },
 
                         ActiveLoans:function(){
