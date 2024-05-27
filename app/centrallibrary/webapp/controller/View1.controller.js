@@ -47,8 +47,14 @@ sap.ui.define([
                 if (oUser1 && oPswd) {
                     // fetching records
                     oModel.read("/UserCredentials", {
+                        filters: [
+                            new Filter("UserName", FilterOperator.EQ, oUser1),
+                            new Filter("Password", FilterOperator.EQ, oPswd)
+     
+                        ],
                         success: async (oData) => {
                             var aRecords = oData.results;
+                            var oUserName = oData.results[0].UserName;
 
                             // iterate each record
 
@@ -58,7 +64,7 @@ sap.ui.define([
                             if (bValidCredentials) {
                                 // Valid credentials
                                 const oRouter = await this.getOwnerComponent().getRouter();
-                                oRouter.navTo("routeUserLogin")
+                                oRouter.navTo("routeUserLogin",{id : oUserName})
                             } else {
                                 // Invalid credentials
                                 alert("Invalid credentials/ user not exist ");

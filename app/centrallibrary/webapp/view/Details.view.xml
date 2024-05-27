@@ -8,7 +8,211 @@
     controllerName="com.app.centrallibrary.controller.Details"
     displayBlock="true"
 >
-    <u:ObjectPageLayout id="idBooksLayout">
+
+
+<f:DynamicPage
+        id="idBooksListPage"
+        headerExpanded="true"
+    >
+        <f:title>
+            <f:DynamicPageTitle id="idBooksListPageTitle">
+                <f:heading>
+                    <Title
+                        id="idBooksPageHeadingTitle"
+                        text="{UserName}"
+                    />
+                </f:heading>
+ 
+                <f:expandedContent>
+                   
+                </f:expandedContent>
+ 
+                <f:navigationActions>
+                    <Button
+                        id="idBtnFullScreen"
+                        icon="sap-icon://full-screen"
+                        type="Transparent"
+                    />
+                    <Button
+                        id="idBtnDecline"
+                        icon="sap-icon://decline"
+                        type="Transparent"
+                    />
+                </f:navigationActions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader
+                id="idDynamicPageHeader"
+                pinnable="true"
+            >
+                <HBox
+                    id="idFilterHLayout"
+                    alignContent="SpaceAround"
+                    width="100vw"
+                >
+                    <VBox
+                        id="idTitleFilter"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idTitleFilterLabel"
+                            text="Title:"
+                        />
+                        <Input
+                            id="idTitleFilterValue"
+                            value=""
+                        />
+                    </VBox>
+                    <VBox
+                        id="idAuthorFilter"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idAuthorFilterLabel"
+                            text="Author:"
+                        />
+                        <Input
+                            id="idAuthorFilterValue"
+                            value=""
+                        />
+                    </VBox>
+                    <VBox
+                        id="idGenreFilter"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idGenreFilterLabel"
+                            text="Gerne:"
+                        />
+                        <Input
+                            id="idGenreFilterValue"
+                            value=""
+                        />
+                    </VBox>
+                    <VBox
+                        id="idISBNFilter"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idISBNFilterLabel"
+                            text="ISBN:"
+                        />
+                        <Input
+                            id="idISBNFilterValue"
+                            value=""
+                        />
+                    </VBox>
+                    <VBox
+                        id="idGoButton"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idGoButtonLabel"
+                            text=""
+                        />
+                        <Button
+                            text="Go"
+                            type="Emphasized"
+                            press="onGoPress"
+                        />
+                    </VBox>
+                    <VBox
+                        id="idClearFilterButton"
+                        class="sapUiSmallMarginEnd"
+                    >
+                        <Label
+                            id="idClearFilterButtonLabel"
+                            text=""
+                        />
+                        <Button
+                            id="idClearFilterButtonValue"
+                            text="Clear"
+                            type="Emphasized"
+                            press="onClearFilterPress"
+                        />
+                    </VBox>
+                </HBox>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+        <Text text="{UserName}"></Text>
+           
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
+<!--  
+<Page title="Three Column List" id="idtit">
+
+<Text text="{/UserCredentials/UserName}" />
+             <List items="{/UserCredentials}">
+                <items>
+                    <CustomListItem>
+                        <content>
+                            <FlexBox>
+                                <items>
+                                    <Text text="{UserName}" />
+                                </items>
+                            </FlexBox>
+                            <FlexBox>
+                                <items>
+                                    <Text text="{Password}" />
+                                </items>
+                            </FlexBox>
+                            <FlexBox>
+                                <items>
+                                    <Text text="{user/id}" />
+                                </items>
+                            </FlexBox>
+                        </content>
+                    </CustomListItem>
+                </items>
+            </List> -->
+        
+<!-- 
+<Page title="Sample Page">
+        <List items="{/UserCredentials}">
+            <StandardListItem title="{UserName}" description="{password}"/>
+        </List>
+    </Page> -->
+    <!-- <f:DynamicPage id="idDetailsPage">
+        <f:title>
+            <f:DynamicPageTitle id="idDynamicDetailsTitle">
+                <f:heading>
+                    <Title
+                        id="idDynamicPageTitle"
+                        text="User Details"
+                    />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            
+             <form:SimpleForm id="idDetailsPageForm" 
+                            
+                                editable="false"
+                                layout="ResponsiveGridLayout"
+                                columnsM="2"
+                                columnsL="3"
+                                columnsXL="4"
+
+                            >
+                                
+            <Label text="Name:"/>
+            <Text text="{UserName}"/>
+
+            <Label text="Age:"/>
+            <Text text="{/UserCredentials/password}"/>
+        
+    </form:SimpleForm>
+
+
+              </f:content>
+    </f:DynamicPage> -->
+
+      
+
+    <!-- <u:ObjectPageLayout id="idBooksLayout">
         <u:headerTitle>
             <u:ObjectPageDynamicHeaderTitle id="idObjectPagetitle">
                 <u:expandedHeading>
@@ -57,5 +261,9 @@
                 </u:subSections>
             </u:ObjectPageSection>
         </u:sections>
-    </u:ObjectPageLayout>
-</mvc:View>
+    </u:ObjectPageLayout> -->
+
+<!-- 
+
+    
+--> 

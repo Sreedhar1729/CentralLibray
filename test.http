@@ -1,5 +1,5 @@
 ### read the Authors
-GET http://localhost:4004/odata/v4/BookSRV/Books HTTP/1.1
+GET http://localhost:4004/odata/v4/BookSRV/UserCredentials/users/id HTTP/1.1
 ### create
 POST http://localhost:4004/BookSRV/Books HTTP/1.1
 Content-Type: application/json

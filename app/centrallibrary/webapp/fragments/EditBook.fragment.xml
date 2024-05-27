@@ -4,32 +4,32 @@
     xmlns="sap.m"
 >
     <Dialog
-        id="_IDGenDialog1"
+        id="idEditBook"
         resizable="true"
         draggable="true"
         contentWidth="30%"
-        title="Create Book"
+        title="Edit BOOK Details"
     >
         <beginButton>
             <Button
-                id="idCreateButton"
-                text="Create"
-                press="onCreateBook"
+                id="idEditBookSave"
+                text="Save"
+                press="onSave"
                 type="Success"
             />
         </beginButton>
         <endButton>
             <Button
-                id="idCancelButton"
+                id="idEditBookCancel"
                 text="Cancel"
-                press="onCloseDialog"
+                press="onClose"
                 type="Negative"
             />
         </endButton>
         <content>
             <!-- form creation -->
             <form:SimpleForm
-                id="_IDGenSimpleForm1"
+                id="idEditBookForm"
                 editable="true"
                 layout="ResponsiveGridLayout"
                 labelSpanXL="3"
@@ -47,66 +47,63 @@
                 singleContainerFullSize="false"
             >
                 <Label
-                    id="idIsbnLabel"
+                    id="idEditBookISBN"
                     text="ISBN"
                 />
                 <Input
-                    id="idIsbnInput"
+                    id="idEditBookISBNVal"
                     value="{localModel>/isbn}"
                 />
 
-                 
-                 <Label
-                    id="idTitleLabel"
+                <Label
+                    id="idEditBookTitle"
                     text="Title"
                 />
                 <Input
-                    id="idTitleInput"
-                    value="{localModel>/title}"
+                    id="idEditBookTitleVal"
+                    value="{ localModel>/title}"
                 />
-                 <Label
-                    id="idQtyLabel"
+                <Label
+                    id="idEditBookQty"
                     text="Qty"
                 />
                 <Input
-                    id="idQtyInput"
-                    value="{localModel>/quantity}"
+                    id="idEditBookQtyVal"
+                    value="{ }"
                 />
 
-                 <Label
-                    id="idPriceLabel"
+                <Label
+                    id="idEditBookPrice"
                     text="Price"
                 />
                 <Input
-                    id="idPriceInput"
-                    value="{localModel>/price}"
+                    id="idEditBookPriceVal"
+                    value="{ }"
                 />
-                 <Label
-                    id="idPagesLabel"
+                <Label
+                    id="idEditBookPages"
                     text="Pages"
                 />
                 <Input
-                    id="idPagesInput"
-                    value="{localModel>/pages}"
+                    id="idEditBookPagesVal"
+                    value="{ }"
                 />
                 <Label
-                    id="idAuthorLabel"
+                    id="idEditBookAuthor"
                     text="Author"
                 />
                 <Input
-                    id="idAuthorInput"
-                    value="{localModel>/author}"
+                    id="idEditBookAuthorVal"
+                    value="{}"
                 />
                 <Label
-                    id="idstatusLabel"
+                    id="idEditBookStatus"
                     text="Status"
                 />
                 <Input
-                    id="idstatusInput"
-                    value="{localModel>/status}"
+                    id="idEditBookStatusVal"
+                    value="{ }"
                 />
-
-
             </form:SimpleForm>
         </content>
     </Dialog>

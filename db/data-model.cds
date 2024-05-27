@@ -1,6 +1,7 @@
 namespace app.library;
 
 define entity Books {
+    
     key isbn     : String;
         title    : String(50);
         quantity : Integer;
@@ -10,6 +11,7 @@ define entity Books {
         author   : String;
         status   : String;
         users    : Association to Users;
+    
 
 }
 

@@ -17,7 +17,7 @@
 
         <!-- for mainting buttons in header -->
         <headerContent>
-        <OverflowToolbar id="_IDGenOverflowToolbar1">
+        <OverflowToolbar id="_IDGenOverflowToolbar1" class="sapUiContentPadding">
         <ToolbarSpacer id="_IDGenToolbarSpacer1" />
             <Button
                 id="_IDGenButton1"

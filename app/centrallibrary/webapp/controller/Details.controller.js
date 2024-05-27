@@ -7,6 +7,17 @@ sap.ui.define(
   
       return BaseController.extend("com.app.centrallibrary.controller.Details", {
         onInit: function() {
+          const oRouter = this.getOwnerComponent().getRouter();
+                oRouter.attachRoutePatternMatched(this.onUserDetailsLoad, this);
+            },
+            onUserDetailsLoad: function(oEvent ){
+                const {id} = oEvent.getParameter("arguments");
+                this.UserName = id;
+                const sRouterName = oEvent.getParameter("name");
+                const oObjectPage = this.getView().byId("idBooksListPage");
+   
+                oObjectPage.bindElement(`/UserCredentials(${id})`);
+            
         }
       });
     }
