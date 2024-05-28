@@ -48,7 +48,7 @@
             <Column id="ididColumn">
                 <Title
                     id="ididtitle"
-                    text="BLID"
+                    text="BooksLoanId"
                 />
             </Column>
             <Column id="idUserColumn">

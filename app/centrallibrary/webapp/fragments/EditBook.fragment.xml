@@ -52,7 +52,7 @@
                 />
                 <Input
                     id="idEditBookISBNVal"
-                    value="{localModel>/isbn}"
+                    value="{newBookModel>/isbn}"
                 />
 
                 <Label
@@ -61,7 +61,7 @@
                 />
                 <Input
                     id="idEditBookTitleVal"
-                    value="{ localModel>/title}"
+                    value="{newBookModel>/title}"
                 />
                 <Label
                     id="idEditBookQty"
@@ -69,7 +69,7 @@
                 />
                 <Input
                     id="idEditBookQtyVal"
-                    value="{ }"
+                    value="{newBookModel>/quantity}"
                 />
 
                 <Label
@@ -78,7 +78,7 @@
                 />
                 <Input
                     id="idEditBookPriceVal"
-                    value="{ }"
+                    value="{newBookModel>/price}"
                 />
                 <Label
                     id="idEditBookPages"
@@ -86,7 +86,7 @@
                 />
                 <Input
                     id="idEditBookPagesVal"
-                    value="{ }"
+                    value="{newBookModel>/pages}"
                 />
                 <Label
                     id="idEditBookAuthor"
@@ -94,7 +94,7 @@
                 />
                 <Input
                     id="idEditBookAuthorVal"
-                    value="{}"
+                    value="{newBookModel>/author}"
                 />
                 <Label
                     id="idEditBookStatus"
@@ -102,9 +102,12 @@
                 />
                 <Input
                     id="idEditBookStatusVal"
-                    value="{ }"
+                    value="{newBookModel>/status}"
                 />
             </form:SimpleForm>
+            
         </content>
+    
+
     </Dialog>
 </core:FragmentDefinition>

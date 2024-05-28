@@ -8,18 +8,20 @@ sap.ui.define([
     "sap/m/MessageBox",
     "sap/m/ColumnListItem",
     'sap/m/Input'
-    
+
 
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Token, Filter, FilterOperator, JSONModel, Fragment, MessageBox,ColumnListItem,Input) {
+    function (Controller, Token, Filter, FilterOperator, JSONModel, Fragment, MessageBox, ColumnListItem, Input) {
         "use strict";
 
         return Controller.extend("com.app.centrallibrary.controller.Login", {
+            
             onInit: function () {
                 
+
                 debugger;
                 // this.oTable = this.byId("_IDGenTable1");
                 // this.oReadOnlyTemplate = this.byId("_IDGenTable1").removeItem(0);
@@ -30,13 +32,13 @@ sap.ui.define([
                 //             value: "{isbn}"
                 //         }), new Input({
                 //             value: "{title}"
-                        
+
                 //         }), new Input({
                 //             value: "{price}",
-                            
+
                 //         }), new Input({
                 //             value: "{author}",
-                            
+
                 //         })
                 //     ]
                 // });
@@ -59,15 +61,15 @@ sap.ui.define([
                 oMulti3.addValidator(validae);
 
 
-                
+
                 const oLocalModel = new JSONModel({
-                    isbn:"",
-                    title:"",
-                    quantity:"",
-                    price:"",
-                    pages:"",
-                    author:"",
-                    status:""
+                    isbn: "",
+                    title: "",
+                    quantity: "",
+                    price: "",
+                    pages: "",
+                    author: "",
+                    status: ""
 
                 });
 
@@ -107,11 +109,11 @@ sap.ui.define([
                 oTable.getBinding("items").filter(aFilters);
 
             },
-            setHeaderContext: function () {
+            csetHeaderContext: function () {
                 var oView = this.getView();
                 oView.byId("Bookstitle").setBindingContext(
-                    oView.byId("_IDGenTable1").getBinding("items").getHeaderContext()).refresh();
-                    this.getView().refresh();
+                    oView.byId("_IDGenTable1").getBinding("items").getHeaderContext().refresh());
+                this.getView().refresh();
             },
             onCreateBtnPress: async function () {
                 debugger
@@ -142,69 +144,123 @@ sap.ui.define([
                 const oPayload = this.getView().getModel("localModel").getProperty("/"),
                     oModel = this.getView().getModel("ModelV2");
                 try {
-                    await this.createData(oModel,oPayload,"/Books");
+                    await this.createData(oModel, oPayload, "/Books");
                     this.getView().byId("_IDGenTable1").getBinding("items").refresh();
                     this.oCreateBooksDialog.close();
                 } catch (error) {
                     this.oCreateBooksDialog.close();
                     sap.m.MessageBox.error("Some technical Issue");
                 }
-                location.reload()
+                location.refresh()
             },
- 
 
+
+
+            onDeleteBtnPress: async function () {
+                var aSelectedItems = this.byId("_IDGenTable1").getSelectedItems();
+                if (aSelectedItems.length > 0) {
+                    var aISBNs = [];
+                    aSelectedItems.forEach(function (oSelectedItem) {
+                        var sISBN = oSelectedItem.getBindingContext().getObject().isbn;
+                        aISBNs.push(sISBN);
+                        oSelectedItem.getBindingContext().delete("$auto");
+                    });
+
+                    Promise.all(aISBNs.map(function (sISBN) {
+                        return new Promise(function (resolve, reject) {
+                            resolve(sISBN + " Successfully Deleted");
+                        });
+                    })).then(function (aMessages) {
+                        aMessages.forEach(function (sMessage) {
+                            MessageToast.show(sMessage);
+                        });
+                    }).catch(function (oError) {
+                        MessageToast.show("Deletion Error: " + oError);
+                    });
+
+                    this.getView().byId("_IDGenTable1").removeSelections(true);
+                    this.getView().byId("_IDGenTable1").getBinding("items").refresh();
+                } else {
+                    MessageToast.show("Please Select Rows to Delete");
+                };
+                location.refresh()
+            },
+            // for Editing the Book
             
-onDeleteBtnPress: async function () {
-    var aSelectedItems = this.byId("_IDGenTable1").getSelectedItems();
-    if (aSelectedItems.length > 0) {
-        var aISBNs = [];
-        aSelectedItems.forEach(function (oSelectedItem) {
-            var sISBN = oSelectedItem.getBindingContext().getObject().isbn;
-            aISBNs.push(sISBN);
-            oSelectedItem.getBindingContext().delete("$auto");
-        });
+            onEditBtnPress: async function () {
+                
+                var oSelected = this.byId("_IDGenTable1").getSelectedItems();
+                var oSelected = this.byId("_IDGenTable1").getSelectedItem();
+                    if (oSelected) {
+                        // var oBook = oSelected.getBindingContext().getObject().ID;
+                        var oAuthorName = oSelected.getBindingContext().getObject().author
+                        var oBookname = oSelected.getBindingContext().getObject().title
+                        var oStock = oSelected.getBindingContext().getObject().quantity
+                        var oISBN = oSelected.getBindingContext().getObject().isbn
+                        var oPrice = oSelected.getBindingContext().getObject().price
+                        var oPage = oSelected.getBindingContext().getObject().pages;
+                        var oStatus = oSelected.getBindingContext().getObject().status;
+     
+                         var newBookModel = new JSONModel({
+                            author: oAuthorName,
+                            title: oBookname,
+                            quantity: oStock,
+                            isbn: oISBN,
+                            price:oPrice,
+                            pages:oPage,
+                            status:oStatus
+                        });
+                        this.getView().setModel(newBookModel, "newBookModel")
+                        const oPayload = this.getView().getModel("newBookModel").getProperty("/")
+                        
+                        // this.oEditBooksPop.open();
+                    }
+                    if (!this.oEditBooksDialog) {
+                        this.oEditBooksDialog = await this.loadFragment("EditBook");
+                    }
+                    
+                    
+                    this.oEditBooksDialog.open();
+            },
 
-        Promise.all(aISBNs.map(function (sISBN) {
-            return new Promise(function (resolve, reject) {
-                resolve(sISBN + " Successfully Deleted");
-            });
-        })).then(function (aMessages) {
-            aMessages.forEach(function (sMessage) {
-                MessageToast.show(sMessage);
-            });
-        }).catch(function (oError) {
-            MessageToast.show("Deletion Error: " + oError);
-        });
-
-        this.getView().byId("_IDGenTable1").removeSelections(true);
-        this.getView().byId("_IDGenTable1").getBinding("items").refresh();
-    } else {
-        MessageToast.show("Please Select Rows to Delete");
-    };
-location.reload()
-},
-           
-            onEditBtnPress: async function(){
-                // var oSelected = this.byId("_IDGenTable1").getSelectedItem();
+            onSave: async function(){
+                  
+                // const newBookModel = new JSONModel({
+                //     author: oAuthorName,
+                //     title: oBookname,
+                //     quantity: oStock,
+                //     isbn: oISBN,
+                //     price:oPrice,
+                //     pages:oPage,
+                //     status:oStatus
+                // });
+                //  var newBookModel=this.getView().setModel("newBookModel");
+                const oPayload = this.getView().getModel("newBookModel").getProperty("/")
                 // const oPayload = this.getView().getModel("localModel").getProperty("/"),
-                //     oModel = this.getView().getModel("ModelV2");
-                // this.aProductCollection = oPayload;
-                // this.rebindTable(this.oEditableTemplate, "Edit");
-            //     var oSelected = this.byId("_IDGenTable1").getSelectedItem();
+               var oModel = this.getView().getModel("newBookModel");
+            
+                try {
+                    await this.updateData(oModel, oPayload, "/Books");
+                    this.getView().byId("_IDGenTable1").getBinding("items").refresh();
+                    this.oEditBooksDialog.close();
+                } 
+                catch (error) {
+                    this.oEditBooksDialog.close();
+                    sap.m.MessageBox.error("Some technical Issue");
+                }
+                   
+            },
+            // closing popup
+            onClose: function () {
+                if (this.oEditBooksDialog.isOpen()) {
+                    this.oEditBooksDialog.close()
+                }
+            },
 
-            //     if (oSelected) {
-            //         var oISBN = oSelected.getBindingContext().getObject().isbn;
-            //         try{
-            //             await oSelected.getBindingContext().loadFragment('BookEdit')
-            //         }catch(oError){}
-
-                        },
-
-                        ActiveLoans:function(){
-                            const oRouter = this.getOwnerComponent().getRouter();
-                            oRouter.navTo("routeUserLoans")
-                        }
+            ActiveLoans: function () {
+                const oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("routeUserLoans")
+            }
         });
     });
 
- 

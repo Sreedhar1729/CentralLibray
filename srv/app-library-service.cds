@@ -6,5 +6,6 @@ service AppLibraryService {
     entity Books           as projection on my.Books;
     entity Users           as projection on my.Users;
     entity BooksLoan       as projection on my.BooksLoan;
-    entity UserCredentials as projection on my.UserCredentials;
+    entity ReservedBooks as projection on my.ReservedBooks;
+    
 }

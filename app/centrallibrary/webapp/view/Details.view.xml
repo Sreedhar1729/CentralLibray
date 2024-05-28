@@ -137,7 +137,7 @@
             <ObjectPageSection
                 titleUppercase="false"
                 id="idUserBorrowedBooksSection"
-                title="Loan Books"
+                title="Active Loans"
             >
                 <subSections>
                     <ObjectPageSubSection
@@ -149,7 +149,7 @@
                                 id="idUserActiveLoanTable"
                                 mode="MultiSelect"
                                 alternateRowColors="true"
-                                items="{/BooksLoan}"
+                               
                             >
                                 <m:headerToolbar>
                                     <m:OverflowToolbar
@@ -214,19 +214,19 @@
                                         <m:cells>
                                             <m:Text
                                                 id="idBookNameColValueUserLoans"
-                                                text="{}"
+                                                text="{booksLoan/books/title}"
                                             />
                                             <m:Text
                                                 id="idAuthorColValueUserLoans"
-                                                text="{author}"
+                                                text="{booksLoan/books/author}"
                                             />
                                             <m:Text
                                                 id="idISBNColValueUserLoans"
-                                                text="{isbn}"
+                                                text="{booksLoan/books/isbn}"
                                             />
                                             <m:Text
                                                 id="idDueDateValueUserLoans"
-                                                text="{DueDate}"
+                                                text="{booksLoan/duedate}"
                                             />
                                         </m:cells>
                                     </m:ColumnListItem>
@@ -245,7 +245,7 @@
                 <subSections>
                     <ObjectPageSubSection
                         id="idBorrowBooksSubSection"
-                        title="Borrow Books"
+                        title="Available Books In Library"
                         titleUppercase="false"
                     >
                         <blocks>

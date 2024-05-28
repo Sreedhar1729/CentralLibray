@@ -12,30 +12,47 @@
         headerExpanded="true"
     >
         <f:title>
-            <f:DynamicPageTitle id="_IDGenDynamicPageTitle1"  >
-                <f:heading >
-                
+            <f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
+                <f:heading>
                     <Title
                         id="_IDGenTitle1"
                         text="CentralLibraySystemAPP"
                         wrapping="true"
-                    /> 
+                    />
                 </f:heading>
-                 <f:actions>
-                             
-                     <Avatar
-                    id="idAvatar"
-                    class="sapUiSmallMarginEnd"
-                    src=""
-                    displaySize="XS"
-                />
-            </f:actions>
-                  
+                <f:actions>
+                    <ToolbarSpacer />
+                    <Button
+                        id="idActiveLoansButton"
+                        text="Active Loans"
+                        type="Success"
+                        press="ActiveLoans"
+                    />
+
+                    <Button
+                        text="Issue Books"
+                        type="Success"
+                        press=""
+                        class="sapUiSmallMarginEnd"
+                    />
+                    <Button
+                        text="Total Issued Books"
+                        type="Success"
+                        press=""
+                        class="sapUiSmallMarginEnd"
+                    />
+
+                    <Avatar
+                        id="idAvatar"
+                        class="sapUiSmallMarginEnd"
+                        src=""
+                        displaySize="XS"
+                    />
+                </f:actions>
             </f:DynamicPageTitle>
         </f:title>
         <f:header>
             <f:DynamicPageHeader id="_IDGenDynamicPageHeader1">
-            
                 <HBox
                     id="_IDGenHBox1"
                     alignContent="SpaceBetween"
@@ -114,26 +131,22 @@
                             press="onClearFilterPress"
                         />
                     </VBox>
-                  
-            
-
-
                 </HBox>
-                
+
                 <ToolbarSpacer id="tool" />
-                <FlexBox
+                <!-- <FlexBox
                     id="_IDGenFlexBox1"
                     justifyContent="End"
                 >
                
-                    <!-- <HBox id="activeloan" alignContent="End" alignItems="End"> -->
-                    <Button
-                        id="idActiveLoansButton"
-                        text="Active Loans"
-                        type="Success"
-                        press="ActiveLoans"
-                    />
-                </FlexBox>
+                    <VBox >
+                    <HBox>
+                    
+                      </HBox>
+                    </VBox>
+        
+                </FlexBox> -->
+
                 <!-- </HBox> -->
             </f:DynamicPageHeader>
         </f:header>
@@ -147,6 +160,7 @@
                 paste="onPaste"
                 items="{ path:'/Books',  parameters : {
             $count : true  
+            
         }}"
                 selectionChange="onSelectBooks"
             >
