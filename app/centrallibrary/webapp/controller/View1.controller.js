@@ -16,11 +16,17 @@ sap.ui.define([
         return Controller.extend("com.app.centrallibrary.controller.View1", {
             onInit: function () {
                 debugger;
+
                 // // recently added ODATA model
                 var oView = this.getView();
                 // var oModel = oView.getModel("/BookSRV/UserCredentials"); // Assuming the model is already set on the view
                 var oModel = new ODataModel("/v2/BookSRV/");
                 this.getView().setModel(oModel);
+                // const oLocalModel = new sap.ui.json.JSONModel(
+                //     {
+
+                //     }
+                // )
 
             },
 
@@ -38,6 +44,7 @@ sap.ui.define([
                 }
             },
             onUserBtnClick: function () {
+                debugger
 
                 var oUser1 = this.getView().byId("idUserInput").getValue(),
                     oPswd = this.getView().byId("idPasswordInput").getValue();
@@ -50,7 +57,7 @@ sap.ui.define([
                         filters: [
                             new Filter("UserName", FilterOperator.EQ, oUser1),
                             new Filter("Password", FilterOperator.EQ, oPswd)
-     
+
                         ],
                         success: async (oData) => {
                             var aRecords = oData.results;
@@ -64,7 +71,7 @@ sap.ui.define([
                             if (bValidCredentials) {
                                 // Valid credentials
                                 const oRouter = await this.getOwnerComponent().getRouter();
-                                oRouter.navTo("routeUserLogin",{id : oUserName})
+                                oRouter.navTo("routeUserLogin", { id: oUserName })
                             } else {
                                 // Invalid credentials
                                 alert("Invalid credentials/ user not exist ");
@@ -78,15 +85,6 @@ sap.ui.define([
                         }
                     })
                 }
-
-                // if (oUser1 === "user" && oPswd === "user") {
-                //     const oRouter = this.getOwnerComponent().getRouter();
-                //     oRouter.navTo("routeUserLogin")
-                // }
-                // else {
-                //     alert("Invalid credentials/ user not exist ");
-                // }
-
             },
 
             onAdminButton: async function () {
@@ -101,6 +99,26 @@ sap.ui.define([
                     this.oUserLogin = await this.loadFragment("UserLogin")
                 }
                 this.oUserLogin.open();
+            },
+            onClDialog: function () {
+                this.oAdminLogin.close();
+
+            },
+            onUserCanClick: function () {
+                this.oUserLogin.close();
+            },
+            //user Signup Page
+            onRegBtnClick: async function () {
+                if (!this.oUserSignUp) {
+
+                    this.oUserSignUp = await this.loadFragment("UserSignUp")
+                }
+                this.oUserSignUp.open();
+            },
+            SignupCancelButton:function(){
+                this.oUserSignUp.close();
             }
+
+
         });
     });

@@ -25,25 +25,31 @@
                     <Button
                         id="idActiveLoansButton"
                         text="Active Loans"
-                        type="Success"
+                        type="Default"
                         press="ActiveLoans"
                     />
 
                     <Button
                         id="idLoginIssue"
                         text="Issue Books"
-                        type="Success"
+                        type="Default"
                         press=""
                         class="sapUiSmallMarginEnd"
                     />
                     <Button
                         id="idLoginIssued"
                         text="Total Issued Books"
-                        type="Success"
+                        type="Default"
                         press="Issue"
                         class="sapUiSmallMarginEnd"
                     />
-
+                    <Button
+                        id="idLoginReserved"
+                        text="Reserved Books"
+                        type="Default"
+                       press="Reserved"
+                        class="sapUiSmallMarginEnd"
+                    />
                     <Avatar
                         id="idAvatar"
                         class="sapUiSmallMarginEnd"
@@ -188,6 +194,7 @@
                             id="idBtnCreate"
                             icon="sap-icon://add"
                             tooltip="Create Book"
+                            text="Add"
                             type="Success"
                             press="onCreateBtnPress"
                         />
@@ -195,7 +202,8 @@
                             id="idBtnEdit"
                             icon="sap-icon://edit"
                             tooltip="Edit Book"
-                            type="Ghost"
+                            text="Edit"
+                            type="Emphasized"
                             press="onEditBtnPress"
                         />
 
@@ -203,6 +211,7 @@
                             id="idBtnDelete"
                             icon="sap-icon://delete"
                             tooltip="Delete Book"
+                            text="Edit"
                             type="Reject"
                             press="onDeleteBtnPress"
                         />

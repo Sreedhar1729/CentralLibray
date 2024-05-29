@@ -3,7 +3,24 @@
     xmlns:form="sap.ui.layout.form"
     xmlns="sap.m"
 >
- <Dialog id="_IDGenDialog1"  >
+ <Dialog id="_IDGenDialog1"  ><beginButton>
+            <Button
+                        icon="sap-icon://visits"
+                        id="btn1"
+                        text="Login"
+                        type="Accept"
+                        press="onBtnClick"
+                    />
+        </beginButton>
+        <endButton>
+            <Button
+                id="idCanButton"
+                text="Cancel"
+                press="onClDialog"
+                type="Negative"
+            />
+        </endButton>
+<content>
         <form:SimpleForm id="_IDGenSimpleForm1"  layout="ResponsiveGridLayout" class="simple">
          
             <form:content>
@@ -32,18 +49,14 @@
                         textAlign="Initial"
                         placeholder="Password"
                     />
-<VBox id="_IDGenVBox2" alignItems="Center">
-                    <Button
-                        icon="sap-icon://visits"
-                        id="btn1"
-                        text="Login"
-                        type="Accept"
-                        press="onBtnClick"
-                    />
-                    </VBox>
+ 
+
+                   
+                    
               
             </form:content>
         </form:SimpleForm>
+        </content>
           </Dialog>
 
 </core:FragmentDefinition>

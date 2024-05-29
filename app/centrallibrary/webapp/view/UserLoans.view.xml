@@ -25,22 +25,22 @@
                     text="UserLoans"
                 />
                 <ToolbarSpacer id="idtoolbar" />
-
+<!-- 
                 <Button
                     id="idbutton"
                     type="Accept"
                     icon="sap-icon://add"
-                />
+                /> -->
                 <Button
                     id="idEditbutton"
                     type="Emphasized"
                     icon="sap-icon://edit"
                 />
-                <Button
+                <!-- <Button
                     id="idDeletebutton"
                     type="Reject"
                     icon="sap-icon://delete"
-                />
+                /> -->
             </OverflowToolbar>
         </headerToolbar>
 
@@ -76,6 +76,13 @@
                     text="LoanDatee"
                 />
             </Column>
+
+            <Column id="idUserLoanActiveCol">
+                        <Label
+                            id="idUserLoanActiveLabel"
+                            text="Active"
+                        />
+                    </Column>
         </columns>
 
         <items>
@@ -100,6 +107,11 @@
                     <Text
                         id="idduevalue"
                         text="{duedate}"
+                    />
+                    <Text
+                        id="idUserLoanActivevalue"
+
+                        text="{Active}"
                     />
                 </cells>
             </ColumnListItem>

@@ -163,6 +163,13 @@
           "target": [
             "TargetIssuedBooks"
           ]
+        },
+        {
+          "name": "routeReservedBooks",
+          "pattern": "ReservedBooks" ,
+          "target": [
+            "TargetReservedBooks"
+          ]
         }
 
       ],
@@ -201,6 +208,13 @@
         "clearControlAggregation": false,
         "viewId": "IssuedBooks",
         "viewName": "IssuedBooks"
+      },
+      "TargetReservedBooks": {
+        "viewType": "XML",
+        "transition": "slide",
+        "clearControlAggregation": false,
+        "viewId": "ReservedBooks",
+        "viewName":"ReservedBooks"
       }
     }
     },

@@ -49,7 +49,7 @@
                         />
                         <m:Title
                             id="idUserName"
-                            text="{user_name}"
+                            text="{UserName}"
                             wrapping="true"
                         />
                     </m:FlexBox>
@@ -85,7 +85,7 @@
                 >
                     <m:Text
                         id="idTextUserName"
-                        text="{user_name}"
+                        text="{UserName}"
                     />
                     <m:Link
                         id="idLink1"
@@ -117,7 +117,7 @@
                 >
                     <m:Label
                         id="idLabelForUserText"
-                        text="Hello! {user_name} greetings from Central Library"
+                        text="Hello! {UserName} greetings from Central Library"
                     />
                 </layout:VerticalLayout>
  
@@ -340,175 +340,4 @@
     </ObjectPageLayout>
 </mvc:View>
    
-        
-            <!-- <Table
-                id="idDetailsUserTable"
-                items="{/Users}"
-            >
-                <columns>
-                    <Column id="idDetailsUserID">
-                        <Text
-                            id="idDetailsUserIDText"
-                            text="UserID"
-                        />
-                    </Column>
-
-                    <Column id="idDetailsUserName">
-                        <Text
-                            id="idDetailsUserUserNameText"
-                            text="user_name"
-                        />
-                    </Column>
-
-                    <Column id="idDetailsLoginName">
-                        <Text
-                            id="idDetailsUserLoginNameText"
-                            text="UserName"
-                        />
-                    </Column>
-                </columns>
-                <items>
-                    <ColumnListItem id="idDetailsColumnList">
-                        <cells>
-                            <Text
-                                id="idUserIdVal"
-                                text="{id}"
-                            />
-
-                             <Text
-                                id="idUseruser_nameVal"
-                                text="{user_name}"
-                            />
-
-                             <Text
-                                id="idUserNameVal"
-                                text="{UserName}"
-                            />
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table> -->
-        <!-- </f:content>
-    </f:DynamicPage>
-</mvc:View> -->
-<!--  
-<Page title="Three Column List" id="idtit">
-
-<Text text="{/UserCredentials/UserName}" />
-             <List items="{/UserCredentials}">
-                <items>
-                    <CustomListItem>
-                        <content>
-                            <FlexBox>
-                                <items>
-                                    <Text text="{UserName}" />
-                                </items>
-                            </FlexBox>
-                            <FlexBox>
-                                <items>
-                                    <Text text="{Password}" />
-                                </items>
-                            </FlexBox>
-                            <FlexBox>
-                                <items>
-                                    <Text text="{user/id}" />
-                                </items>
-                            </FlexBox>
-                        </content>
-                    </CustomListItem>
-                </items>
-            </List> -->
-<!-- 
-<Page title="Sample Page">
-        <List items="{/UserCredentials}">
-            <StandardListItem title="{UserName}" description="{password}"/>
-        </List>
-    </Page> -->
-<!-- <f:DynamicPage id="idDetailsPage">
-        <f:title>
-            <f:DynamicPageTitle id="idDynamicDetailsTitle">
-                <f:heading>
-                    <Title
-                        id="idDynamicPageTitle"
-                        text="User Details"
-                    />
-                </f:heading>
-            </f:DynamicPageTitle>
-        </f:title>
-        <f:content>
-            
-             <form:SimpleForm id="idDetailsPageForm" 
-                            
-                                editable="false"
-                                layout="ResponsiveGridLayout"
-                                columnsM="2"
-                                columnsL="3"
-                                columnsXL="4"
-
-                            >
-                                
-            <Label text="Name:"/>
-            <Text text="{UserName}"/>
-
-            <Label text="Age:"/>
-            <Text text="{/UserCredentials/password}"/>
-        
-    </form:SimpleForm>
-
-
-              </f:content>
-    </f:DynamicPage> -->
-<!-- <u:ObjectPageLayout id="idBooksLayout">
-        <u:headerTitle>
-            <u:ObjectPageDynamicHeaderTitle id="idObjectPagetitle">
-                <u:expandedHeading>
-                    <Title
-                        id="idPageTitle"
-                        text="{user_name}"
-                        wrapping="true"
-                    />
-                </u:expandedHeading>
-
-                <u:expandedContent>
-                    <Title
-                        id="idContentTitle"
-                        text="{}"
-                    />
-                </u:expandedContent>
-            </u:ObjectPageDynamicHeaderTitle>
-        </u:headerTitle>
-
-        <u:sections>
-            <u:ObjectPageSection
-                id="idPageSection"
-                titleUppercase="true"
-                title="User Information"
-            >
-                <u:subSections>
-                    <u:ObjectPageSubSection id="idPageSub">
-                        <form:SimpleForm id="idPageForm">
-                            <Label id="idUserID" />
-                            <Text
-                                id="idUserIDValue"
-                                text="{id}"
-                            />
-                            <Label id="idUserName" />
-                            <Text
-                                id="idUserValue"
-                                text="{user_name}"
-                            />
-                            <Label id="idNumber" />
-                            <Text
-                                id="idNumberValue"
-                                text="{mobile}"
-                            />
-                        </form:SimpleForm>
-                    </u:ObjectPageSubSection>
-                </u:subSections>
-            </u:ObjectPageSection>
-        </u:sections>
-    </u:ObjectPageLayout> -->
-<!-- 
-
     
--->

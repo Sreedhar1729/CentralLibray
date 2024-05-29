@@ -119,9 +119,6 @@
                     value="{newBookModel>/status}"
                 />
             </form:SimpleForm>
-            
         </content>
-    
-
     </Dialog>
 </core:FragmentDefinition>
