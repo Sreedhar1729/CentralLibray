@@ -156,6 +156,13 @@
           "target": [
             "TargetUserLoans"
           ]
+        },
+        {
+          "name": "routeIssuedBooks",
+          "pattern": "IssuedBooks" ,
+          "target": [
+            "TargetIssuedBooks"
+          ]
         }
 
       ],
@@ -187,6 +194,13 @@
         "clearControlAggregation": false,
         "viewId": "UserLoans",
         "viewName": "UserLoans"
+      },
+      "TargetIssuedBooks": {
+        "viewType": "XML",
+        "transition": "slide",
+        "clearControlAggregation": false,
+        "viewId": "IssuedBooks",
+        "viewName": "IssuedBooks"
       }
     }
     },

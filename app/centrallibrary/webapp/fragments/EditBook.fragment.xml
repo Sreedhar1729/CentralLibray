@@ -52,6 +52,8 @@
                 />
                 <Input
                     id="idEditBookISBNVal"
+                    editable="true"
+                    valueLiveUpdate="true"
                     value="{newBookModel>/isbn}"
                 />
 
@@ -61,6 +63,8 @@
                 />
                 <Input
                     id="idEditBookTitleVal"
+                    editable="true"
+                    valueLiveUpdate="true"
                     value="{newBookModel>/title}"
                 />
                 <Label
@@ -69,6 +73,8 @@
                 />
                 <Input
                     id="idEditBookQtyVal"
+                    editable="true"
+                    valueLiveUpdate="true"
                     value="{newBookModel>/quantity}"
                 />
 
@@ -78,6 +84,8 @@
                 />
                 <Input
                     id="idEditBookPriceVal"
+                    editable="true"
+                    valueLiveUpdate="true"
                     value="{newBookModel>/price}"
                 />
                 <Label
@@ -86,6 +94,8 @@
                 />
                 <Input
                     id="idEditBookPagesVal"
+                    editable="true"
+                    valueLiveUpdate="true"
                     value="{newBookModel>/pages}"
                 />
                 <Label
@@ -94,6 +104,8 @@
                 />
                 <Input
                     id="idEditBookAuthorVal"
+                    editable="true"
+                    valueLiveUpdate="true"
                     value="{newBookModel>/author}"
                 />
                 <Label
@@ -102,6 +114,8 @@
                 />
                 <Input
                     id="idEditBookStatusVal"
+                    editable="true"
+                    valueLiveUpdate="true"
                     value="{newBookModel>/status}"
                 />
             </form:SimpleForm>

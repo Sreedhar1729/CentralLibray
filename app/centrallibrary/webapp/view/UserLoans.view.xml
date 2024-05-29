@@ -11,7 +11,7 @@
     </List> -->
     <Table
         id="idUserLoans"
-        items="{/BooksLoan}"
+        items="{path:'/BooksLoan',filters:[{path:'Active',operator:'EQ',value1:'true'}]}"
         alternateRowColors="true"
         backgroundDesign="Transparent"
         mode="MultiSelect"

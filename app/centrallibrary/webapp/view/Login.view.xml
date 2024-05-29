@@ -21,7 +21,7 @@
                     />
                 </f:heading>
                 <f:actions>
-                    <ToolbarSpacer />
+                    <ToolbarSpacer id="idlogintool" />
                     <Button
                         id="idActiveLoansButton"
                         text="Active Loans"
@@ -30,15 +30,17 @@
                     />
 
                     <Button
+                        id="idLoginIssue"
                         text="Issue Books"
                         type="Success"
                         press=""
                         class="sapUiSmallMarginEnd"
                     />
                     <Button
+                        id="idLoginIssued"
                         text="Total Issued Books"
                         type="Success"
-                        press=""
+                        press="Issue"
                         class="sapUiSmallMarginEnd"
                     />
 

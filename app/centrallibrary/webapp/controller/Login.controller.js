@@ -109,7 +109,7 @@ sap.ui.define([
                 oTable.getBinding("items").filter(aFilters);
 
             },
-            csetHeaderContext: function () {
+            setHeaderContext: function () {
                 var oView = this.getView();
                 oView.byId("Bookstitle").setBindingContext(
                     oView.byId("_IDGenTable1").getBinding("items").getHeaderContext().refresh());
@@ -212,6 +212,7 @@ sap.ui.define([
                         });
                         this.getView().setModel(newBookModel, "newBookModel")
                         const oPayload = this.getView().getModel("newBookModel").getProperty("/")
+                        const oModel = this.getView().getModel("ModelV2");
                         
                         // this.oEditBooksPop.open();
                     }
@@ -223,7 +224,7 @@ sap.ui.define([
                     this.oEditBooksDialog.open();
             },
 
-            onSave: async function(){
+            onSave:  function(){
                   
                 // const newBookModel = new JSONModel({
                 //     author: oAuthorName,
@@ -240,7 +241,7 @@ sap.ui.define([
                var oModel = this.getView().getModel("newBookModel");
             
                 try {
-                    await this.updateData(oModel, oPayload, "/Books");
+                     this.updateData(oModel, oPayload, "/Books");
                     this.getView().byId("_IDGenTable1").getBinding("items").refresh();
                     this.oEditBooksDialog.close();
                 } 
@@ -260,7 +261,11 @@ sap.ui.define([
             ActiveLoans: function () {
                 const oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("routeUserLoans")
-            }
+            },
+            Issue:function()
+            {
+                const oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("routeIssuedBooks")
+               }
         });
     });
-

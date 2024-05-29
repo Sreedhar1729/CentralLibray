@@ -34,7 +34,7 @@ sap.ui.define(
       },
       updateData:function(oModel,oPayload,sPath){
         return new Promise((resolve, reject) => {
-            oModel.update(sPath, oPayload, {
+            oModel.update (sPath, oPayload, {
                 
                 success: function(oSuccessData){
                     resolve(oSuccessData);
