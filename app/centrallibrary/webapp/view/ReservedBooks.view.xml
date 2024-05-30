@@ -81,11 +81,11 @@
                     <cells>
                         <Text
                             id="IdReservedBooksText1"
-                            text="{id}"
+                            text="{ID}"
                         />
                         <Text
                             id="IdReservedBooksText5"
-                            text="{users/id}"
+                            text="{users/ID}"
                         />
                         <Text
                             id="IdReservedBooksText6"

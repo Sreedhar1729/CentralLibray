@@ -69,7 +69,7 @@ sap.ui.define([
                     price: "",
                     pages: "",
                     author: "",
-                    status: ""
+                    status: "In Stock"
 
                 });
 
@@ -211,9 +211,6 @@ sap.ui.define([
                             status:oStatus
                         });
                         this.getView().setModel(newBookModel, "newBookModel")
-                        
-                        
-			 
                         const oPayload = this.getView().getModel("newBookModel").getProperty("/")
                         const oModel = this.getView().getModel("ModelV2");
                         this.oModel=oModel;
@@ -244,7 +241,7 @@ sap.ui.define([
                var oModel = this.getView().getModel("newBookModel");
             
                 try {
-                     this.updateData(oModel, oPayload, "/Books");
+                     oModel.update(oPayload, "/newBookModel");
                     this.getView().byId("_IDGenTable1").getBinding("items").refresh();
                     this.oEditBooksDialog.close();
                 } 
@@ -275,7 +272,6 @@ sap.ui.define([
                Reserved:function(){
                 const oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("routeReservedBooks")
-               },
-               
+               }
         });
     });

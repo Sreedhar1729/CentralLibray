@@ -145,7 +145,7 @@
         },
         {
           "name": "routeUserLogin",
-          "pattern": "Details/{id}",
+          "pattern": "Details/{ID}",
           "target": [
             "TargetUserLogin"
           ]

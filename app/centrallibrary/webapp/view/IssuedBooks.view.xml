@@ -80,11 +80,11 @@
                         <cells>
                             <Text
                                 id="idIssueIDVal"
-                                text="{id}"
+                                text="{ID}"
                             />
                             <Text
                                 id="idIssueUserIDVal"
-                                text="{users/id}"
+                                text="{users/ID}"
                             />
                             <Text
                                 id="idIssueTitleVal"

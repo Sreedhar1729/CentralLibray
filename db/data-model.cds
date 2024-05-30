@@ -1,7 +1,8 @@
 namespace app.library;
+using { cuid  } from '@sap/cds/common';
 
-define entity Books {
-    key bid              : Integer;
+
+define entity Books :cuid{
         isbn             : String;
         title            : String(50);
         quantity         : Integer;
@@ -20,8 +21,8 @@ define entity Books {
 
 }
 
-define entity Users {
-    key id            : Integer;
+define entity Users:cuid {
+    
         email         : String(30);
         mobile        : String;
         UserName      : String;
@@ -31,8 +32,7 @@ define entity Users {
 
 }
 
-define entity BooksLoan {
-    key id       : Integer;
+define entity BooksLoan:cuid {
         users    : Association to Users;
         books    : Association to Books;
         duedate  : Date;
@@ -40,8 +40,7 @@ define entity BooksLoan {
         Active   : Boolean;
 }
 
-define entity ReservedBooks {
-    key id          : Integer;
+define entity ReservedBooks :cuid{
         users       : Association to Users;
         books       : Association to Books;
         reservedate : Date;

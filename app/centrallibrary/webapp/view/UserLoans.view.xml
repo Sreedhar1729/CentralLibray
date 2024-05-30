@@ -90,11 +90,11 @@
                 <cells>
                     <Text
                         id="idBISBNvalue"
-                        text="{id}"
+                        text="{ID}"
                     />
                     <Text
                         id="idBUservalue"
-                        text="{users/id}"
+                        text="{users/ID}"
                     />
                     <Text
                         id="idBdatevalue"

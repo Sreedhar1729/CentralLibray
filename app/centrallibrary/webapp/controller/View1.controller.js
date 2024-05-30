@@ -66,19 +66,19 @@ sap.ui.define([
                         ],
                         success: async (oData) => {
                             var aRecords = oData.results;
-                            // var oUserName = oData.results[0].id;
+                            //  var oUserName = oData.results[0].ID;
 
                             // iterate each record
 
                             var bValidCredentials = aRecords.some(function (oRecord) {
                                 return oRecord.UserName === oUser1 && oRecord.Password === oPswd;
                             });
-                            var oUserName = oData.results[0].id;
+                            var oUserName = oData.results[0].ID;
 
                             if (bValidCredentials) {
                                 // Valid credentials
                                 const oRouter = await this.getOwnerComponent().getRouter();
-                                oRouter.navTo("routeUserLogin", { id: oUserName })
+                                oRouter.navTo("routeUserLogin", { ID: oUserName })
                             } else {
                                 // Invalid credentials
                                 alert("Invalid credentials/ user not exist ");

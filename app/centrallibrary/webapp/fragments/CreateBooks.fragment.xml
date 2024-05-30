@@ -102,6 +102,7 @@
                 />
                 <Input
                     id="idstatusInput"
+                    editable="false"
                     value="{localModel>/status}"
                 />
             </form:SimpleForm>
