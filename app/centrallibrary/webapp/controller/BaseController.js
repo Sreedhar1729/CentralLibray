@@ -38,7 +38,7 @@ sap.ui.define(
                 
                 success: function(oSuccessData){
                     resolve(oSuccessData);
-                }.bind(this),
+                },
                 error: function(oErrorData){
                     reject(oErrorData)
                 }

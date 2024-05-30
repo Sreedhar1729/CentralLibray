@@ -36,6 +36,20 @@
                         text="Signup Details"
                         textAlign="Center"
                     />
+                     <Label
+                        id="IDUserID"
+                        class="username"
+                        text="User ID"
+                        textAlign="Initial"
+                    />
+                    <Input
+                        class="input"
+                        id="IDIDUserID"
+                        placeholder="Enter Username"
+                        width="80%"
+                        textAlign="Initial"
+                        value="{localModelU>/id}"
+                    />
 
                     <Label
                         id="IDUserName"
@@ -49,7 +63,7 @@
                         placeholder="Enter Username"
                         width="80%"
                         textAlign="Initial"
-                        value="{localModel>/userName}"
+                        value="{localModelU>/UserName}"
                     />
 
                     <Label
@@ -64,7 +78,7 @@
                         placeholder="Enter Password"
                         width="80%"
                         textAlign="Initial"
-                        value="{localModel>/password}"
+                        value="{localModelU>/Password}"
                     />
 
                     <Label
@@ -79,7 +93,7 @@
                         placeholder="Enter email"
                         width="80%"
                         textAlign="Initial"
-                        value="{localModel>/email}"
+                        value="{localModelU>/email}"
                     />
 
                     <Label
@@ -94,7 +108,7 @@
                         placeholder="Enter PhoneNumber"
                         width="80%"
                         textAlign="Initial"
-                        value=""
+                        value="{localModelU>/mobile}"
                     />
 
                     <VBox

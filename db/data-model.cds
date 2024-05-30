@@ -10,6 +10,7 @@ define entity Books {
         // authors: Composition of many Authors on authors.books = $self;
         author           : String;
         status           : String;
+        avl_stock        : Integer;
         // users    : Association to Users;
         booksloan_id     : Composition of many BooksLoan
                                on booksloan_id.books = $self;

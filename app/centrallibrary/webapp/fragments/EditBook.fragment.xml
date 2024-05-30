@@ -73,6 +73,7 @@
                 />
                 <Input
                     id="idEditBookQtyVal"
+                    type="Number"
                     editable="true"
                     valueLiveUpdate="true"
                     value="{newBookModel>/quantity}"
@@ -94,6 +95,7 @@
                 />
                 <Input
                     id="idEditBookPagesVal"
+                    type="Number"
                     editable="true"
                     valueLiveUpdate="true"
                     value="{newBookModel>/pages}"
@@ -106,6 +108,7 @@
                     id="idEditBookAuthorVal"
                     editable="true"
                     valueLiveUpdate="true"
+                    liveChange="onEditBtnPress"
                     value="{newBookModel>/author}"
                 />
                 <Label

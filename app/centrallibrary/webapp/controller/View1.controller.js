@@ -4,13 +4,14 @@ sap.ui.define([
     "sap/ui/core/Fragment",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "sap/ui/model/odata/v2/ODataModel"
+    "sap/ui/model/odata/v2/ODataModel",
+    "sap/ui/model/json/JSONModel"
 
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Fragment, Filter, FilterOperator, ODataModel) {
+    function (Controller, Fragment, Filter, FilterOperator, ODataModel,JSONModel) {
         "use strict";
 
         return Controller.extend("com.app.centrallibrary.controller.View1", {
@@ -18,15 +19,19 @@ sap.ui.define([
                 debugger;
 
                 // // recently added ODATA model
-                var oView = this.getView();
+                
                 // var oModel = oView.getModel("/BookSRV/UserCredentials"); // Assuming the model is already set on the view
                 var oModel = new ODataModel("/v2/BookSRV/");
                 this.getView().setModel(oModel);
-                // const oLocalModel = new sap.ui.json.JSONModel(
-                //     {
+                 const oLocalModelU = new JSONModel({
+                    id:" ",
+                    UserName: " ",
+                    Password: " ",
+                    mobile: " ",
+                    email : " "
 
-                //     }
-                // )
+                     });
+                     this.getView().setModel(oLocalModelU, "localModelU");
 
             },
 
@@ -61,13 +66,15 @@ sap.ui.define([
                         ],
                         success: async (oData) => {
                             var aRecords = oData.results;
-                            var oUserName = oData.results[0].id;
+                            // var oUserName = oData.results[0].id;
 
                             // iterate each record
 
                             var bValidCredentials = aRecords.some(function (oRecord) {
                                 return oRecord.UserName === oUser1 && oRecord.Password === oPswd;
                             });
+                            var oUserName = oData.results[0].id;
+
                             if (bValidCredentials) {
                                 // Valid credentials
                                 const oRouter = await this.getOwnerComponent().getRouter();
@@ -86,6 +93,18 @@ sap.ui.define([
                     })
                 }
             },
+            UserSignUpBtnClick: async function () {
+                
+                const oPayload = this.getView().getModel("localModelU").getProperty("/"),
+                    oModel = this.getView().getModel("ModelV2");
+                try {
+                    await this.createData(oModel, oPayload, "/Users");
+                    // this.getView().byId("idBooksTable").getBinding("items").refresh();
+                    this.oUserSignUp.close();
+                } catch (error) {
+                    this.oUserSignUp.close();
+                    sap.m.MessageBox.error("Some technical Issue");
+                }},
 
             onAdminButton: async function () {
                 if (!this.oAdminLogin) {
@@ -107,7 +126,7 @@ sap.ui.define([
             onUserCanClick: function () {
                 this.oUserLogin.close();
             },
-            //user Signup Page
+            //user Signup Page Open
             onRegBtnClick: async function () {
                 if (!this.oUserSignUp) {
 
@@ -115,6 +134,7 @@ sap.ui.define([
                 }
                 this.oUserSignUp.open();
             },
+            //user Signup Page Close
             SignupCancelButton:function(){
                 this.oUserSignUp.close();
             }

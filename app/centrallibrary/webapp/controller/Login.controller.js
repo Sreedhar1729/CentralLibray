@@ -211,9 +211,12 @@ sap.ui.define([
                             status:oStatus
                         });
                         this.getView().setModel(newBookModel, "newBookModel")
+                        
+                        
+			 
                         const oPayload = this.getView().getModel("newBookModel").getProperty("/")
                         const oModel = this.getView().getModel("ModelV2");
-                        
+                        this.oModel=oModel;
                         // this.oEditBooksPop.open();
                     }
                     if (!this.oEditBooksDialog) {
@@ -272,6 +275,7 @@ sap.ui.define([
                Reserved:function(){
                 const oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("routeReservedBooks")
-               }
+               },
+               
         });
     });

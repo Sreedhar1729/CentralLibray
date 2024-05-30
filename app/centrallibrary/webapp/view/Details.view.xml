@@ -162,7 +162,7 @@
                                         <m:ToolbarSpacer
                                             id="idTableHeaderSpacerUserLoans"
                                         />
-                                        <m:Button
+                                        <!-- <m:Button
                                             id="idBtnNewBook"
                                             text="New Book"
                                             icon="sap-icon://add"
@@ -177,7 +177,7 @@
                                             tooltip="Return Book"
                                             text="Return Book"
                                             type="Negative"
-                                        />
+                                        /> -->
                                     </m:OverflowToolbar>
                                 </m:headerToolbar>
                                 <m:columns>
@@ -272,7 +272,7 @@
                                         />
                                         <m:Button
                                             id="idBtnEdit"
-                                            text="New Book"
+                                            text="Reserve Book"
                                             icon="sap-icon://add"
                                             type="Emphasized"
                                             press="onBorrowNewBookPress"
