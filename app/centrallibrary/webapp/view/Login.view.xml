@@ -219,6 +219,13 @@
                 </headerToolbar>
 
                 <columns>
+                <Column id="_IDGenColum1">
+                        <Title
+                            id="_IDGenTitl3"
+                            text="ID"
+                        />
+                    </Column>
+
                     <Column id="_IDGenColumn1">
                         <Title
                             id="_IDGenTitle3"
@@ -279,6 +286,10 @@
                         type="Navigation"
                     >
                         <cells>
+                        <Text
+                                id="_IDGenText9"
+                                text="{ID}"
+                            />
                             <Text
                                 id="_IDGenText1"
                                 text="{isbn}"

@@ -46,6 +46,16 @@
                 columnsM="1"
                 singleContainerFullSize="false"
             >
+             <Label
+                    id="idEditBookID"
+                    text="ID"
+                />
+                <Input
+                    id="idEditBookIDVal"
+                    editable="true"
+                    valueLiveUpdate="true"
+                    value="{newBookModel>/ID}"
+                />
                 <Label
                     id="idEditBookISBN"
                     text="ISBN"

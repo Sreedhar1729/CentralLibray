@@ -23,8 +23,11 @@
         beforeNavigate="onBeforeNavigate"
         useIconTabBar="true"
         showTitleInHeaderContent="true"
-        upperCaseAnchorBar="false"
+        upperCaseAnchorBar="true"
+        showAnchorBarPopover="true"
         sectionChange="onSectionChange"
+        showAnchorBar="true"
+        backgroundDesignAnchorBar="Transparent"
     >
         <headerTitle>
             <ObjectPageDynamicHeaderTitle id="idBooksListPage">
