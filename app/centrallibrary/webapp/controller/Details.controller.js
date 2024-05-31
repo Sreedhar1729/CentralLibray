@@ -25,38 +25,27 @@ sap.ui.define(
       
       onBorrowNewBookPress: async function () {
 
-        var s = this.byId("idBooksTable").getSelectedItem();
+        // var s = this.byId("idBooksTable").getSelectedItem();
          
-        if (s) {
-         var  oisbn = s.getBindingContext().getObject().isbn;
-         var  ouserid = z.getBindingContext().getObject().id;
-          // var otitle =  s.getBindingContext().getObject().title;
-        //  var  oauthor =s.getBindingContext().getObject().author;
-          // var oqunatity = s.getBindingContext().getObject().quantity;
+        // if (s) {
+        //  var  oisbn = s.getBindingContext().getObject().isbn;
+        //  var  ouserid = z.getBindingContext().getObject().id;
+        //   // var otitle =  s.getBindingContext().getObject().title;
+        // //  var  oauthor =s.getBindingContext().getObject().author;
+        //   // var oqunatity = s.getBindingContext().getObject().quantity;
 
-          const oReservedBook = new sap.ui.model.json.JSONModel({
-            books_id: oisbn,
-            users_id: ouserid,
-            id: "1",
-            reservedate : new Date(),
+        //   const oReservedBook = new sap.ui.model.json.JSONModel({
+        //     books_id: oisbn,
+        //     users_id: ouserid,
+        //     id: "1",
+        //     reservedate : new Date(),
   
   
-          });
-          this.getView().setModel(oReservedBook, "oReserve")
+        //   });
+        //   this.getView().setModel(oReservedBook, "oReserve")
   
-        }
-
-        const oPayload = this.getView().getModel("oReserve").getProperty("/"),
-          oModel = this.getView().getModel("ModelV2");
-
-        try {
-          await this.createData(oModel, oPayload, "/ReservedBooks");
-          this.getView().byId("idReservedBooksPageTable").getBinding("items").refresh();
-          // this.oCreateBooksDialog.close();
-        } catch (error) {
-          // this.oCreateBooksDialog.close();
-          sap.m.MessageBox.error("Some technical Issue");
-        }
+  
+         
 
 
       },

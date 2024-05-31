@@ -66,7 +66,7 @@ sap.ui.define([
                         ],
                         success: async (oData) => {
                             var aRecords = oData.results;
-                            var oUserName = oData.results[0].ID;
+                            
 
                             // iterate each record
 
@@ -78,8 +78,10 @@ sap.ui.define([
                             if (bValidCredentials) {
                                 // Valid credentials
                                 const oRouter = await this.getOwnerComponent().getRouter();
+                                var oUserName = oData.results[0].ID;
                                 oRouter.navTo("routeUserLogin", { ID: oUserName })
-                            } else {
+                            } 
+                            else {
                                 // Invalid credentials
                                 alert("Invalid credentials/ user not exist ");
                                 // Handle accordingly, e.g., show an error message
@@ -94,18 +96,23 @@ sap.ui.define([
                 }
             },
             UserSignUpBtnClick: async function () {
-                
                 const oPayload = this.getView().getModel("localModelU").getProperty("/"),
                     oModel = this.getView().getModel("ModelV2");
+            
                 try {
-                    await this.createData(oModel, oPayload, "/Users");
-                    // this.getView().byId("idBooksTable").getBinding("items").refresh();
+                    const oResponse = await this.createData(oModel, oPayload, "/Users");
+                    console.log("Response from createData:", oResponse)
+                    const sNewUserId = oResponse.ID; // Assuming ID is returned in the response
+            
+                    // Now you can use the new user ID as needed
+            
                     this.oUserSignUp.close();
                 } catch (error) {
                     this.oUserSignUp.close();
                     sap.m.MessageBox.error("Some technical Issue");
-                }},
-
+                }
+            },
+            
             onAdminButton: async function () {
                 if (!this.oAdminLogin) {
                     debugger
