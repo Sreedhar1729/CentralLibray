@@ -8,7 +8,7 @@
         resizable="true"
         draggable="true"
         contentWidth="30%"
-        title="Create Employee"
+        title="Create Book"
     >
         <beginButton>
             <Button
@@ -55,8 +55,7 @@
                     value="{localModel>/isbn}"
                 />
 
-                 
-                 <Label
+                <Label
                     id="idTitleLabel"
                     text="Title"
                 />
@@ -64,7 +63,7 @@
                     id="idTitleInput"
                     value="{localModel>/title}"
                 />
-                 <Label
+                <Label
                     id="idQtyLabel"
                     text="Qty"
                 />
@@ -73,7 +72,7 @@
                     value="{localModel>/quantity}"
                 />
 
-                 <Label
+                <Label
                     id="idPriceLabel"
                     text="Price"
                 />
@@ -81,7 +80,7 @@
                     id="idPriceInput"
                     value="{localModel>/price}"
                 />
-                 <Label
+                <Label
                     id="idPagesLabel"
                     text="Pages"
                 />
@@ -103,10 +102,9 @@
                 />
                 <Input
                     id="idstatusInput"
+                    editable="false"
                     value="{localModel>/status}"
                 />
-
-
             </form:SimpleForm>
         </content>
     </Dialog>

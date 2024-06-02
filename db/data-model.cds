@@ -1,30 +1,51 @@
 namespace app.library;
+using { cuid  } from '@sap/cds/common';
 
-define entity Books {
-    key isbn     : String;
-        title    : String(50);
-        quantity : Integer;
-        price    : Decimal(5, 2);
-        pages    : Integer;
+
+define entity Books :cuid{
+        isbn             : String;
+        title            : String(50);
+        quantity         : Integer;
+        price            : Decimal(5, 2);
+        pages            : Integer;
         // authors: Composition of many Authors on authors.books = $self;
-        author: String;
-        status: String;
-        users : Association to   Users;
+        author           : String;
+        status           : String;
+        avl_stock        : Integer;
+        // users    : Association to Users;
+        booksloan_id     : Composition of many BooksLoan
+                               on booksloan_id.books = $self;
+        reservedbooks_id : Composition of many BooksLoan
+                               on reservedbooks_id.books = $self;
+
 
 }
 
-define entity Users{
-    key id: Integer;
-        user_name: String(30);
-        mobile: String;
-        
+define entity Users:cuid {
+    
+        email         : String(30);
+        mobile        : String;
+        UserName      : String;
+        Password      : String;
+        booksLoan     : Association to BooksLoan;
+        reservedbooks : Association to ReservedBooks;
+
 }
 
-define entity BooksLoan{
-    users:Association to Users;
-    books:Association to Books;
-    duedate:Date;
-    loandate:Date;
+define entity BooksLoan:cuid {
+        users    : Association to Users;
+        books    : Association to Books;
+        duedate  : Date;
+        loandate : Date;
+        Active   : Boolean;
+}
+
+define entity ReservedBooks :cuid{
+        users       : Association to Users;
+        books       : Association to Books;
+        reservedate : Date;
+
+
 }
 
 // define entity ReservedBooks{

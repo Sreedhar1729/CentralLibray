@@ -142,7 +142,36 @@
           "target": [
             "TargetLogin"
           ]
+        },
+        {
+          "name": "routeUserLogin",
+          "pattern": "Details/{ID}",
+          "target": [
+            "TargetUserLogin"
+          ]
+        },
+        {
+          "name": "routeUserLoans",
+          "pattern": "Loans",
+          "target": [
+            "TargetUserLoans"
+          ]
+        },
+        {
+          "name": "routeIssuedBooks",
+          "pattern": "IssuedBooks" ,
+          "target": [
+            "TargetIssuedBooks"
+          ]
+        },
+        {
+          "name": "routeReservedBooks",
+          "pattern": "ReservedBooks" ,
+          "target": [
+            "TargetReservedBooks"
+          ]
         }
+
       ],
       "targets": {
         "TargetView1": {
@@ -158,8 +187,36 @@
           "clearControlAggregation": false,
           "viewId": "Login",
           "viewName": "Login"
-        }
+        },
+      "TargetUserLogin": {
+        "viewType": "XML",
+        "transition": "slide",
+        "clearControlAggregation": false,
+        "viewId": "Details",
+        "viewName": "Details"
+      },
+      "TargetUserLoans": {
+        "viewType": "XML",
+        "transition": "slide",
+        "clearControlAggregation": false,
+        "viewId": "UserLoans",
+        "viewName": "UserLoans"
+      },
+      "TargetIssuedBooks": {
+        "viewType": "XML",
+        "transition": "slide",
+        "clearControlAggregation": false,
+        "viewId": "IssuedBooks",
+        "viewName": "IssuedBooks"
+      },
+      "TargetReservedBooks": {
+        "viewType": "XML",
+        "transition": "slide",
+        "clearControlAggregation": false,
+        "viewId": "ReservedBooks",
+        "viewName":"ReservedBooks"
       }
+    }
     },
     "rootView": {
       "viewName": "com.app.centrallibrary.view.App",

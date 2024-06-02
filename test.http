@@ -1,5 +1,21 @@
 ### read the Authors
-GET http://localhost:4004/odata/v4/app-library/Authors HTTP/1.1
+GET http://localhost:4004/odata/v4/BookSRV/BooksLoan HTTP/1.1
+### create
+POST http://localhost:4004/BookSRV/Books HTTP/1.1
+Content-Type: application/json
+
+    {
+        "isbn": "9780060850590",
+      "title": "The Catcher in the Rye",
+      "quantity": 12,
+      "price": 8.49,
+      "pages": 288,
+      "author": "J.D. Salinger",
+      "status": "Out of Stock",
+      "users_id": 4
+
+    }
+
 
 ### read the Books
 

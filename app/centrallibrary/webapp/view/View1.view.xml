@@ -8,83 +8,31 @@
     xmlns:layout="sap.ui.layout"
     xmlns:f="sap.f"
 >
-    <f:DynamicPage
+    <Page
         id="idBooksListPageTitle"
-        headerExpanded="true"
+        title="{i18n>title}"
+        class="sample"
     >
-        <f:title>
-            <f:DynamicPageTitle id="idBooksDynamicPageTitle">
-                <f:heading>
-                    <Title
-                        id="idBooksTitle"
-                        text="{i18n>title}"
-                    />
-                </f:heading>
-                <f:expandedContent>
-                    <Label
-                        id="idBooksListPageECL"
-                        text="{i18n>flpSubtitle}"
-                    />
-                </f:expandedContent>
-                <f:snappedContent>
-                    <Label
-                        id="idBooksListPageESL"
-                        text="{i18n>flpSubtitle}"
-                    />
-                </f:snappedContent>
-                <f:snappedTitleOnMobile>
-                    <Title
-                        id="idBooksListPageEST"
-                        text="{i18n>flpflpSubtitle}"
-                    />
-                </f:snappedTitleOnMobile>
-                <f:navigationActions>
-                  <Button
+
+
+        <!-- for mainting buttons in header -->
+        <headerContent>
+        <OverflowToolbar id="_IDGenOverflowToolbar1" class="sapUiContentPadding">
+        <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+            <Button
                 id="_IDGenButton1"
                 text="Admin"
                 press="onAdminButton"
-                
-                
+                type="Accept"
             />
+             <ToolbarSpacer id="_IDGenToolbarSpacer2" />
             <Button
                 id="_IDGenButton2"
                 text="User"
                 press="onUserLogin"
-                
-                
+                type="Accept"
             />
-                     
-                </f:navigationActions>
-            </f:DynamicPageTitle>
-        </f:title>
-    
-    <f:content>
-
-   
-</f:content>
-</f:DynamicPage>
-    <!-- 
-    <Page
-        id="_IDGenApp1"
-        title="{i18n>title}"
-    >
-        <VBox id="_IDGenVBox3" alignContent="Stretch">
-            <Button
-                id="_IDGenButton1"
-                text="Admin"
-                press="onAdminButton"
-            />
-            <Button
-                id="_IDGenButton2"
-                text="User"
-            />
-        </VBox>
-
-        <VBox
-            id="_IDGenVBox1"
-            alignItems="Center"
-        >
-            
-        </VBox>
-    </Page> -->
-</mvc:View>
+            </OverflowToolbar>
+        </headerContent>
+    </Page>
+  </mvc:View>
