@@ -61,7 +61,7 @@
                 <Column id="IdReservedBooksTitle">
                     <Title
                         id="IdReservedBooksTitleCol"
-                        text="Title"
+                        text="BookID"
                     />
                 </Column>
 
@@ -93,7 +93,7 @@
                         />
                         <Text
                             id="IdReservedBooksText2"
-                            text="{books/title}"
+                            text="{books/ID}"
                         />
                         <HBox id="idReservedBooksButton1">
                             <Button

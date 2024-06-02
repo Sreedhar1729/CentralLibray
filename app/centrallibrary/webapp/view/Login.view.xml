@@ -320,7 +320,8 @@
                             />
                              <Text
                                 id="_IDGenText8"
-                                text="{avl_stock}"
+                                text="{avl_stock}" 
+                                
                             />
 
                         </cells>

@@ -1,5 +1,5 @@
 ID,isbn,title,quantity,price,pages,author,status,avl_stock
-5c6e54af-4b6c-4e6d-bfd6-c429f88f04d8,9780553382167,The Hitchhiker's Guide to the Galaxy,25,12.99,304,Douglas Adams,In Stock,1
+5c6e54af-4b6c-4e6d-bfd6-c429f88f04d8,9780553382167,The Hitchhiker's Guide to the Galaxy,25,12.99,304,Douglas Adams,In Stock,0
 86e5b17d-07e7-45b1-af4f-d5e816e2d405,9780061120084,To Kill a Mockingbird,15,9.99,336,Harper Lee,In Stock,3
 c2d3b243-3f61-49f2-9368-0a9ef34d6ed3,9780143111597,1984,20,10.49,328,George Orwell,In Stock,3
 7d84c3fd-53e4-4c4b-80e4-742a228d23b0,9780446675536,The Alchemist,30,11.79,208,Paulo Coelho,In Stock,4
