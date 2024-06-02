@@ -1,5 +1,5 @@
 sap.ui.define(
-    [
+    [     "./BaseController",
         "sap/ui/core/mvc/Controller"
     ],
     function(BaseController) {
@@ -7,7 +7,9 @@ sap.ui.define(
   
       return BaseController.extend("com.app.centrallibrary.controller.IssuedBooks", {
         onInit: function() {
-        }
+        },
+        
+
       });
     }
   );

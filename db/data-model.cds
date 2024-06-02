@@ -17,6 +17,7 @@ define entity Books :cuid{
                                on booksloan_id.books = $self;
         reservedbooks_id : Composition of many BooksLoan
                                on reservedbooks_id.books = $self;
+        users_id : Composition of many Users on users_id.books =$self;
 
 
 }
@@ -29,6 +30,7 @@ define entity Users:cuid {
         Password      : String;
         booksLoan     : Association to BooksLoan;
         reservedbooks : Association to ReservedBooks;
+        books:Association to Books;
 
 }
 

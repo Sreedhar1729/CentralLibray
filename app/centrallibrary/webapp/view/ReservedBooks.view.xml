@@ -9,6 +9,7 @@
         <Table
             id="idReservedBooksPageTable"
             alternateRowColors="true"
+            mode="MultiSelect"
             growing="true"
             paste="onPaste"
             items="{ path:'/ReservedBooks',  parameters : {
@@ -99,6 +100,7 @@
                             <Button
                                 id="idReservedBooksButton"
                                 icon="sap-icon://delete"
+                                
                                 press="RDEL"
                             />
                         </HBox>

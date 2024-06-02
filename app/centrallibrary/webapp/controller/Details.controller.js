@@ -22,10 +22,12 @@ sap.ui.define([
       onBorrowNewBookPress: async function (oEvent) {
           var oSelectedItem = oEvent.getSource().getParent();
           var oSelectedBook = oSelectedItem.getBindingContext().getObject();
+          var oSel = this.byId("idBooksTable").getSelectedItem();
+          var oBooks_ID = oSel.getBindingContext().getProperty("ID");
       
           const userModel = new sap.ui.model.json.JSONModel({
               users_ID : oSelectedBook.ID,
-              books_ID: oSelectedBook.booksLoan.books.ID,
+              books_ID: oBooks_ID,
               reservedate: new Date(),
           });
           this.getView().setModel(userModel, "userModel");
