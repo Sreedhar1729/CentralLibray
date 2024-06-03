@@ -17,7 +17,17 @@ sap.ui.define(
         }
         var oSelectedBook=this.byId("idReservedBooksPageTable").getSelectedItem().getBindingContext().getObject()
         console.log(oSelectedBook)
-    
+        var oSelectedItem = oEvent.getSource().getParent();
+          var oSelectedBook1 = oSelectedItem.getBindingContext().getObject();
+        if (oSelectedBook1 && oSelectedBook1.books) {
+          if (typeof oSelectedBook1.books.quantity === 'number') {
+              oSelectedBook1.books.quantity = Math.max(0, oSelectedBook1.books.quantity - 1);
+          } else {
+              console.error("Quantity is not a number.");
+          }
+      } else {
+          console.error("Selected book or books object is not defined.");
+      }
         const userModel = new sap.ui.model.json.JSONModel({
             books_ID : oSelectedBook.books.ID,
             users_ID: oSelectedBook.users.ID,

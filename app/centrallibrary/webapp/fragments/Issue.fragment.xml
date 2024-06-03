@@ -122,16 +122,7 @@
                     liveChange="onEditBtnPress"
                     value="{}"
                 />
-                <Label
-                    id="idIssueBookStatus"
-                    text="Status"
-                />
-                <Input
-                    id="idIssueBookStatusVal"
-                    editable="true"
-                    valueLiveUpdate="true"
-                    value="{}"
-                />
+                
             </form:SimpleForm>
         </content>
     </Dialog>

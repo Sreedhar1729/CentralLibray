@@ -152,6 +152,7 @@
                                 id="idUserActiveLoanTable"
                                 mode="MultiSelect"
                                 alternateRowColors="true"
+                                items="{booksLoan}"
                                
                             >
                                 <m:headerToolbar>
@@ -217,19 +218,19 @@
                                         <m:cells>
                                             <m:Text
                                                 id="idBookNameColValueUserLoans"
-                                                text="{booksLoan/books/title}"
+                                                text="{books/title}"
                                             />
                                             <m:Text
                                                 id="idAuthorColValueUserLoans"
-                                                text="{booksLoan/books/author}"
+                                                text="{books/author}"
                                             />
                                             <m:Text
                                                 id="idISBNColValueUserLoans"
-                                                text="{booksLoan/books/isbn}"
+                                                text="{books/isbn}"
                                             />
                                             <m:Text
                                                 id="idDueDateValueUserLoans"
-                                                text="{booksLoan/duedate}"
+                                                text="{duedate}"
                                             />
                                         </m:cells>
                                     </m:ColumnListItem>

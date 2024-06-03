@@ -28,9 +28,9 @@ define entity Users:cuid {
         mobile        : String;
         UserName      : String;
         Password      : String;
-        booksLoan     : Association to BooksLoan;
-        reservedbooks : Association to ReservedBooks;
-        books:Association to Books;
+        booksLoan     : Association to many BooksLoan on booksLoan.users=$self;
+        reservedbooks : Association to ReservedBooks on reservedbooks.users=$self;
+        books:Association to Books  ;
 
 }
 
@@ -50,18 +50,4 @@ define entity ReservedBooks :cuid{
 
 }
 
-// define entity ReservedBooks{
-// key reserveid:Integer;
-//  rbookid:Composition of Books;
-//     reservedate:Date;
-//     rstatus:String;
-// }
-
-
-// define entity Authors{
-//     key id: Integer;
-//         author_name: String;
-//         author_address: String;
-//         books:Composition of many Books on books.authors = $self;
-//         // books:Association to  Books;
-// }
+ 

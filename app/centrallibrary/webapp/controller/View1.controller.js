@@ -44,6 +44,7 @@ sap.ui.define([
                     debugger
                     const oRouter = this.getOwnerComponent().getRouter();
                     oRouter.navTo("routeLogin")
+                    sap.m.MessageBox.success("Login Successful")
                 } else {
                     alert("Re-Enter your Detail");
                 }
@@ -80,6 +81,7 @@ sap.ui.define([
                                 const oRouter = await this.getOwnerComponent().getRouter();
                                 var oUserName = oData.results[0].ID;
                                 oRouter.navTo("routeUserLogin", { ID: oUserName })
+                                sap.m.MessageBox.success("Login Successful")
                             } 
                             else {
                                 // Invalid credentials
@@ -107,6 +109,7 @@ sap.ui.define([
                     // Now you can use the new user ID as needed
             
                     this.oUserSignUp.close();
+                    sap.m.MessageBox.success("created Successfully")
                 } catch (error) {
                     this.oUserSignUp.close();
                     sap.m.MessageBox.error("Some technical Issue");

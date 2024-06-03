@@ -35,6 +35,7 @@
                 growing="true"
                 items="{/BooksLoan}"
             >
+            
                 <columns>
                     <Column id="idIssueBooksIDCol">
                         <Label

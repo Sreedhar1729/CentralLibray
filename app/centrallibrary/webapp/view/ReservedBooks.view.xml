@@ -99,7 +99,7 @@
                         <HBox id="idReservedBooksButton1">
                             <Button
                                 id="idReservedBooksButton"
-                                icon="sap-icon://delete"
+                                icon="sap-icon://add"
                                 
                                 press="RDEL"
                             />

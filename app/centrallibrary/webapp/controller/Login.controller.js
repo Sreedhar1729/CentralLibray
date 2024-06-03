@@ -269,6 +269,29 @@ sap.ui.define([
                Reserved:function(){
                 const oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("routeReservedBooks")
+               },
+               onISB:async function(){
+                if (!this.oIssueBooksDialog) {
+                    this.oIssueBooksDialog = await this.loadFragment("Issue"); // Load your fragment asynchronously
+                }
+        
+                this.oIssueBooksDialog.open();
+               },
+               onIssueClose:function(){
+                if (this.oIssueBooksDialog.isOpen()) {
+                    this.oIssueBooksDialog.close();
+                }
+
+               },
+               onIssueSave:function(){
+
+                var oIssueBook = new sap.ui.model.json.JSONModel({
+
+                    
+                })
+
+
+
                }
         });
     });

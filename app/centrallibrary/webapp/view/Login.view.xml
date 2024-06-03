@@ -33,7 +33,7 @@
                         id="idLoginIssue"
                         text="Issue Books"
                         type="Default"
-                        press=""
+                        press="onISB"
                         class="sapUiSmallMarginEnd"
                     />
                     <Button
