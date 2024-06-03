@@ -194,6 +194,11 @@ sap.ui.define([
                     var oPrice = oSelected.getBindingContext().getProperty("price");
                     var oPage = oSelected.getBindingContext().getProperty("pages");
                     var oStatus = oSelected.getBindingContext().getProperty("status");
+                    var oavl_quan = oSelected.getBindingContext().getProperty("avl_quan");
+                    if(oavl_quan === 0 )
+                    {
+                        oavl_quan = oStock;
+                    }
             
                     var newBookModel = new sap.ui.model.json.JSONModel({
                         ID:oID,
@@ -203,7 +208,8 @@ sap.ui.define([
                         isbn: oISBN,
                         price: oPrice,
                         pages: oPage,
-                        status: oStatus
+                        status: oStatus,
+                        avl_quan : oavl_quan
                     });
             
                     this.getView().setModel(newBookModel, "newBookModel");

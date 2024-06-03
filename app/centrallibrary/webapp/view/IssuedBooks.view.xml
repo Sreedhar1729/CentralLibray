@@ -12,11 +12,11 @@
                 <f:heading>
                     <Title
                         id="idIssuedPageTitle"
-                        text="WELCOME to Issued Books!!"
+                        text="WELCOME to Books Loan History!!"
                     />
                 </f:heading>
                 <f:expandedContent>
-						<Label id="idsub" text="This is a subheading"/>
+						<Label id="idsub"  text="Books Loan {/BooksLoan/$count}"/>
 					</f:expandedContent>
 
                     <f:actions>
@@ -33,9 +33,11 @@
                 contextualWidth="Inherit"
                 alternateRowColors="true"
                 growing="true"
-                items="{/BooksLoan}"
+                items="{path:'/BooksLoan',parameters:{$count:true}}"
             >
             
+            
+
                 <columns>
                     <Column id="idIssueBooksIDCol">
                         <Label
@@ -47,6 +49,12 @@
                         <Label
                             id="idIssuedUserIDLabel"
                             text="User ID"
+                        />
+                    </Column>
+                    <Column id="idIssueBooksUserNameCol">
+                        <Label
+                            id="idIssuedUserNameLabel"
+                            text="User Name"
                         />
                     </Column>
                      <Column id="idIssueBooksTitleCol">
@@ -86,6 +94,10 @@
                             <Text
                                 id="idIssueUserIDVal"
                                 text="{users/ID}"
+                            />
+                            <Text
+                                id="idIssueUserNameVal"
+                                text="{users/UserName}"
                             />
                             <Text
                                 id="idIssueTitleVal"

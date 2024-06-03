@@ -7,6 +7,14 @@ sap.ui.define(
   
       return BaseController.extend("com.app.centrallibrary.controller.ReservedBooks", {
         onInit: function() {
+          var oTable = this.byId("idReservedBooksPageTable");
+
+          
+          var oColumn = oTable.getColumns()[4]; // Index 1 represents the second column
+      
+          // Hide the column
+          oColumn.setVisible(false);
+
         },
         RDEL:async function(oEvent)
         {
@@ -20,14 +28,17 @@ sap.ui.define(
         var oSelectedItem = oEvent.getSource().getParent();
           var oSelectedBook1 = oSelectedItem.getBindingContext().getObject();
         if (oSelectedBook1 && oSelectedBook1.books) {
-          if (typeof oSelectedBook1.books.quantity === 'number') {
-              oSelectedBook1.books.quantity = Math.max(0, oSelectedBook1.books.quantity - 1);
+          if (typeof oSelectedBook1.books.avl_stock === 'number') {
+              oSelectedBook1.books.avl_stock = Math.max(0, oSelectedBook1.books.avl_stock - 1);
           } else {
               console.error("Quantity is not a number.");
           }
       } else {
           console.error("Selected book or books object is not defined.");
       }
+
+    
+
         const userModel = new sap.ui.model.json.JSONModel({
             books_ID : oSelectedBook.books.ID,
             users_ID: oSelectedBook.users.ID,
@@ -42,7 +53,7 @@ sap.ui.define(
             try {
               await this.createData(oModel, oPayload, "/BooksLoan");
               sap.m.MessageBox.success("Book Accepted");
-              //this.getView().byId("idReservedBooksPageTable").getBinding("items").refresh();
+              this.getView().byId("idReservedBooksPageTable").getSelectedItem().getBindingContext().delete("$auto");
               //this.oCreateBooksDialog.close();
           } catch (error) {
               //this.oCreateBooksDialog.close();

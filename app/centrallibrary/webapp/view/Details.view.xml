@@ -64,8 +64,17 @@
                         text="Welcomes You"
                     />
                 </expandedContent>
- 
-                <actions />
+
+                <actions >
+                <m:Button id="bellButton"  class="sapUiSmallMarginEnd"
+                icon="sap-icon://bell"
+                tooltip="Notifications"
+                type="Transparent"
+                press="onNotificationPress" />
+                
+                </actions>
+
+
             </ObjectPageDynamicHeaderTitle>
         </headerTitle>
  
@@ -96,7 +105,7 @@
                     />
                     <m:Link
                         id="idLink2"
-                        text="sree@artihcus.com"
+                        text="{UserName}@artihcus.com"
                     />
                 </layout:VerticalLayout>
                 <layout:HorizontalLayout
@@ -326,7 +335,7 @@
                                             />
                                             <m:Text
                                                 id="idStockColValue"
-                                                text="{quantity}"
+                                                text="{avl_stock}"
                                             />
                                             <m:Text
                                                 id="idISBNColValue"

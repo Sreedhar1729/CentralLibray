@@ -1,11 +1,34 @@
 <mvc:View
     xmlns:tnt="sap.tnt"
+    xmlns:f="sap.f"
     controllerName="com.app.centrallibrary.controller.UserLoans"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
 >
+<f:DynamicPage >
+        <f:title>
+            <f:DynamicPageTitle >
+                <f:heading>
+                    <Title
+                
+                        text="WELCOME to Active Loans!!"
+                    />
+                </f:heading>
+                <f:expandedContent>
+						<Label  text="This is a subheading"/>
+					</f:expandedContent>
+
+                    <f:actions>
+                    <!-- <Button id="idIssuedAdd" text="Add" class="sapUiSmallMarginEnd" type="Success"/>
+                    <Button id="idIssuedEDit" text="Delete" type="Negative"/> -->
+                    </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header />
+        <f:content>
     <!-- <List id="idUserLoans" items="{path:'/BooksLoan'}">
     <StandardListItem  id="ss" title="{users}" counter="{users}"></StandardListItem>
     </List> -->
@@ -15,6 +38,8 @@
         alternateRowColors="true"
         backgroundDesign="Transparent"
         mode="MultiSelect"
+        growing="true"
+        selectionChange="onchange"
     >
      
      <!-- Header Tool Bar-->
@@ -34,7 +59,9 @@
                 <Button
                     id="idEditbutton"
                     type="Emphasized"
-                    icon="sap-icon://edit"
+                    icon="sap-icon://delete"
+                    press="onClickDelete"
+                    text="CloseLoan"
                 />
                 <!-- <Button
                     id="idDeletebutton"
@@ -55,6 +82,12 @@
                 <Title
                     id="idUsertitle"
                     text="UserID"
+                />
+            </Column>
+             <Column id="idUserNameColumn">
+                <Title
+                    id="idUserNametitle"
+                    text="UserName"
                 />
             </Column>
             <Column id="idBooksColumn">
@@ -97,6 +130,10 @@
                         text="{users/ID}"
                     />
                     <Text
+                        id="idBUserNamevalue"
+                        text="{users/UserName}"
+                    />
+                    <Text
                         id="idBdatevalue"
                         text="{books/isbn}"
                     />
@@ -117,4 +154,6 @@
             </ColumnListItem>
         </items>
     </Table>
+    </f:content>
+    </f:DynamicPage>
 </mvc:View>

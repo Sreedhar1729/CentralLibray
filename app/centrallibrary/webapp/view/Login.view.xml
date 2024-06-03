@@ -10,9 +10,10 @@
     <f:DynamicPage
         id="_IDGenDynamicPage1"
         headerExpanded="true"
+        class="simplesetcolor"
     >
         <f:title>
-            <f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
+            <f:DynamicPageTitle id="_IDGenDynamicPageTitle1" >
                 <f:heading>
                     <Title
                         id="_IDGenTitle1"
@@ -142,20 +143,7 @@
                 </HBox>
 
                 <ToolbarSpacer id="tool" />
-                <!-- <FlexBox
-                    id="_IDGenFlexBox1"
-                    justifyContent="End"
-                >
-               
-                    <VBox >
-                    <HBox>
-                    
-                      </HBox>
-                    </VBox>
-        
-                </FlexBox> -->
-
-                <!-- </HBox> -->
+                 
             </f:DynamicPageHeader>
         </f:header>
 
@@ -170,6 +158,7 @@
             $count : true  
             
         }}"
+        class="simplesetcolor"
                 selectionChange="onSelectBooks"
             >
                 <headerToolbar>
@@ -218,7 +207,7 @@
                     </OverflowToolbar>
                 </headerToolbar>
 
-                <columns>
+                <columns >
                 <Column id="_IDGenColum1">
                         <Title
                             id="_IDGenTitl3"

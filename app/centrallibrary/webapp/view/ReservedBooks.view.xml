@@ -65,6 +65,12 @@
                         text="BookID"
                     />
                 </Column>
+                  <Column id="IdReservedBooksAvlActions">
+                    <Title
+                        id="IdReservedBooksAvlActionsCol"
+                        text="BooksAvl"
+                    />
+                </Column>
 
                 <Column id="IdReservedBooksActions">
                     <Title
@@ -72,6 +78,7 @@
                         text="Actions"
                     />
                 </Column>
+              
             </columns>
 
             <items>
@@ -96,11 +103,15 @@
                             id="IdReservedBooksText2"
                             text="{books/ID}"
                         />
+                        <Text
+                            id="IdReservedBooksavl_stockText2"
+                            text="{books/avl_stock}"
+                        />
                         <HBox id="idReservedBooksButton1">
                             <Button
                                 id="idReservedBooksButton"
                                 icon="sap-icon://add"
-                                
+                                text="ISSUE"
                                 press="RDEL"
                             />
                         </HBox>
