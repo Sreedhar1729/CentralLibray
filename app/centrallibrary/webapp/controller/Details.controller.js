@@ -31,20 +31,20 @@ if (this.byId("idBooksTable").getSelectedItems().length > 1) {
     return;
 }
 var oSelectedBook = this.byId("idBooksTable").getSelectedItem().getBindingContext().getObject();
-console.log(oSelectedBook);
-console.log(oSel.quantity); // Corrected typo
+// console.log(oSelectedBook);
+// console.log(oSel.quantity); // Corrected typo
 
-// Adjusting the quantity
-var oQuantity = oSel.avl_stock - 1;
-console.log(oQuantity);
+// // Adjusting the quantity
+// var oQuantity = oSel.avl_stock - 1;
+// console.log(oQuantity);
 
 const userModel = new sap.ui.model.json.JSONModel({
     users_ID: oSelectedUser.ID,
     books_ID: oSelectedBook.ID,
     reservedate: new Date(),
-    books: {
-        avl_stock: oQuantity // Include the avl_stock in the model
-    }
+    // books: {
+    //     avl_stock: oQuantity // Include the avl_stock in the model
+    // }
 });
 this.getView().setModel(userModel, "userModel");
 
@@ -55,15 +55,15 @@ try {
     await this.createData(oModel, oPayload, "/ReservedBooks");
     sap.m.MessageBox.success("Book reserved");
     
-    // Update the avl_stock field in the Books entity
-    oModel.update("/Books(" + oSelectedBook.ID + ")", oPayload.books, {
-        success: function () {
-            this.getView().byId("idBooksTable").getBinding("items").refresh();
-        }.bind(this),
-        error: function (oError) {
-            sap.m.MessageBox.error("Failed to update avl_stock: " + oError.message);
-        }.bind(this)
-    });
+    // // Update the avl_stock field in the Books entity
+    // oModel.update("/Books(" + oSelectedBook.ID + ")", oPayload.books, {
+    //     success: function () {
+    //         this.getView().byId("idBooksTable").getBinding("items").refresh();
+    //     }.bind(this),
+    //     error: function (oError) {
+    //         sap.m.MessageBox.error("Failed to update avl_stock: " + oError.message);
+    //     }.bind(this)
+    // });
     
 } catch (error) {
     sap.m.MessageBox.error("Some technical issue occurred");

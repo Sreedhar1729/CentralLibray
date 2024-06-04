@@ -122,6 +122,15 @@
                     value="{newBookModel>/author}"
                 />
                 <Label
+                    id="idavlqtLabel"
+                    text="AVL_STOCK"
+                />
+                <Input
+                    id="idavlqtyaInput"
+                    editable="false"
+                    value="{localModel>/avl_stock}"
+                />
+                <Label
                     id="idEditBookStatus"
                     text="Status"
                 />

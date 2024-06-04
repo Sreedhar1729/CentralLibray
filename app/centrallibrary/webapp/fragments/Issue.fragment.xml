@@ -55,75 +55,34 @@
                     id="idIssueBookIDVal"
                     editable="true"
                     valueLiveUpdate="true"
-                    value="{}"
+                    value="{newLoanModel>/books_ID}"
                 />
                 <Label
-                    id="idIssueBookISBN"
-                    text="ISBN"
+                    id="idIssueBookUserID"
+                    text="UserID"
                 />
                 <Input
-                    id="idIssueBookISBNVal"
+                    id="idIssueBookUserIDVal"
                     editable="true"
-                    valueLiveUpdate="true"
-                    value="{}"
+                    liveChange="true"
+                    value="{newLoanModel>/users_ID}"
                 />
-
-                <Label
-                    id="idIssueBookTitle"
-                    text="Title"
-                />
-                <Input
-                    id="idIssueBookTitleVal"
-                    editable="true"
-                    valueLiveUpdate="true"
-                    value="{}"
-                />
-                <Label
-                    id="idIssueBookQty"
-                    text="Qty"
-                />
-                <Input
-                    id="idIssueBookQtyVal"
-                    type="Number"
-                    editable="true"
-                    valueLiveUpdate="true"
-                    value="{newBookModel>/quantity}"
-                />
-
+                 
+                 
+                 
                 <Label
                     id="idIssueBookPrice"
-                    text="Price"
+                    text="DueDate"
                 />
                 <Input
                     id="idIssueBookPriceVal"
                     editable="true"
-                    valueLiveUpdate="true"
-                    value="{}"
-                />
-                <Label
-                    id="idEditBookPages"
-                    text="Pages"
-                />
-                <Input
-                    id="idIssueBookPagesVal"
-                    type="Number"
-                    editable="true"
-                    valueLiveUpdate="true"
-                    value="{}"
-                />
-                <Label
-                    id="idIssueBookAuthor"
-                    text="Author"
-                />
-                <Input
-                    id="idIssueBookAuthorVal"
-                    editable="true"
-                    valueLiveUpdate="true"
-                    liveChange="onEditBtnPress"
-                    value="{}"
-                />
+                    
+                    
                 
-            </form:SimpleForm>
+                    value="{newLoanModel>/duedate}"
+                />
+                             </form:SimpleForm>
         </content>
     </Dialog>
 

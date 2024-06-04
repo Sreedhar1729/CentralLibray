@@ -32,7 +32,7 @@
 
                     <Button
                         id="idLoginIssue"
-                        text="Issue Books"
+                        text="Issue Book"
                         type="Default"
                         press="onISB"
                         class="sapUiSmallMarginEnd"

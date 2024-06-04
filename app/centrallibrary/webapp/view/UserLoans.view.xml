@@ -109,6 +109,12 @@
                     text="LoanDatee"
                 />
             </Column>
+ <Column id="idbodavl_stockColumn">
+                <Title
+                    id="idbodavl_stocktitle"
+                    text="LoanDatee"
+                />
+            </Column>
 
             <Column id="idUserLoanActiveCol">
                         <Label
@@ -144,6 +150,10 @@
                     <Text
                         id="idduevalue"
                         text="{duedate}"
+                    />
+                    <Text
+                        id="idavl_stovalue"
+                        text="{books/avl_stock}"
                     />
                     <Text
                         id="idUserLoanActivevalue"

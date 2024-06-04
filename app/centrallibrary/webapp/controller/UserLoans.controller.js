@@ -7,9 +7,39 @@ sap.ui.define(
   
       return BaseController.extend("com.app.centrallibrary.controller.UserLoans", {
         onInit: function() {
+            var oTable = this.byId("idUserLoans");
+
+        var oColumn = oTable.getColumns()[6]; // Index 4 represents the fifth column
+    
+        // Hide the column
+        oColumn.setVisible(false);
         },
-        onClickDelete:async function(){
+        onClickDelete:async function(oEvent){
           var osel = this.byId("idUserLoans").getSelectedItem().getBindingContext().getObject();
+          
+          // var osel = this.byId("idReservedBooksPageTable").getSelectedItem().getBindingContext().getObject();
+          console.log(osel);
+
+          // var oSelectedItem = oEvent.getSource().getParent();
+          // var oSelectedBook1 = oSelectedItem.getBindingContext().getObject();
+
+          
+              if (typeof osel.books.avl_stock === 'number') {
+                  osel.books.avl_stock = Math.max(0, osel.books.avl_stock + 1);
+
+                  // Update the avl_stock value in the "Books" entity set
+                  var oModel = this.getView().getModel("ModelV2");
+                  try {
+                      await oModel.update("/Books(" + osel.books.ID + ")", osel.books);
+                  } catch (error) {
+                      console.error("Error updating book avl_stock:", error);
+                  }
+              } else {
+                  console.error("Quantity is not a number.");
+              }
+          
+
+
 
            
         
@@ -29,6 +59,7 @@ sap.ui.define(
                     oModel.update("/BooksLoan(" + oPayload.ID + ")", oPayload, {
                         success: function() {
                             this.getView().byId("idUserLoans").getBinding("items").refresh();
+                            sap.m.MessageBox.success("Loan closed Successfully!!!");
                             // this.oEditBooksDialog.close();
                         }.bind(this),
                         error: function(oError) {

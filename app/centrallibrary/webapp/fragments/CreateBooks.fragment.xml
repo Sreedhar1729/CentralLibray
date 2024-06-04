@@ -71,6 +71,14 @@
                     id="idQtyInput"
                     value="{localModel>/quantity}"
                 />
+                <Label
+                    id="idAvlQtyLabel"
+                    text="Avl_qty"
+                />
+                <Input
+                    id="idAvl_qunaInput"
+                    value="{localModel>/avl_stock}"
+                />
 
                 <Label
                     id="idPriceLabel"
