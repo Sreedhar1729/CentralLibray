@@ -305,12 +305,14 @@ sap.ui.define([
                         oSelectedBook.avl_stock = Math.max(0, oSelectedBook.avl_stock - 1);
                         // oSelectedBook.avl_stock=oSelectedBook.setValue(oSelectedBook.avl_stock)
       
-                        
+                        delete oSelectedBook['@$ui5.context.isSelected'];
                         // Update the avl_stock value in the "Books" entity set
                         var oModel = this.getView().getModel("ModelV2");
                         try {
                             await oModel.update("/Books(" + oSelectedBook.ID + ")", oSelectedBook);
                             this.byId("_IDGenTable1").getBinding("items").refresh();
+                            
+                            console.log()
                             console.log("success")
                         } catch (error) {
                             console.error("Error updating book avl_stock:", error);

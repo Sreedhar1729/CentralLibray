@@ -23,52 +23,52 @@ sap.ui.define([
         onBorrowNewBookPress: async function (oEvent) {
 
             var oSel = this.byId("idBooksTable").getSelectedItem().getBindingContext().getObject();
-var oSelectedItem = oEvent.getSource().getParent();
-console.log(oSelectedItem);
-var oSelectedUser = oSelectedItem.getBindingContext().getObject();
-if (this.byId("idBooksTable").getSelectedItems().length > 1) {
-    sap.m.MessageToast.show("Please select only one book");
-    return;
-}
-var oSelectedBook = this.byId("idBooksTable").getSelectedItem().getBindingContext().getObject();
-// console.log(oSelectedBook);
-// console.log(oSel.quantity); // Corrected typo
+            var oSelectedItem = oEvent.getSource().getParent();
+            console.log(oSelectedItem);
+            var oSelectedUser = oSelectedItem.getBindingContext().getObject();
+            if (this.byId("idBooksTable").getSelectedItems().length > 1) {
+                sap.m.MessageToast.show("Please select only one book");
+                return;
+            }
+            var oSelectedBook = this.byId("idBooksTable").getSelectedItem().getBindingContext().getObject();
+            // console.log(oSelectedBook);
+            // console.log(oSel.quantity); // Corrected typo
 
-// // Adjusting the quantity
-// var oQuantity = oSel.avl_stock - 1;
-// console.log(oQuantity);
+            // // Adjusting the quantity
+            // var oQuantity = oSel.avl_stock - 1;
+            // console.log(oQuantity);
 
-const userModel = new sap.ui.model.json.JSONModel({
-    users_ID: oSelectedUser.ID,
-    books_ID: oSelectedBook.ID,
-    reservedate: new Date(),
-    // books: {
-    //     avl_stock: oQuantity // Include the avl_stock in the model
-    // }
-});
-this.getView().setModel(userModel, "userModel");
+            const userModel = new sap.ui.model.json.JSONModel({
+                users_ID: oSelectedUser.ID,
+                books_ID: oSelectedBook.ID,
+                reservedate: new Date(),
+                // books: {
+                //     avl_stock: oQuantity // Include the avl_stock in the model
+                // }
+            });
+            this.getView().setModel(userModel, "userModel");
 
-const oPayload = this.getView().getModel("userModel").getProperty("/"),
-    oModel = this.getView().getModel("ModelV2");
+            const oPayload = this.getView().getModel("userModel").getProperty("/"),
+                oModel = this.getView().getModel("ModelV2");
 
-try {
-    await this.createData(oModel, oPayload, "/ReservedBooks");
-    sap.m.MessageBox.success("Book reserved");
-    
-    // // Update the avl_stock field in the Books entity
-    // oModel.update("/Books(" + oSelectedBook.ID + ")", oPayload.books, {
-    //     success: function () {
-    //         this.getView().byId("idBooksTable").getBinding("items").refresh();
-    //     }.bind(this),
-    //     error: function (oError) {
-    //         sap.m.MessageBox.error("Failed to update avl_stock: " + oError.message);
-    //     }.bind(this)
-    // });
-    
-} catch (error) {
-    sap.m.MessageBox.error("Some technical issue occurred");
-}
- 
+            try {
+                await this.createData(oModel, oPayload, "/ReservedBooks");
+                sap.m.MessageBox.success("Book reserved");
+
+                // // Update the avl_stock field in the Books entity
+                // oModel.update("/Books(" + oSelectedBook.ID + ")", oPayload.books, {
+                //     success: function () {
+                //         this.getView().byId("idBooksTable").getBinding("items").refresh();
+                //     }.bind(this),
+                //     error: function (oError) {
+                //         sap.m.MessageBox.error("Failed to update avl_stock: " + oError.message);
+                //     }.bind(this)
+                // });
+
+            } catch (error) {
+                sap.m.MessageBox.error("Some technical issue occurred");
+            }
+
         },
 
         createData: function (oModel, oPayload, sPath) {
@@ -90,9 +90,9 @@ try {
             }
             this.oNotificationDialog.open();
         },
-        onCloseNotification:function(){
-            if(this.oNotificationDialog.isOpen()){
-            this.oNotificationDialog.close();
+        onCloseNotification: function () {
+            if (this.oNotificationDialog.isOpen()) {
+                this.oNotificationDialog.close();
             }
         }
     });
