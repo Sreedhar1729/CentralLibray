@@ -18,9 +18,41 @@
                 </contentRight>
             </Bar>
         </customHeader>
-<content>
-<Title id="idNotify" text="Notifications"/>
-</content>
+
+             
+        	<Table
+        id="idUserLoans"
+         
+        alternateRowColors="true"
+        backgroundDesign="Transparent"
+       
+        items="{ path:'/BooksLoan',  parameters : {
+            $count : true
+        }}"
+    >
+        <columns>
+            <Column id="idIsbnColumn">
+                <Title
+                    id="id11Isbntitle"
+                    text="Notification about Issued books"
+                />
+            </Column>
+           
+        </columns>
+
+        <items>
+            <ColumnListItem id="idColumnListBooksLoan">
+                <cells>
+                    <Text
+                        id="id11BISBNvalue"
+                        text="{notify}"
+                    />
+                    
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+       
 
 </Dialog>
 

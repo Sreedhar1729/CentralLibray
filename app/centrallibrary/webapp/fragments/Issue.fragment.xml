@@ -21,7 +21,7 @@
         </beginButton>
         <endButton>
             <Button
-                id="idEditBookCancel"
+                id="idEditBooCancel"
                 text="Cancel"
                 press="onIssueClose"
                 type="Negative"

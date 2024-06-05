@@ -280,6 +280,7 @@ sap.ui.define([
             onISB: async function (oEvent) {
                 var asel = this.byId("_IDGenTable1").getSelectedItem();
                 var oavl_stock = asel.getBindingContext().getProperty("avl_stock")
+                 
                 if(oavl_stock==0){
                     sap.m.MessageBox.success("Availability stock is ZERO!!")
                 }
@@ -288,19 +289,29 @@ sap.ui.define([
 
                     var abooks_ID = asel.getBindingContext().getProperty("ID");
                 }
+                
 
+                // var oSelectedBook = this.byId("_IDGenTable1").getSelectedItem().getBindingContext().getObject();
+                
                 var oSelectedBook = this.byId("_IDGenTable1").getSelectedItem().getBindingContext().getObject();
                 console.log(oSelectedBook);
-       
+      
+                var oSelectedItem = oEvent.getSource().getParent();
+                var oSelectedBook1 = oSelectedItem.getBindingContext()
+      
       
                 
                     if (typeof oSelectedBook.avl_stock === 'number') {
                         oSelectedBook.avl_stock = Math.max(0, oSelectedBook.avl_stock - 1);
+                        // oSelectedBook.avl_stock=oSelectedBook.setValue(oSelectedBook.avl_stock)
       
+                        
                         // Update the avl_stock value in the "Books" entity set
                         var oModel = this.getView().getModel("ModelV2");
                         try {
                             await oModel.update("/Books(" + oSelectedBook.ID + ")", oSelectedBook);
+                            this.byId("_IDGenTable1").getBinding("items").refresh();
+                            console.log("success")
                         } catch (error) {
                             console.error("Error updating book avl_stock:", error);
                         }
@@ -332,6 +343,7 @@ sap.ui.define([
                     duedate: formattedDateAfter20Days,
                     loandate: formattedDate,
                     Active: true,
+                    
 
                 });
                 this.getView().setModel(newLoanModel, "newLoanModel")

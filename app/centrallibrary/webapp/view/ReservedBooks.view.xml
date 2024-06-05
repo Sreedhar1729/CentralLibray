@@ -65,6 +65,12 @@
                         text="BookID"
                     />
                 </Column>
+                <Column id="IdReservedBooksBookName">
+                    <Title
+                        id="IdReservedBooksBookNameCol"
+                        text="BookTitle"
+                    />
+                </Column>
                   <Column id="IdReservedBooksAvlActions">
                     <Title
                         id="IdReservedBooksAvlActionsCol"
@@ -102,6 +108,10 @@
                         <Text
                             id="IdReservedBooksText2"
                             text="{books/ID}"
+                        />
+                        <Text
+                            id="IdReservedBookstitleText2"
+                            text="{books/title}"
                         />
                         <Text
                             id="IdReservedBooksavl_stockText2"

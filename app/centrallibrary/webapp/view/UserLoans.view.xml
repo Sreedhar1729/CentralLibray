@@ -145,11 +145,11 @@
                     />
                     <Text
                         id="idbodvalue"
-                        text="{loandate}"
+                        text="{duedate}"
                     />
                     <Text
                         id="idduevalue"
-                        text="{duedate}"
+                        text="{loandate}"
                     />
                     <Text
                         id="idavl_stovalue"

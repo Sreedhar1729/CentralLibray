@@ -9,9 +9,11 @@ sap.ui.define(
       onInit: function() {
         var oTable = this.byId("idReservedBooksPageTable");
 
-        var oColumn = oTable.getColumns()[4]; // Index 4 represents the fifth column
+        var oColumn = oTable.getColumns()[5];
+        // var oColumn1 = oTable.getColumns()[5]; // Index 4 represents the fifth column
     
         // Hide the column
+        
         oColumn.setVisible(false);
       },
 
@@ -44,13 +46,26 @@ sap.ui.define(
           } else {
               console.error("Selected book or books object is not defined.");
           }
-
+          var currentDate = new Date();
+          currentDate.setDate(currentDate.getDate() + 20);
+                
+          // Get the year, month, and day components after adding 20 days
+          var yearAfter20Days = currentDate.getFullYear();
+          var monthAfter20Days = String(currentDate.getMonth() + 1).padStart(2, '0');
+          var dayAfter20Days = String(currentDate.getDate()).padStart(2, '0');
+          
+          // Format the date after adding 20 days in "yyyy-mm-dd" format
+          var formattedDateAfter20Days = yearAfter20Days + '-' + monthAfter20Days + '-' + dayAfter20Days;
           const userModel = new sap.ui.model.json.JSONModel({
               books_ID: oSelectedBook.books.ID,
               users_ID: oSelectedBook.users.ID,
               duedate: new Date(),
-              loandate: new Date(),
+              loandate: formattedDateAfter20Days,
               Active: true,
+              notify: `Your reserved book  title "
+              ${oSelectedBook.books.title}
+              " is issued`,
+              
           });
           this.getView().setModel(userModel, "userModel");
 

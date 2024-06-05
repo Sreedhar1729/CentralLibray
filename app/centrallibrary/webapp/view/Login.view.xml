@@ -159,7 +159,7 @@
             
         }}"
         class="simplesetcolor"
-                selectionChange="onSelectBooks"
+                
             >
                 <headerToolbar>
                     <OverflowToolbar id="idEmployeeTableHeader">
@@ -272,7 +272,7 @@
                 <items>
                     <ColumnListItem
                         id="_IDGenColumnListItem1"
-                        type="Navigation"
+                        
                     >
                         <cells>
                         <Text

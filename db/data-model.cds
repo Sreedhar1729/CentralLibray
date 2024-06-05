@@ -40,6 +40,7 @@ define entity BooksLoan:cuid {
         duedate  : Date;
         loandate : Date;
         Active   : Boolean;
+        notify:String;
 }
 
 define entity ReservedBooks :cuid{

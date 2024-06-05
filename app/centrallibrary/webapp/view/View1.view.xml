@@ -11,6 +11,8 @@
     <Page
         id="idBooksListPageTitle"
         title="{i18n>title}"
+        titleLevel="H6"
+        backgroundDesign="List"
         class="sample"
     >
 
