@@ -89,9 +89,6 @@ sap.ui.define([
                 this.oNotificationDialog = await this.loadFragment("Notification"); // Load your fragment asynchronously
             }
             this.oNotificationDialog.open();
-            const oObjectPage = this.getView().byId("idDialogNotify");
-
-            oObjectPage.bindElement(`/Users(${this.id})`);
         },
         onCloseNotification: function () {
             if (this.oNotificationDialog.isOpen()) {
