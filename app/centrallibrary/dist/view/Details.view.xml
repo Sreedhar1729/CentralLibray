@@ -71,6 +71,8 @@
                 tooltip="Notifications"
                 type="Transparent"
                 press="onNotificationPress" />
+
+                <m:Button id="home" text="Logout" press="onHome" type="Neutral"/>
                 
                 </actions>
 

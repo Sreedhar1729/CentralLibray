@@ -97,6 +97,10 @@ sap.ui.define([
             if (this.oNotificationDialog.isOpen()) {
                 this.oNotificationDialog.close();
             }
+        },
+        onHome: async function () {
+            const oRoute = this.getOwnerComponent().getRouter();
+            oRoute.navTo("RouteView1", {}, true);
         }
     });
 });

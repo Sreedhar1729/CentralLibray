@@ -8,19 +8,23 @@ sap.ui.define([
     "sap/m/MessageBox",
     "sap/m/ColumnListItem",
     'sap/m/Input',
-    "sap/ui/model/odata/v2/ODataModel"
+    "sap/ui/model/odata/v2/ODataModel",
+    "sap/ui/core/routing/History"
 
 
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Token, Filter, FilterOperator, JSONModel, Fragment, MessageBox, ColumnListItem, Input, oDataModel) {
+    function (Controller, Token, Filter, FilterOperator, JSONModel, Fragment, MessageBox, ColumnListItem, Input, oDataModel,History) {
         "use strict";
 
         return Controller.extend("com.app.centrallibrary.controller.Login", {
 
             onInit: function () {
+                const router = ( this.getOwnerComponent()).getRouter();
+        router.getRoute("routeLogin").attachPatternMatched(this.onObjectMatched, this);
+    
 
                 var oViewModel = new JSONModel({
                     busy: false,
@@ -190,14 +194,14 @@ sap.ui.define([
                     var oID = oSelected.getBindingContext().getProperty("ID");
                     var oAuthorName = oSelected.getBindingContext().getProperty("author");
                     var oBookname = oSelected.getBindingContext().getProperty("title");
-                    var oStock = oSelected.getBindingContext().getProperty("quantity");
+                     this.oStock = oSelected.getBindingContext().getProperty("quantity");
                     var oISBN = oSelected.getBindingContext().getProperty("isbn");
                     var oPrice = oSelected.getBindingContext().getProperty("price");
                     var oPage = oSelected.getBindingContext().getProperty("pages");
                     var oStatus = oSelected.getBindingContext().getProperty("status");
-                    var oavl_quan = oSelected.getBindingContext().getProperty("avl_stock");
-                         if(oavl_quan == undefined){
-                        oavl_quan = oStock;
+                    this.oavl_quan = oSelected.getBindingContext().getProperty("avl_stock");
+                         if(this.oavl_quan == undefined){
+                        this.oavl_quan = this.oStock;
                 }
                        
                     
@@ -206,14 +210,14 @@ sap.ui.define([
                         ID: oID,
                         author: oAuthorName,
                         title: oBookname,
-                        quantity: oStock,
+                        quantity: this.oStock,
                         isbn: oISBN,
                         price: oPrice,
                         pages: oPage,
                         status: oStatus,
-                        avl_stock: oavl_quan
+                        avl_stock: this.oavl_quan
                     });
-
+                    
                     this.getView().setModel(newBookModel, "newBookModel");
 
                     if (!this.oEditBooksDialog) {
@@ -225,7 +229,22 @@ sap.ui.define([
             },
 
             onSave: function () {
+                console.log(this.oStock)
+                console.log(this.oavl_quan)
                 var oPayload = this.getView().getModel("newBookModel").getData();
+                oPayload.quantity;
+                if(oPayload.quantity>this.oStock){
+                    var aa=oPayload.quantity-this.oStock;
+                    oPayload.avl_stock = this.oavl_quan + aa;
+                }
+                else(oPayload.quantity<this.oStock)
+                {
+                    var bb = this.oStock - oPayload.quantity;
+                    oPayload.avl_stock = this.oavl_quan-bb;
+
+                }
+            
+
                 var oDataModel = this.getOwnerComponent().getModel("ModelV2");// Assuming this is your OData V2 model
                 console.log(oDataModel.getMetadata().getName());
 
@@ -387,8 +406,20 @@ sap.ui.define([
                     console.log("Dialog:", this.oIssueBooksDialog); // Check if the dialog object is correctly referenced
 this.oIssueBooksDialog.close(); // Attempt to cl
                 }
+            },
+            //  admin logout button
+            adLog:async function(){
+                const oHistory = History.getInstance();
+			const sPreviousHash = oHistory.getPreviousHash();
+
+			if (sPreviousHash !== undefined) {
+				window.history.go(-1);
+            }else{
+                const oR= this.getOwnerComponent().getRouter();
+                oR.navTo("RouteView1", {}, true);
+
             }
-            
+        }
                 
         });
     });
