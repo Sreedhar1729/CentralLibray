@@ -17,6 +17,7 @@ define entity Books :cuid{
                                on booksloan_id.books = $self;
         reservedbooks_id : Composition of many BooksLoan
                                on reservedbooks_id.books = $self;
+        users_id : Composition of many Users on users_id.books =$self;
 
 
 }
@@ -27,8 +28,9 @@ define entity Users:cuid {
         mobile        : String;
         UserName      : String;
         Password      : String;
-        booksLoan     : Association to BooksLoan;
-        reservedbooks : Association to ReservedBooks;
+        booksLoan     : Association to many BooksLoan on booksLoan.users=$self;
+        reservedbooks : Association to ReservedBooks on reservedbooks.users=$self;
+        books:Association to Books  ;
 
 }
 
@@ -38,6 +40,7 @@ define entity BooksLoan:cuid {
         duedate  : Date;
         loandate : Date;
         Active   : Boolean;
+        notify:String;
 }
 
 define entity ReservedBooks :cuid{
@@ -48,18 +51,4 @@ define entity ReservedBooks :cuid{
 
 }
 
-// define entity ReservedBooks{
-// key reserveid:Integer;
-//  rbookid:Composition of Books;
-//     reservedate:Date;
-//     rstatus:String;
-// }
-
-
-// define entity Authors{
-//     key id: Integer;
-//         author_name: String;
-//         author_address: String;
-//         books:Composition of many Books on books.authors = $self;
-//         // books:Association to  Books;
-// }
+ 

@@ -59,8 +59,8 @@ sap.ui.define(
           const userModel = new sap.ui.model.json.JSONModel({
               books_ID: oSelectedBook.books.ID,
               users_ID: oSelectedBook.users.ID,
-              duedate: formattedDateAfter20Days,
-              loandate: new Date(),
+              duedate: new Date(),
+              loandate: formattedDateAfter20Days,
               Active: true,
               notify: `Your reserved book  title "
               ${oSelectedBook.books.title}
