@@ -1,7 +1,10 @@
 namespace app.library;
+using {reusable.types as types} from './ReusableTypes';
 using { cuid  } from '@sap/cds/common';
 
-
+@assert.unique : {
+isbn:[isbn]
+} 
 define entity Books :cuid{
         isbn             : String;
         title            : String(50);
@@ -21,11 +24,13 @@ define entity Books :cuid{
 
 
 }
-
+@assert.unique: {
+  UserName: [UserName]
+}
 define entity Users:cuid {
     
-        email         : String(30);
-        mobile        : String;
+        email         : types.Email;
+        mobile        : types.PhoneNumber;
         UserName      : String;
         Password      : String;
         booksLoan     : Association to many BooksLoan on booksLoan.users=$self;

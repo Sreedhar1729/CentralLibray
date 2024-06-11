@@ -204,8 +204,6 @@ sap.ui.define([
                         this.oavl_quan = this.oStock;
                 }
                        
-                    
-
                     var newBookModel = new sap.ui.model.json.JSONModel({
                         ID: oID,
                         author: oAuthorName,
@@ -419,6 +417,32 @@ this.oIssueBooksDialog.close(); // Attempt to cl
                 oR.navTo("RouteView1", {}, true);
 
             }
+        },
+        onAfterRendering: function() {
+           
+            // var oTable = this.getView().byId("_IDGenTable1"); // Get the reference to your table
+        
+            // // Check if the model is defined in the view
+            // var oModel = this.getView().getModel("ModelV2");
+            
+            // // If model is not defined, try to get it from the component
+            // if (!oModel) {
+            //     oModel = this.getOwnerComponent().getModel("ModelV2");
+            // }
+        
+            // if (oModel) {
+            //     var aBooks = oModel.getProperty("/Books"); // Get the array of books
+        
+            //     if (aBooks) {
+            //         aBooks.forEach(function(oBook) {
+            //             // Update the 'Status' property of each book based on 'avl_stock'
+            //             oBook.Status = oBook.avl_stock === 0 ? "Out of Stock" : "In Stock";
+            //         });
+        
+            //         // Set the updated data back to the model
+            //         oModel.setProperty("/Books", aBooks);
+            //     }
+            // }
         }
                 
         });
