@@ -163,7 +163,7 @@
                                 id="idUserActiveLoanTable"
                                 mode="MultiSelect"
                                 alternateRowColors="true"
-                                items="{booksLoan}"
+                                items="{path:'booksLoan',filters:[{path:'Active',operator:'EQ',value1:'true'}]}"
                                
                             >
                                 <m:headerToolbar>
