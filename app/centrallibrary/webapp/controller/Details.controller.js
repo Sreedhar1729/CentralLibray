@@ -3,7 +3,7 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/odata/v2/ODataModel",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator",s
+    "sap/ui/model/FilterOperator",
 ], function (BaseController, ODataModel,Filter,FilterOperator) {
     "use strict";
 
@@ -46,6 +46,16 @@ sap.ui.define([
                     sap.m.MessageBox.error("This Book is already Reserved by YOU!!!")
                     return;
                 }
+
+                 // Check if the book is currently borrowed by the user
+       const bIsBookBorrowed = await this.checkIfBookIsBorrowedByUser(oSelectedBook.ID, oSelectedUser.ID);
+ 
+       if (bIsBookBorrowed) {
+        sap.m.MessageBox.error("Book is  already borrowed by YOU!!!!.");
+         return;
+       }
+
+                
             const userModel = new sap.ui.model.json.JSONModel({
                 users_ID: oSelectedUser.ID,
                 books_ID: oSelectedBook.ID,
@@ -127,7 +137,35 @@ sap.ui.define([
                     }
                 });
             });
-        }
+        },
+        checkIfBookIsBorrowedByUser: function(bookID, userID) {
+            debugger
+            return new Promise((resolve, reject) => {
+              const oModel = this.getView().getModel("ModelV2");
+              const oFilters = [
+                new sap.ui.model.Filter("books_ID", sap.ui.model.FilterOperator.EQ, bookID),
+                new sap.ui.model.Filter("users_ID", sap.ui.model.FilterOperator.EQ, userID)
+            ];
+    
+       
+              oModel.read("/BooksLoan", {
+                filters: oFilters,
+               
+       
+                success: function(oData) {
+                  console.log("Bookloans data:", oData);
+                  // Check if any of the loans are still active (no returndate)
+                  const bIsBorrowed = oData.results.some(loan => !loan.returndate);
+                  console.log("Active loans found:", bIsBorrowed);
+                  resolve(bIsBorrowed);
+                },
+                error: function(oError) {
+                  console.error("Error reading Bookloans:", oError);
+                  reject(oError);
+                }
+              });
+            });
+          },
         
     });
 });

@@ -140,26 +140,16 @@ sap.ui.define([
                     await this.createData(oModel, oPayload, "/Books");
                     this.getView().byId("_IDGenTable1").getBinding("items").refresh();
                     this.oCreateBooksDialog.close();
+                oModel.refresh();
                 } catch (error) {
                     this.oCreateBooksDialog.close();
                     sap.m.MessageBox.error("Some technical Issue");
                 }
-                location.refresh()
+                
             },
 
             onDeleteBtnPress: async function () {
                 var aSelectedItems = this.byId("_IDGenTable1").getSelectedItems();
-
-                // var oLoans = this.byId("idUserLoans").getSelectedItems();
-                // debugger
-                // if(oLoans.length!=0){
-                //     var aUserID =[];
-                //     debugger
-                //     oLoans.forEach(function(oSele){
-                //         debugger
-                //         var ouserid = oSele.getBindingContext().getObject().users_ID;
-                //     })
-                // }
                 MessageBox.confirm("DO you want to Delete ?",{
                     actions:[MessageBox.Action.OK,MessageBox.Action.CANCEL],emphasizedAction:MessageBox.Action.OK, onClose:async function(sAction){
                         if(sAction== "OK")
@@ -180,11 +170,11 @@ sap.ui.define([
                         aMessages.forEach(function (sMessage) {
                             MessageToast.show(sMessage);
                         });
-                    }).catch(function (oError) {
+     
+                    }).bind(this).catch(function (oError) {
                         MessageToast.show("Deletion Error: " + oError);
                     });
-
-                    this.getView().byId("_IDGenTable1").removeSelections(true);
+                    
                     this.getView().byId("_IDGenTable1").getBinding("items").refresh();
                 } else {
                     MessageToast.show("Please Select Rows to Delete");
@@ -192,9 +182,9 @@ sap.ui.define([
                 else{
                     MessageToast.show("Use canceled Delete operation")
                 }
-            }
+            }.bind(this)
         })
-                location.refresh()
+            
             },
             
             // for Editing the Book
@@ -318,7 +308,7 @@ sap.ui.define([
 
                     var abooks_ID = asel.getBindingContext().getProperty("ID");
                 }
-                
+                 
 
                 // var oSelectedBook = this.byId("_IDGenTable1").getSelectedItem().getBindingContext().getObject();
                 
@@ -327,7 +317,7 @@ sap.ui.define([
       
                 var oSelectedItem = oEvent.getSource().getParent();
                 var oSelectedBook1 = oSelectedItem.getBindingContext()
-      
+                 
       
                 
                     if (typeof oSelectedBook.avl_stock === 'number') {
@@ -367,7 +357,30 @@ sap.ui.define([
                 
                 // Format the date after adding 20 days in "yyyy-mm-dd" format
                 var formattedDateAfter20Days = yearAfter20Days + '-' + monthAfter20Days + '-' + dayAfter20Days;
-
+                // var oInput = sap.ui.core.Fragment.byId("idIssueFragBook", "idIssueBookUserIDVal").getparent();
+                // console.log(oInput);
+                // // Get the value from the input field
+                // var sUserName = oInput.getValue();
+                
+                // // Now you can use sUserName to query the user data model
+                
+                // debugger
+                // oModel.read("/Users", {
+                //     filters: [new sap.ui.model.Filter("Name", sap.ui.model.FilterOperator.EQ, sUserName)],
+                //     success: function(oData) {
+                //         if (oData.results.length > 0) {
+                //             var sUserID = oData.results[0].ID;
+                            
+                //             // Set the UserID value in the model
+                //             this.getView().getModel("newLoanModel").setProperty("/users_ID", sUserID);
+                //         }
+                //     }.bind(this),
+                //     error: function(oError) {
+                //         sap.m.MessageBox.error("Error fetching user data: " + oError);
+                //     }
+                // })
+        
+            
                 var newLoanModel = new sap.ui.model.json.JSONModel({
                     users_ID: " ",
                     books_ID: abooks_ID,
@@ -433,7 +446,13 @@ this.oIssueBooksDialog.close(); // Attempt to cl
         onAfterRendering: function() {
            
              
-        }
+        },
+        // Function to refresh count
+refreshCount: function () {
+    var oTable = this.getView().byId("_IDGenTable1");
+    var iCount = oTable.getItems().length;
+    // Update count display or perform any other action based on the count
+}
                 
         });
     });

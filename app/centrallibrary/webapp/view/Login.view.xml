@@ -57,7 +57,7 @@
                         src=""
                         displaySize="XS"
                     />
-                    <Button id="adsign" text="Logout"  press="adLog" type="Default"/>
+                    <Button id="adsign" icon="sap-icon://log" text="Logout"  press="adLog" type="Reject"/>
                 </f:actions>
             </f:DynamicPageTitle>
         </f:title>
