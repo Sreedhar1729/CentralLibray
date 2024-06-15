@@ -156,9 +156,7 @@
                 growing="true"
                 paste="onPaste"
                 items="{ path:'/Books',  parameters : {
-            $count : true  
-            
-        }}"
+            $count : true  }}"
         class="simplesetcolor"
                 
             >
@@ -294,7 +292,7 @@
                             />
                             <Text
                                 id="_IDGenText4"
-                                text="{price}"
+                                text="${price}"
                             />
                             <Text
                                 id="_IDGenText5"

@@ -44,7 +44,7 @@ sap.ui.define([
                     debugger
                     const oRouter = this.getOwnerComponent().getRouter();
                     oRouter.navTo("routeLogin")
-                    sap.m.MessageBox.success("Login Successful")
+                    sap.m.MessageToast.success("Login Successful")
                 } else {
                     alert("Re-Enter your Detail");
                 }

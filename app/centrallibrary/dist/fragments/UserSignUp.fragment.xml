@@ -63,6 +63,8 @@
                         placeholder="Enter Username"
                         width="80%"
                         textAlign="Initial"
+                        required="true"
+                        liveChange="onUserName"
                         value="{localModelU>/UserName}"
                     />
 
@@ -70,6 +72,7 @@
                         id="PasswordValue"
                         class="Password"
                         text="Password"
+                        required="true"
                         textAlign="Initial"
                     />
                     <Input
@@ -78,6 +81,8 @@
                         placeholder="Enter Password"
                         width="80%"
                         textAlign="Initial"
+                        required="true"
+                        liveChange="onPassword"
                         value="{localModelU>/Password}"
                     />
 
@@ -85,6 +90,7 @@
                         id="IDUseEmail"
                         class="email"
                         text="Email"
+                        
                         textAlign="Initial"
                     />
                     <Input
@@ -93,6 +99,8 @@
                         placeholder="Enter email"
                         width="80%"
                         textAlign="Initial"
+                        required="true"
+                        liveChange="onEmailLiveChange"
                         value="{localModelU>/email}"
                     />
 
@@ -107,7 +115,10 @@
                         id="phoneNumber"
                         placeholder="Enter PhoneNumber"
                         width="80%"
+            liveChange="onMobileVal"
+                        
                         textAlign="Initial"
+                        required="true"
                         value="{localModelU>/mobile}"
                     />
 

@@ -11,7 +11,7 @@ sap.ui.define([
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Fragment, Filter, FilterOperator, ODataModel,JSONModel) {
+    function (Controller, Fragment, Filter, FilterOperator, ODataModel, JSONModel) {
         "use strict";
 
         return Controller.extend("com.app.centrallibrary.controller.View1", {
@@ -19,19 +19,19 @@ sap.ui.define([
                 debugger;
 
                 // // recently added ODATA model
-                
+
                 // var oModel = oView.getModel("/BookSRV/UserCredentials"); // Assuming the model is already set on the view
                 var oModel = new ODataModel("/v2/BookSRV/");
                 this.getView().setModel(oModel);
-                 const oLocalModelU = new JSONModel({
-                     
+                const oLocalModelU = new JSONModel({
+
                     UserName: " ",
                     Password: " ",
                     mobile: " ",
-                    email : " "
+                    email: " "
 
-                     });
-                     this.getView().setModel(oLocalModelU, "localModelU");
+                });
+                this.getView().setModel(oLocalModelU, "localModelU");
 
             },
 
@@ -67,7 +67,7 @@ sap.ui.define([
                         ],
                         success: async (oData) => {
                             var aRecords = oData.results;
-                            
+
 
                             // iterate each record
 
@@ -82,7 +82,7 @@ sap.ui.define([
                                 var oUserName = oData.results[0].ID;
                                 oRouter.navTo("routeUserLogin", { ID: oUserName })
                                 sap.m.MessageBox.success("Login Successful")
-                            } 
+                            }
                             else {
                                 // Invalid credentials
                                 alert("Invalid credentials/ user not exist ");
@@ -100,22 +100,22 @@ sap.ui.define([
             UserSignUpBtnClick: async function () {
                 const oPayload = this.getView().getModel("localModelU").getProperty("/"),
                     oModel = this.getView().getModel("ModelV2");
-            
+
                 try {
                     const oResponse = await this.createData(oModel, oPayload, "/Users");
                     console.log("Response from createData:", oResponse)
                     const sNewUserId = oResponse.ID; // Assuming ID is returned in the response
-            
+
                     // Now you can use the new user ID as needed
-            
+
                     this.oUserSignUp.close();
                     sap.m.MessageBox.success("created Successfully")
                 } catch (error) {
                     this.oUserSignUp.close();
-                    sap.m.MessageBox.error("Some technical Issue");
+                    sap.m.MessageBox.error("User Already exists");
                 }
             },
-            
+
             onAdminButton: async function () {
                 if (!this.oAdminLogin) {
                     debugger
@@ -145,9 +145,55 @@ sap.ui.define([
                 this.oUserSignUp.open();
             },
             //user Signup Page Close
-            SignupCancelButton:function(){
+            SignupCancelButton: function () {
                 this.oUserSignUp.close();
+            },
+            // Emali condition Check
+            onEmailLiveChange: async function(oEvent) {
+                var oEmail = oEvent.getSource();
+                var oVal = oEmail.getValue();
+                // Regular expression for validating email
+                var regexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                if (oVal.trim() === '') {
+                    oEmail.setValueState("None"); // Clear any previous state
+                } else if (oVal.match(regexp)) {
+                    oEmail.setValueState("Success");
+                } else {
+                    oEmail.setValueState("Error");
+                    // Check if MessageToast is available before showing message
+                    if (sap.m.MessageToast) {
+                        sap.m.MessageToast.show("Invalid Email format");
+                    } else {
+                        console.error("MessageToast is not available.");
+                    }
+                }
+            },
+            onMobileVal:async function(oEvent)
+            {
+                var oPhone  = oEvent.getSource();
+                var oVal1 = oPhone.getValue();
+
+                // regular expression for validating the phone
+                var regexpMobile = /^[0-9]{10}$/;
+                if (oVal1.trim() === '') {
+                    oPhone.setValueState("None"); // Clear any previous state
+                } else if (oVal1.match(regexpMobile)) {
+                    oPhone.setValueState("Success");
+                } else {
+                    oPhone.setValueState("Error");
+                    // Check if MessageToast is available before showing message
+                    if (sap.m.MessageToast) {
+                        sap.m.MessageToast.show("Invalid Phone format");
+                    } else {
+                        console.error("MessageToast is not available.");
+                    }
+                }
+
+                 
+
+
             }
+            
 
 
         });

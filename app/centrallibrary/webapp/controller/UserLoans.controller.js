@@ -19,10 +19,6 @@ sap.ui.define(
           
           // var osel = this.byId("idReservedBooksPageTable").getSelectedItem().getBindingContext().getObject();
           console.log(osel);
-
-          // var oSelectedItem = oEvent.getSource().getParent();
-          // var oSelectedBook1 = oSelectedItem.getBindingContext().getObject();
-
           
               if (typeof osel.books.avl_stock === 'number') {
                   osel.books.avl_stock = Math.max(0, osel.books.avl_stock + 1);
