@@ -42,11 +42,12 @@ sap.ui.define([
 
                 if (oUser === "admin" && oPwd === "admin@123") {
                     debugger
+                    sap.m.MessageBox.success("Admin Login Successfully")
                     const oRouter = this.getOwnerComponent().getRouter();
                     oRouter.navTo("routeLogin")
-                    sap.m.MessageToast.success("Login Successful")
+                    
                 } else {
-                    alert("Re-Enter your Detail");
+                    alert("Invalid Credentials ");
                 }
             },
             onUserBtnClick: function () {
@@ -81,7 +82,7 @@ sap.ui.define([
                                 const oRouter = await this.getOwnerComponent().getRouter();
                                 var oUserName = oData.results[0].ID;
                                 oRouter.navTo("routeUserLogin", { ID: oUserName })
-                                sap.m.MessageBox.success("Login Successful")
+                                sap.m.MessageBox.success("User Login Successfully!!")
                             }
                             else {
                                 // Invalid credentials
@@ -109,7 +110,7 @@ sap.ui.define([
                     // Now you can use the new user ID as needed
 
                     this.oUserSignUp.close();
-                    sap.m.MessageBox.success("created Successfully")
+                    sap.m.MessageBox.success(`${oPayload.UserName} created Successfully`)
                 } catch (error) {
                     this.oUserSignUp.close();
                     sap.m.MessageBox.error("User Already exists");

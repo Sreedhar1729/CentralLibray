@@ -15,6 +15,14 @@ sap.ui.define(
         oColumn.setVisible(false);
         },
         onClickDelete:async function(oEvent){
+          var osel1 = this.byId("idUserLoans").getSelectedItems();
+          if(osel1.length>1)
+          {
+            sap.m.MessageBox.error("Dont select Multiple Entries for Closing Loan")
+          }else if(osel1.length == 0){
+            sap.m.MessageBox.error(`Please Select atleast One ROW for Closing Loan`);
+          }
+          else{
           var osel = this.byId("idUserLoans").getSelectedItem().getBindingContext().getObject();
           
           // var osel = this.byId("idReservedBooksPageTable").getSelectedItem().getBindingContext().getObject();
@@ -55,7 +63,7 @@ sap.ui.define(
                     oModel.update("/BooksLoan(" + oPayload.ID + ")", oPayload, {
                         success: function() {
                             this.getView().byId("idUserLoans").getBinding("items").refresh();
-                            sap.m.MessageBox.success("Loan closed Successfully!!!");
+                            sap.m.MessageBox.success(`${oPayload.users_ID}  Loan closed Successfully!!!`);
                             // this.oEditBooksDialog.close();
                         }.bind(this),
                         error: function(oError) {
@@ -76,8 +84,8 @@ sap.ui.define(
                     messageParser: sap.ui.model.odata.ODataMessageParser
                 })  
       
-            
-    
+              
+            }
     }
       });
     }

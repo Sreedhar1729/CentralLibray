@@ -65,9 +65,15 @@
                     id="idIssueBookUserIDVal"
                     editable="true"
                     liveChange="true"
+                    value="{}"
+                />
+                 <Input
+                    id="idIssueBook1UserIDVal"
+                    editable="true"
+                    liveChange="true"
                     value="{newLoanModel>/users_ID}"
                 />
-                 
+                
                  
                  
                 <Label

@@ -61,7 +61,7 @@
                 <expandedContent>
                     <m:Text
                         id="idWelcomeTag"
-                        text="Welcomes You"
+                        text="Welcomes You {UserName}"
                     />
                 </expandedContent>
 
@@ -72,7 +72,7 @@
                 type="Transparent"
                 press="onNotificationPress" />
 
-                <m:Button id="home" text="Logout" press="onHome" type="Neutral"/>
+                <m:Button id="home" icon="sap-icon://log" text="Logout" press="onHome" type="Reject"/>
                 
                 </actions>
 

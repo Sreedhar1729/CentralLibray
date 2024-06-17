@@ -9,14 +9,15 @@ sap.ui.define([
     "sap/m/ColumnListItem",
     'sap/m/Input',
     "sap/ui/model/odata/v2/ODataModel",
-    "sap/ui/core/routing/History"
+    "sap/ui/core/routing/History",
+    "sap/m/MessageToast",
 
 
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Token, Filter, FilterOperator, JSONModel, Fragment, MessageBox, ColumnListItem, Input, oDataModel,History) {
+    function (Controller, Token, Filter, FilterOperator, JSONModel, Fragment, MessageBox, ColumnListItem, Input, oDataModel,History,MessageToast) {
         "use strict";
 
         return Controller.extend("com.app.centrallibrary.controller.Login", {
@@ -31,15 +32,7 @@ sap.ui.define([
                     delay: 0
                 });
 
-
-
-                // this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
-
-                // this.setModel(oViewModel, "detailView");
-
-                // this.getOwnerComponent().getModel().metadataLoaded().then(this._onMetadataLoaded.bind(this));
-
-
+ 
 
                 debugger;
 
@@ -147,17 +140,20 @@ sap.ui.define([
                     await this.createData(oModel, oPayload, "/Books");
                     this.getView().byId("_IDGenTable1").getBinding("items").refresh();
                     this.oCreateBooksDialog.close();
+                oModel.refresh();
                 } catch (error) {
                     this.oCreateBooksDialog.close();
                     sap.m.MessageBox.error("Some technical Issue");
                 }
-                location.refresh()
+                
             },
-
-
 
             onDeleteBtnPress: async function () {
                 var aSelectedItems = this.byId("_IDGenTable1").getSelectedItems();
+                MessageBox.confirm("DO you want to Delete ?",{
+                    actions:[MessageBox.Action.OK,MessageBox.Action.CANCEL],emphasizedAction:MessageBox.Action.OK, onClose:async function(sAction){
+                        if(sAction== "OK")
+                    
                 if (aSelectedItems.length > 0) {
                     var aISBNs = [];
                     aSelectedItems.forEach(function (oSelectedItem) {
@@ -174,17 +170,23 @@ sap.ui.define([
                         aMessages.forEach(function (sMessage) {
                             MessageToast.show(sMessage);
                         });
-                    }).catch(function (oError) {
+     
+                    }).bind(this).catch(function (oError) {
                         MessageToast.show("Deletion Error: " + oError);
                     });
-
-                    this.getView().byId("_IDGenTable1").removeSelections(true);
+                    
                     this.getView().byId("_IDGenTable1").getBinding("items").refresh();
                 } else {
                     MessageToast.show("Please Select Rows to Delete");
-                };
-                location.refresh()
+                }
+                else{
+                    MessageToast.show("Use canceled Delete operation")
+                }
+            }.bind(this)
+        })
+            
             },
+            
             // for Editing the Book
 
             onEditBtnPress: async function () {
@@ -306,7 +308,7 @@ sap.ui.define([
 
                     var abooks_ID = asel.getBindingContext().getProperty("ID");
                 }
-                
+                 
 
                 // var oSelectedBook = this.byId("_IDGenTable1").getSelectedItem().getBindingContext().getObject();
                 
@@ -315,7 +317,7 @@ sap.ui.define([
       
                 var oSelectedItem = oEvent.getSource().getParent();
                 var oSelectedBook1 = oSelectedItem.getBindingContext()
-      
+                 
       
                 
                     if (typeof oSelectedBook.avl_stock === 'number') {
@@ -355,7 +357,30 @@ sap.ui.define([
                 
                 // Format the date after adding 20 days in "yyyy-mm-dd" format
                 var formattedDateAfter20Days = yearAfter20Days + '-' + monthAfter20Days + '-' + dayAfter20Days;
-
+                // var oInput = sap.ui.core.Fragment.byId("idIssueFragBook", "idIssueBookUserIDVal").getparent();
+                // console.log(oInput);
+                // // Get the value from the input field
+                // var sUserName = oInput.getValue();
+                
+                // // Now you can use sUserName to query the user data model
+                
+                // debugger
+                // oModel.read("/Users", {
+                //     filters: [new sap.ui.model.Filter("Name", sap.ui.model.FilterOperator.EQ, sUserName)],
+                //     success: function(oData) {
+                //         if (oData.results.length > 0) {
+                //             var sUserID = oData.results[0].ID;
+                            
+                //             // Set the UserID value in the model
+                //             this.getView().getModel("newLoanModel").setProperty("/users_ID", sUserID);
+                //         }
+                //     }.bind(this),
+                //     error: function(oError) {
+                //         sap.m.MessageBox.error("Error fetching user data: " + oError);
+                //     }
+                // })
+        
+            
                 var newLoanModel = new sap.ui.model.json.JSONModel({
                     users_ID: " ",
                     books_ID: abooks_ID,
@@ -420,30 +445,14 @@ this.oIssueBooksDialog.close(); // Attempt to cl
         },
         onAfterRendering: function() {
            
-            // var oTable = this.getView().byId("_IDGenTable1"); // Get the reference to your table
-        
-            // // Check if the model is defined in the view
-            // var oModel = this.getView().getModel("ModelV2");
-            
-            // // If model is not defined, try to get it from the component
-            // if (!oModel) {
-            //     oModel = this.getOwnerComponent().getModel("ModelV2");
-            // }
-        
-            // if (oModel) {
-            //     var aBooks = oModel.getProperty("/Books"); // Get the array of books
-        
-            //     if (aBooks) {
-            //         aBooks.forEach(function(oBook) {
-            //             // Update the 'Status' property of each book based on 'avl_stock'
-            //             oBook.Status = oBook.avl_stock === 0 ? "Out of Stock" : "In Stock";
-            //         });
-        
-            //         // Set the updated data back to the model
-            //         oModel.setProperty("/Books", aBooks);
-            //     }
-            // }
-        }
+             
+        },
+        // Function to refresh count
+refreshCount: function () {
+    var oTable = this.getView().byId("_IDGenTable1");
+    var iCount = oTable.getItems().length;
+    // Update count display or perform any other action based on the count
+}
                 
         });
     });

@@ -140,19 +140,28 @@ sap.ui.define([
                     await this.createData(oModel, oPayload, "/Books");
                     this.getView().byId("_IDGenTable1").getBinding("items").refresh();
                     this.oCreateBooksDialog.close();
+                    sap.m.MessageBox.success(`${oPayload.title} Book is created successfully!!!`);
                 oModel.refresh();
                 } catch (error) {
                     this.oCreateBooksDialog.close();
-                    sap.m.MessageBox.error("Some technical Issue");
+                    sap.m.MessageBox.error(`Book ISBN:${oPayload.isbn} should be unique`);
                 }
                 
             },
 
             onDeleteBtnPress: async function () {
                 var aSelectedItems = this.byId("_IDGenTable1").getSelectedItems();
+                if(aSelectedItems.length === 0)
+                {
+                    sap.m.MessageBox.error("Please select at least One Book Record!!");
+                }
+                else{
+
                 MessageBox.confirm("DO you want to Delete ?",{
                     actions:[MessageBox.Action.OK,MessageBox.Action.CANCEL],emphasizedAction:MessageBox.Action.OK, onClose:async function(sAction){
                         if(sAction== "OK")
+
+                       
                     
                 if (aSelectedItems.length > 0) {
                     var aISBNs = [];
@@ -184,14 +193,24 @@ sap.ui.define([
                 }
             }.bind(this)
         })
-            
+    } 
             },
             
             // for Editing the Book
 
             onEditBtnPress: async function () {
-                var oSelected = this.byId("_IDGenTable1").getSelectedItem();
-
+                
+                var oSelecteds = this.byId("_IDGenTable1").getSelectedItems();
+                if(oSelecteds.length == 0 )
+                {
+                    sap.m.MessageBox.error("Please select atleast one book")
+                }
+                else if(oSelecteds.length >1)
+                {
+                    sap.m.MessageBox.error("Please Don't select Multiple Books")
+                }
+                else{
+                    var oSelected = this.byId("_IDGenTable1").getSelectedItem();
                 if (oSelected) {
                     var oID = oSelected.getBindingContext().getProperty("ID");
                     var oAuthorName = oSelected.getBindingContext().getProperty("author");
@@ -226,6 +245,7 @@ sap.ui.define([
 
                     this.oEditBooksDialog.open();
                 }
+            }
             },
 
             onSave: function () {
@@ -254,6 +274,7 @@ sap.ui.define([
                         success: function () {
                             this.getView().byId("_IDGenTable1").getBinding("items").refresh();
                             this.oEditBooksDialog.close();
+                            sap.m.MessageBox.success(`${oPayload.title} Details updated!!`)
                         }.bind(this),
                         error: function (oError) {
                             this.oEditBooksDialog.close();
@@ -297,7 +318,18 @@ sap.ui.define([
                 oRouter.navTo("routeReservedBooks")
             },
             onISB: async function (oEvent) {
+                var ase = this.byId("_IDGenTable1").getSelectedItems();
+                if(ase.length==0){
+
+                    sap.m.MessageBox.error("Please Select at least one entry for Issuing Book")
+                }
+                else if(ase.length>1)
+                {
+                    sap.m.MessageBox.error("Please Dont select multiple Entries for Issuing Book")
+                }
+                else{
                 var asel = this.byId("_IDGenTable1").getSelectedItem();
+            
                 var oavl_stock = asel.getBindingContext().getProperty("avl_stock")
                  
                 if(oavl_stock==0){
@@ -398,6 +430,7 @@ sap.ui.define([
 
                 this.oIssueBooksDialog.open();
             }
+        }
         },
             onIssueClose: function () {
                 if (this.oIssueBooksDialog.isOpen()) {
@@ -418,7 +451,7 @@ sap.ui.define([
                 
                         console.log("Dialog:", this.oIssueBooksDialog); // Check if the dialog object is correctly referenced
                         this.oIssueBooksDialog.close(); // Attempt to cl
-                        sap.m.MessageBox.success("Book Issued Successfully") 
+                        sap.m.MessageBox.success(`Book ID:${oPayload.books_ID} is Issued Successfully to the user ID:${oPayload.users_ID}`) 
                     }  
                 catch (error) {
                     // Handle the error
@@ -456,3 +489,71 @@ refreshCount: function () {
                 
         });
     });
+
+
+
+
+
+//     onEdit: function() {
+//         var oTable = this.byId("_IDGenTable1");
+//         var oSelected = oTable.getSelectedItem();
+        
+//         if (oSelected) {
+//           var oContext = oSelected.getBindingContext("ModelV2");
+//           var oBook = oContext.getObject();
+          
+//           // Open Edit Dialog
+//           if (!this.oEditDialog) {
+//             this.oEditDialog = new Dialog({
+//               title: "Edit Book",
+//               content: [
+//                 new Label({ text: "Title" }),
+//                 new Input({ value: "{title}" }),
+//                 new Label({ text: "Author" }),
+//                 new Input({ value: "{author}" })
+//               ],
+//               beginButton: new Button({
+//                 text: "Save",
+//                 press: this.onSave.bind(this)
+//               }),
+//               endButton: new Button({
+//                 text: "Cancel",
+//                 press: function() {
+//                   this.oEditDialog.close();
+//                 }.bind(this)
+//               })
+//             });
+            
+//             this.getView().addDependent(this.oEditDialog);
+//           }
+          
+//           // Set the context of the dialog to the selected book
+//           this.oEditDialog.setBindingContext(oContext);
+          
+//           // Open dialog
+//           this.oEditDialog.open();
+//         } else {
+//           MessageBox.error("No book selected.");
+//         }
+//       },
+      
+//       onSave: function() {
+//         var oModel = this.getView().getModel("ModelV2");
+//         var oContext = this.oEditDialog.getBindingContext();
+//         var oBook = oContext.getObject();
+        
+//         oModel.update("/Books(" + oBook.ID + ")", oBook, {
+//           success: function() {
+//             MessageBox.success("Book updated successfully.");
+//             this.oEditDialog.close();
+//           }.bind(this),
+//           error: function(oError) {
+//             MessageBox.error("Failed to update book: " + oError.message);
+//             this.oEditDialog.close();
+//           }.bind(this)
+//         });
+//       }
+      
+//     });
+  
+//   });
