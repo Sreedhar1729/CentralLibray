@@ -1,5 +1,9 @@
 {
     "_version": "1.59.0",
+    "sap.cloud": {
+        "public": true,
+        "service": "sampleui.service"
+    },
     "sap.app": {
         "id": "com.app.project1",
         "type": "application",

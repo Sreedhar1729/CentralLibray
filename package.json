@@ -30,51 +30,44 @@
     "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
-    "requires": {
-      "db": {
-        "[devlopment]": {
-          "kind": "sqlite"
-        },
-        "[production]": {
-          "kind": "hana"
-        }
-      },
-      "[production]": {
-        "auth": "xsuaa",
-        "db": "hana",
-        "multitenancy": true
-      },
-      "[development]": {
-        "auth": {
-          "kind": "mocked",
-          "users": {
-            "admin@sap.com": {
-              "password": "Initial",
-              "ID": "admin@sap.com",
-              "roles": [
-                "Admin"
-              ]
-            },
-            "user@sap.com": {
-              "password": "Initial",
-              "ID": "user@sap.com",
-              "roles": [
-                "User"
-              ]
-            }
+      "requires": {
+          "db": {
+              "[devlopment]": {
+                  "kind": "sqlite"
+              },
+              "[production]": {
+                  "kind": "hana"
+              }
+          },
+          "[production]": {
+              "auth": "xsuaa"
+          },
+          "[development]": {
+              "auth": {
+                  "kind": "dummy",
+                  "users": {
+                      "admin@sap.com": {
+                          "password": "Initial",
+                          "ID": "admin@sap.com",
+                          "roles": [
+                              "Admin"
+                          ]
+                      },
+                      "user@sap.com": {
+                          "password": "Initial",
+                          "ID": "user@sap.com",
+                          "roles": [
+                              "User"
+                          ]
+                      }
+                  }
+              }
           }
-        }
-      },
-      "auth": "xsuaa"
+      
     },
     "profile": "with-mtx-sidecar"
   },
   "sapux": [
-    "app/project1",
-    "app/project1",
-    "app/project1",
-    "app/project1",
-    "app/project1",
     "app/project1"
   ]
 }
