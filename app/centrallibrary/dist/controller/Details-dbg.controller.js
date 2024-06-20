@@ -24,14 +24,18 @@ sap.ui.define([
 
         onBorrowNewBookPress: async function (oEvent) {
 
-            var oSel = this.byId("idBooksTable").getSelectedItem().getBindingContext().getObject();
+            // var oSel = this.byId("idBooksTable").getSelectedItem().getBindingContext().getObject();
             var oSelectedItem = oEvent.getSource().getParent();
             console.log(oSelectedItem);
             var oSelectedUser = oSelectedItem.getBindingContext().getObject();
-            
+            if(this.byId("idBooksTable").getSelectedItems().length == 0){
+                sap.m.MessageBox.error("Please select at least one book for Reservation");
+                return;
+
+            }
             
             if (this.byId("idBooksTable").getSelectedItems().length > 1) {
-                sap.m.MessageToast.show("Please select only one book");
+                sap.m.MessageBox.error("Please select only one book for Reservation");
                 return;
             }
             var oSelectedBook = this.byId("idBooksTable").getSelectedItem().getBindingContext().getObject();
@@ -71,7 +75,7 @@ sap.ui.define([
 
             try {
                 await this.createData(oModel, oPayload, "/ReservedBooks");
-                sap.m.MessageBox.success("Book reserved");
+                sap.m.MessageBox.success(`Book ID: ${oPayload.books_ID} is  reserved Successfully!!`);
  
 
             } catch (error) {

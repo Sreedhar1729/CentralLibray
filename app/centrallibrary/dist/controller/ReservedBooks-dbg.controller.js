@@ -19,7 +19,7 @@ sap.ui.define(
   
         RDEL: async function(oEvent) {
             if (this.byId("idReservedBooksPageTable").getSelectedItems().length > 1) {
-                sap.m.MessageToast.show("Please select only one book");
+                sap.m.MessageToast.show("Please select only one book for Issuing ");
                 return;
             }
   
@@ -83,7 +83,7 @@ sap.ui.define(
   
             try {
                 await this.createData(oModel, oPayload, "/BooksLoan");
-                sap.m.MessageBox.success("Book Accepted");
+                sap.m.MessageBox.success(` Reserved Book ID:${oPayload.books_ID} is Issued Successfully to this UserID ${oPayload.users_ID}`);
                 this.getView().byId("idReservedBooksPageTable").getSelectedItem().getBindingContext().delete("$auto");
                 //this.oCreateBooksDialog.close();
             } catch (error) {

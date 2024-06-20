@@ -61,12 +61,6 @@
                     id="idIssueBookUserID"
                     text="UserID"
                 />
-                <Input
-                    id="idIssueBookUserIDVal"
-                    editable="true"
-                    liveChange="true"
-                    value="{}"
-                />
                  <Input
                     id="idIssueBook1UserIDVal"
                     editable="true"
